@@ -3,10 +3,10 @@ package model;
 public class Personne {
 
 	private String nom;
-
+	private String prenom;
 	
-	public Personne(String nom) {
-		
+	public Personne(String nom, String prenom) {
+		this.prenom=prenom;
 		this.nom = nom;
 	}
 
