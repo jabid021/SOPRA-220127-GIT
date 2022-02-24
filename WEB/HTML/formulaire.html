@@ -1,3 +1,4 @@
+<meta name="charset" value="utf-8">
 <!--
 
  saisie => input
@@ -8,51 +9,57 @@
         - email
         - file
         - submit / reset
+        -hidden
 Zone de texte => textarea
 Liste de choix =>   select
 Cases à cocher => rond (un seul choix) radio / carre (choix multiple) checkbox
 button =>
 
--->
 
+request :
+protocol/domain/page?param1=value1&param2=value2
+method => GET / POST / DELETE / PUT
+
+-->
+<a href="page2.html?login=jaxx&password=toto">Click </a>
 <h1> Page infos </h1>
 
-<form>
+<form action="page2.html" method="get" enctype="multipart/form-data">
 
-
+<!-- <input type="hidden" idCompte="12"> -->
 <fieldset>
   <legend>Infos perso</legend>
   <table>
     <tr>
-      <td>Login *: </td>
-      <td><input name="nom" id="login" required placeholder="login" type="text" value="Jaxx"></td>
+      <td><label for="login">Login *:</label> </td>
+      <td><input size="15" autofocus required  id="login" name="login" id="login" minlength="3" maxlength="8" required placeholder="login" type="text" value="Jaxx"></td>
     </tr>
 
     <tr>
       <td>Password  : </td>
       <!--Utilisation d'une RegEx -->
-      <td><input  placeholder="password" pattern="[A-z]{4,8}" title="4 à 8 lettres" type="password"></td>
+      <td><input size="25" placeholder="password" name="password" pattern="[A-z]{4,8}" title="4 à 8 lettres" type="password"></td>
     </tr>
 
     <tr>
       <td>Email * : </td>
-      <td><input  required placeholder="email" type="email" value="mail@mail.fr" ></td>
+      <td><input  required placeholder="email" name="email" type="email" value="mail@mail.fr" ></td>
     </tr>
 
     <tr>
       <td>Prix </td>
-      <td><input required type="number" value="0.00" min="0" max="99" step="0.01"></td>
+      <td><input  required name="prix" type="number" value="0.00" min="0" max="99" step="0.01"></td>
     </tr>
 
 
 
     <tr>
       <td>Naissance </td>
-      <td><input type="date"></td>
+      <td><input name="naissance" type="date"></td>
     </tr>
 
     <tr>
-      <td>Heure </td>
+      <td>Heure</td>
       <td><input type="time" min="09:00" max="19:00" step="900"></td>
     </tr>
 
@@ -77,10 +84,10 @@ button =>
     <tr>
       <td>Votre OS </td>
       <td>
-        <select>
-          <option>Windows</option>
-          <option>Mac</option>
-          <option selected>Linux</option>
+        <select name="OS">
+          <option value="1">Windows</option>
+          <option value="2">Mac</option>
+          <option value="3" selected>Linux</option>
         </select>
       </td>
     </tr>
@@ -89,14 +96,14 @@ button =>
 
     <tr>
       <td>Loisirs </td>
-      <td>Sport<input checked type="checkbox"> Cinema<input type="checkbox"> Lecture<input type="checkbox"></td>
+      <td><label for="sport">Sport</label><input id="sport"  name="sport" checked type="checkbox"> <label for="cinema">Cinema</label><input id="cinema" type="checkbox"> <label for="lecture">Lecture</label><input id="lecture" type="checkbox"></td>
     </tr>
 
 
 
     <tr>
       <td>Civ </td>
-      <td>Homme<input checked name="civ" type="radio"> Femme<input name="civ" type="radio"> NB<input name="civ" type="radio"></td>
+      <td>Homme<input checked name="civ" value="homme" type="radio"> Femme<input name="civ" value="femme" type="radio"> NB<input name="civ" value="nb" type="radio"></td>
     </tr>
 
   </table>
@@ -112,7 +119,8 @@ button =>
 
 <br>
 
-
+<input type="range" min="1" max="5" value="3" step="1" />
+<input type="file">
 <input type="submit" value="Valider">
 <input type="reset">
 <input type="button" value="OK">
