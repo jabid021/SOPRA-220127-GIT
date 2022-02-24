@@ -1,0 +1,119 @@
+<!--
+
+ saisie => input
+        - text
+        - password
+        - button
+        - date
+        - email
+        - file
+        - submit / reset
+Zone de texte => textarea
+Liste de choix =>   select
+Cases à cocher => rond (un seul choix) radio / carre (choix multiple) checkbox
+button =>
+
+-->
+
+<h1> Page infos </h1>
+
+<form>
+
+
+<fieldset>
+  <legend>Infos perso</legend>
+  <table>
+    <tr>
+      <td>Login *: </td>
+      <td><input name="nom" id="login" required placeholder="login" type="text" value="Jaxx"></td>
+    </tr>
+
+    <tr>
+      <td>Password  : </td>
+      <!--Utilisation d'une RegEx -->
+      <td><input  placeholder="password" pattern="[A-z]{4,8}" title="4 à 8 lettres" type="password"></td>
+    </tr>
+
+    <tr>
+      <td>Email * : </td>
+      <td><input  required placeholder="email" type="email" value="mail@mail.fr" ></td>
+    </tr>
+
+    <tr>
+      <td>Prix </td>
+      <td><input required type="number" value="0.00" min="0" max="99" step="0.01"></td>
+    </tr>
+
+
+
+    <tr>
+      <td>Naissance </td>
+      <td><input type="date"></td>
+    </tr>
+
+    <tr>
+      <td>Heure </td>
+      <td><input type="time" min="09:00" max="19:00" step="900"></td>
+    </tr>
+
+
+    <tr>
+      <td>Semaine </td>
+      <td><input type="week"></td>
+    </tr>
+
+    <tr>
+      <td>Couleur </td>
+      <td><input type="color"></td>
+    </tr>
+  </table>
+</fieldset>
+
+<fieldset>
+
+<legend>Choix</legend>
+    <table>
+
+    <tr>
+      <td>Votre OS </td>
+      <td>
+        <select>
+          <option>Windows</option>
+          <option>Mac</option>
+          <option selected>Linux</option>
+        </select>
+      </td>
+    </tr>
+
+
+
+    <tr>
+      <td>Loisirs </td>
+      <td>Sport<input checked type="checkbox"> Cinema<input type="checkbox"> Lecture<input type="checkbox"></td>
+    </tr>
+
+
+
+    <tr>
+      <td>Civ </td>
+      <td>Homme<input checked name="civ" type="radio"> Femme<input name="civ" type="radio"> NB<input name="civ" type="radio"></td>
+    </tr>
+
+  </table>
+  </fieldset>
+
+
+  <fieldset>
+    <legend>Commentaire</legend>
+    <table>
+      Message <textarea placeholder="votre message" cols="40" rows="10">Debut du texte</textarea>
+    </table>
+  </fieldset>
+
+<br>
+
+
+<input type="submit" value="Valider">
+<input type="reset">
+<input type="button" value="OK">
+</form>
