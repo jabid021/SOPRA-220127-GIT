@@ -1,69 +1,164 @@
-Logo
-ACCUEIL
+<style>
+body{margin:0;}
+
+#banniere
+{
+	height:15%;
+	display:flex;
+	border:solid 2px black;
+}
+
+#logo
+{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width:15%;
+	font-size:40px;
+	font-weight:bold;
+}
+
+#accueil
+{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width:85%;
+	background-color:grey;
+	font-size:35px;
+}
+#content
+{
+	display:flex;
+	height:150%;
+}
+
+#menuLeft
+{
+	width:15%;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+}
+
+#center
+{
+		width:70%;
+}
 
 
-Accueil
-Item 1
-Item 2
-Item 3
-Contact
-		Sujet de la page
+#menuRight
+{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:15%;
+}
 
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+#footer
+{
+	background-color:yellow;
+	display:flex;
+	align-items:center;
+	height:8%;
+
+}
+#footerLeft
+{
+	width:40%
+
+}
+
+#footerLeft a
+{
+	margin-left:10px;
+}
+#footerRight{width:60%}
+
+</style>
+
+<div id="banniere">
+	<div id="logo">Logo</div>
+	<div id="accueil">ACCUEIL</div>
+</div>
+
+<div id="content">
+	<div id="menuLeft">
+  <a href="">	Accueil</a>
+	<a href="">Item 1</a>
+	<a href="">Item 2</a>
+  <a href="">Item 3</a>
+  <a href="">	Contact</a>
+	</div>
+	<div id="center">
+	<h1>	Sujet de la page</h1>
+
+	<p>	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco
+		quis nostrud exercitation ullamco</p>
 
 
-		Article 1
+	<h5>	Article 1</h5>
 
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	<p>	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco
+		quis nostrud exercitation ullamco</p>
 
-		Article 2
+	<h5>	Article 2</h5>
 
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	<p>	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco rcitation ullamco
+		quis nostrud exercitation ullamco rcitation ullamco</p>
 
 
-		Article 3
+	<h5>	Article 3</h5>
 
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	<p>	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco
+		quis nostrud exercitation ullamco</p>
 
-		Article 4
+		<h5>Article 4</h5>
 
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	<p>	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco
+		quis nostrud exercitation ullamco</p>
 
-		Article 5
+	<h5>	Article 5</h5>
 
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco
-		
-		Article 6
+		quis nostrud exercitation ullamco</p>
 
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		<h5>Article 6</h5>
+
+	<p>	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco
-
-		
-Archives
-	Août 2019
-	Juillet 2019
-	Juin 2019
-	Mai 2019
+		quis nostrud exercitation ullamco</p>
 
 
+	</div>
+	<div id="menuRight">
+		Archives
+
+		<a href="">	Août 2019</a>
+		<a href="">	Juillet 2019</a>
+		<a href="">	Juin 2019</a>
+		<a href="">	Mai 2019</a>
 
 
-Accueil
-	Plan
-	Contact
-	CGU
+	</div>
+</div>
 
-Gabarit - Copyrigth &#8471; 2019-2022
+
+<div id="footer">
+	<div id="footerLeft">
+	<a href="">		Accueil</a>
+		<a href="">		Plan</a>
+		<a href="">		Contact</a>
+		<a href="">		CGU</a>
+	</div>
+	<div id="footerRight">
+		Gabarit - Copyrigth &#8471; 2019-2022
+
+	</div>
+</div>
