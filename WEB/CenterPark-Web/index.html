@@ -1,1 +1,55 @@
-<!-- Bannierre du site, Formulaire de connexion, un lien vers une page inscription (uniquement client) -->
+<!-- Banniere du site, Formulaire de connexion, un lien vers une page inscription (uniquement client) -->
+
+<style>
+header img
+{
+ height: 30%;
+ width:100%;
+}
+body
+{
+background-color: #E0EAB8;
+}
+#errorConnect{color:red;}
+
+
+</style>
+
+</<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="">
+    <title>Index</title>
+  </head>
+
+
+  <body>
+    <header>
+        <img src="https://previews.123rf.com/images/vicushka/vicushka1506/vicushka150600102/41061682-hojas-de-helecho-sobre-borrosa-fondo-bandera-naturaleza-para-el-sitio-web.jpg" alt="bannière">
+    </header>
+    <h4> Connexion </h4>
+
+    <form>
+      <table>
+      <tr>
+        <td>Email :</td>
+        <td> <input required placeholder="Email" type="email"></td>
+      </tr>
+
+      <tr>
+        <td>Password : </td>
+        <td><input required placeholder="Password" pattern ="[A-z]{4,8}" type="password"></td>
+      </tr>
+
+
+      </table>
+      <br>
+      <div id="errorConnect">Identifiants invalides</div>
+      <br>
+      <input value="Se connecter" type="submit">
+</form>
+    <a href="inscription.html"> Inscription </a>
+  </body>
+
+</html>
