@@ -3,3 +3,105 @@ Afficher un tableau avec une liste d'animaux (id,nom,type) (modifier + Suppr)
 Bouton ajouter pour avoir acces au formulaire d'ajout (nom + type en liste deroulante)
 Modifier aura un lien vers la page updateAnimal.html?id=x
  --> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+
+<style>
+
+    body
+    {
+        margin: 5%;
+        background-color: beige;
+    }
+
+    
+
+    
+
+</style>
+
+ <html>
+
+ <head>
+     <meta charset="UTF-8">
+     <title>Animaux</title>
+ </head>
+
+
+ <body>
+    <h1 style="text-align: center;">Liste des animaux</h1><br><br>
+    <div id="tableau">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>id animal</th>
+                <th>nom</th>
+                <th>type animal</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Pumba</td>
+                <td>Sanglier</td>
+                <td><a href="updateAnimal.html"><button type="button" class="btn btn-primary">Modifier</button></a></td>
+                <td><button type="button" class="btn btn-danger">Supprimer</button></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>KobraKai</td>
+                <td>Serpent</td>
+                <td><a href="updateAnimal.html"><button type="button" class="btn btn-primary">Modifier</button></a></td>
+                <td><button type="button" class="btn btn-danger">Supprimer</button></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Scrat</td>
+                <td>Ecureuil</td>
+                <td><a href="updateAnimal.html"><button type="button" class="btn btn-primary">Modifier</button></a></td>
+                <td><button type="button" class="btn btn-danger">Supprimer</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+    <div>
+        <form>
+
+            <fieldset>
+                <legend>Ajouter un animal</legend>
+                <table>
+                    
+
+                    
+                        <tr>
+                            <th>nom</th>
+                            <td><input type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <th>type</th>
+                            <td>
+                                <select name="type">
+                                    <option >Sanglier</option>
+                                    <option >Serpent</option>
+                                    <option>Ecureuil</option>
+                                  </select>
+                            </td>
+                        </tr>
+                </table>
+                <br>
+                <button type="button" class="btn btn-success">Ajouter</button>
+                
+            </fieldset>
+        </form>
+    </div>
+    
+ </body>
+
+ </html>
+
+ 
