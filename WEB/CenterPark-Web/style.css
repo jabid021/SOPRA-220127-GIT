@@ -1,0 +1,36 @@
+body
+{
+  background-color:#F4EFE7;
+  display:flex;
+  align-items:center;
+  flex-direction:column;
+}
+
+#activites
+{
+  background-color:white;
+}
+
+.button
+{
+  width:120px;
+}
+
+form
+{
+  border: solid black 2px;
+  width:40%;
+  min-width:300px;
+}
+
+#ajouter
+{
+display:flex;
+justify-content:flex-end;
+}
+
+#btnForm
+{
+display:flex;
+justify-content:space-around;
+}
