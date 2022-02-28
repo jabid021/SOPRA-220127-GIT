@@ -39,21 +39,31 @@ body
   width:120px;
 }
 
+
 #formActivite
 {
   border: solid black 2px;
-  width:40%;
+  display:flex;
+  justify-content: center;
+  width:20%;
   min-width:300px;
+  flex-wrap: wrap;
+  position: relative;
+  left:40%;
 }
-
+#formActivite table
+{
+  width:100%;
+}
 #ajouter
 {
 display:flex;
-justify-content:flex-end;
+justify-content:center
 }
 
 #btnForm
 {
 display:flex;
+width: 100%
 justify-content:space-around;
 }
