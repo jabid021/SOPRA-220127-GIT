@@ -1,0 +1,29 @@
+.container1,.container2
+{
+  display:flex;
+  flex-wrap:wrap;
+}
+/* Version pc à partir de 768px*/
+
+@media(min-width:768px)
+{
+  body
+  {
+    background-color:#F4EFE7;
+  }
+
+  .container1 p
+  {
+    width:25%;
+  }
+
+  .container2 p
+  {
+    width:33.33%;
+  }
+
+  #menuTel
+  {
+    display:none;
+  }
+}

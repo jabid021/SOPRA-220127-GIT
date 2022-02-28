@@ -1,0 +1,22 @@
+/* Version tel jusqu'a 768px*/
+@media(max-width:768px)
+{
+  body
+  {
+    background-color:cyan;
+  }
+  .container1 p
+  {
+    width:50%;
+  }
+
+  .container2 p
+  {
+    width:100%;
+  }
+
+  #menuPc
+  {
+    display:none;
+  }
+}
