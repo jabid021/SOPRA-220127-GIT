@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+
+<script>
+
+var p1 = {nom:"France",capitale:"Marseille"};
+var p2 = {nom:"Norvege",capitale:"Oslo"};
+var p3 = {nom:"Irlande",capitale:"Dublin"};
+var p4 = {nom:"Croatie",capitale:"Zagreb"};
+var p5 = {nom:"Espagne",capitale:"Madrid"};
+
+var pays = [p1,p2,p3,p4,p5];
+score=0;
+for(p of pays)
+{
+  var reponse= prompt("Quelle est la capitale de : "+p.nom+" ?");
+  if(reponse==p.capitale)
+  {
+    alert("Ah oui oui oui ! Bonne réponse");
+    score++;
+  }
+  else{alert("Mauvaise Réponse");}
+}
+console.log("Resultat : "+score+"/"+pays.length);
+
+
+</script>

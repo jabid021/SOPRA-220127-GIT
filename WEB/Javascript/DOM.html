@@ -1,0 +1,73 @@
+<style>
+p{color:pink;}
+</style>
+
+
+<title>LE DOM</title>
+
+<h1 id="titrePrinci" monAttribut="valeur">LE DOM ! (Document Object Model)</h1>
+<h2 id="titre2">Titre à remplacer</h2>
+
+<p id="paragPrinci">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p class="elementImportant">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h2 class="elementImportant">Zog Zog</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+<input type="text" placeholder="login" id="idLogin">
+<input type="password" value="password123" id="password">
+<input id="btnForm" type="submit" value="Se connecter">
+
+
+<script>
+
+document.title="Nouveau titre";
+console.log(document.title);
+pointeurId();
+
+function pointeurId()
+{
+  var pointeur=document.getElementById("titrePrinci");
+  //var color=prompt("Quelle couleur ?");
+  var color="red";
+  pointeur.style.color=color;
+  pointeur.style.backgroundColor="cyan";
+  pointeur.style.fontSize="55px";
+
+  pointeur.style.setProperty("background-color","green");
+
+pointeur.setAttribute("monAttribut","Nouvelle Valeur");
+pointeur.setAttribute("monAttribut2","Nouvelle Valeur2");
+pointeur.removeAttribute("monAttribut");
+console.log(pointeur.getAttribute("monAttribut2"));
+
+//btnForm.setAttribute("disabled",true);
+btnForm.disabled=true;
+
+idLogin.style.color="red";
+idLogin.value="Jordan";
+console.log(password.value);
+idLogin.disabled=true;
+
+
+var content = pointeur.innerHTML;
+console.log(content);
+titre2.innerHTML=pointeur.innerHTML;
+pointeur.innerHTML="Ancien titre";
+
+
+}
+
+function pointeurTag()
+{
+
+}
+
+function pointeurClasse()
+{
+
+}
+
+
+
+</script>
