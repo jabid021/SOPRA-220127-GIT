@@ -15,7 +15,41 @@
 
 <script charset="utf-8">
 
+var typeElement = prompt("Quel type d'element ? id / tag/ class");
+var color=prompt("Quelle couleur ?");
+switch(typeElement)
+{
+  case "id" : modifId();break;
+  case "tag" : modifTag();break;
+  case "class" : modifClass();break;
+  default : alert("Aucun element !");
+}
 
-  
+function modifId()
+{
+  let pointeur=document.getElementById("paragPrinci");
+  pointeur.style.color=color;
+}
+
+function modifTag()
+{
+  let pointeurs = document.getElementsByTagName("p");
+  for(p of pointeurs)
+  {
+    p.style.color=color;
+  }
+}
+
+function modifClass()
+{
+  let pointeurs = document.getElementsByClassName("secondaire");
+  for(p of pointeurs)
+  {
+    p.style.color=color;
+  }
+}
+
+
+
 
 </script>

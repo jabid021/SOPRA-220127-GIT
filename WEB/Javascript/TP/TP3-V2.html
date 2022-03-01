@@ -1,0 +1,64 @@
+<body style="background-color: lightyellow;">
+
+<p  class="secondaire">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p class="secondaire">Parag secondaire</p>
+
+<p>Parag milieu</p>
+
+<h3 id="paragPrinci" class="secondaire">Titre secondaire</h3>
+
+<p class="secondaire">Parag secondaire</p>
+<p>Parag fin</p>
+
+</body>
+
+<script charset="utf-8">
+
+  var again = "y";
+
+  while(again=="y")
+  {
+    var typeElement = prompt("Quel type d'element ? id / tag/ class");
+    var nomElement = prompt("Quel est le nom de l'element ?");
+    var prop = prompt("Quel prop changer ?");
+    var value=prompt("Quelle value ?");
+
+    switch(typeElement)
+    {
+      case "id" : modifId();break;
+      case "tag" : modifTag();break;
+      case "class" : modifClass();break;
+      default : alert("Aucun element !");
+    }
+
+  again=prompt("Autre modif ? y/n");
+}
+
+
+  function modifId()
+  {
+    let pointeur=document.getElementById(nomElement);
+    pointeur.style.setProperty(prop,value);
+  }
+
+  function modifTag()
+  {
+    let pointeurs = document.getElementsByTagName(nomElement);
+    for(p of pointeurs)
+    {
+      p.style.setProperty(prop,value);
+    }
+  }
+
+  function modifClass()
+  {
+    let pointeurs = document.getElementsByClassName(nomElement);
+    for(p of pointeurs)
+    {
+      p.style.setProperty(prop,value);
+    }
+  }
+
+
+</script>
