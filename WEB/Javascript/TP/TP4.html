@@ -1,4 +1,4 @@
-<h1 id="timer">0:0</h1>
+<h1 id="timer">00:00</h1>
 
 
 
@@ -10,6 +10,34 @@
 var minute=0;
 var seconde=0;
 
-timer.innerHTML=minute+":"+seconde;
+var monInterval=setInterval(chrono,1000);
+setTimeout(chronoEnRouge,15000);
+
+
+function chrono()
+{
+    let minuteAffiche="";
+    let secondeAffiche="";
+
+    seconde++;
+    if(seconde==60)
+    {
+      seconde=0;
+      minute++;
+    }
+
+    minuteAffiche=(minute<10) ? "0"+minute : minute;
+    secondeAffiche=(seconde<10) ? "0"+seconde : seconde;
+    timer.innerHTML=minuteAffiche+":"+secondeAffiche;
+
+    if(minute==1 && seconde==30){clearInterval(monInterval);}
+}
+
+
+function chronoEnRouge()
+{
+  timer.style.color="red";
+}
+
 
 </script>
