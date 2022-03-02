@@ -1,0 +1,66 @@
+<p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+<input type="text" id="inputLogin" placeholder="login">
+<!-- <input onclick="testClickBtn('jordan')" onmouseover="passerDessus()" id="btnGo" type="button" value="GO">
+
+<input onclick="alert('test')"   id="btnTest" type="button" value="Test2">-->
+
+<script>
+
+
+p1.onclick=eventSouris;
+p1.ondblclick=eventSouris;
+p1.onmouseover=eventSouris;
+p1.onmouseout=eventSouris;
+p1.onmousemove=eventSouris;
+p1.onmousedown=eventSouris;
+p1.onmouseup=eventSouris;
+
+inputLogin.onkeypress=eventClavier;
+inputLogin.onkeydown=eventClavier;
+inputLogin.onkeyup=eventClavier;
+
+
+function eventSouris(eventSouris)
+{
+  console.log(eventSouris.altKey);
+ switch(eventSouris.type)
+  {
+    case "click" : console.log("click sur p1");break;
+    case "dblclick" : console.log("dblclick sur p1");break;
+    case "mouseover" : console.log("over p1");break;
+    case "mouseout" : console.log("out p1");break;
+    case "mousemove" : console.log("move on p1");break;
+    case "mouseup" : console.log("click up sur p1");break;
+    case "mousedown" : console.log("click down sur p1");break;
+  }
+}
+
+function eventClavier(eventC)
+{
+  console.log(eventC.key);
+  if(eventC.key=="Enter"){console.log("valider");}
+  switch(eventC.type)
+  {
+    case "keydown":console.log("keydown");break;
+    case "keyup":console.log("keyup");break;
+    case "keypress":console.log("keypress");break;
+  }
+}
+//document.getElementById("btnGo").onclick=testClickBtn;
+/*btnGo.onmouseover=passerDessus;
+
+
+function testClickBtn(prenom)
+{
+  alert("ON CLICK ! "+prenom);
+}
+
+function passerDessus()
+{
+  console.log("On passe sur le button");
+}*/
+
+
+</script>

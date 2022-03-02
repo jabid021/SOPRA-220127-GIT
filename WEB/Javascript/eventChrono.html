@@ -1,0 +1,95 @@
+<style>
+#prenomEnCours{display:none;}
+#prenomEnCours *
+{
+  margin-left:50px;
+  margin-right:50px;
+  font-size:45px;
+}
+</style>
+
+<input id="btnPlay" type="button" value="Play">
+<input id="btnPause" disabled type="button" value="Pause">
+<h1 id="timer">00:00</h1>
+
+<div id="prenomEnCours"><input type="button" onclick="changePrenom(-1)" id="btnPrev" value="Prev"><span id="prenom"> ....</span><input type="button" id="btnNext" onclick="changePrenom(1)" value="Next"></div>
+
+
+<script>
+
+//Faire en sorte que le chrono stop au bout de 1min30;
+//Apres 15secondes, timer doit passer en rouge;
+var minute=0;
+var seconde=0;
+var zoom = ["Jordan","John","Toto","Michel","Amine","Anaïs"];
+var indexActuel=0;
+btnPlay.onclick=start;
+btnPause.onclick=pause;
+
+var monInterval;
+setTimeout(chronoEnRouge,15000);
+
+function start()
+{
+  monInterval=setInterval(chrono,1000);
+  btnPlay.disabled=true;
+  btnPause.disabled=false;
+  prenomEnCours.style.display="block";
+  changePrenom(0);
+
+}
+
+function pause()
+{
+  clearInterval(monInterval);
+  btnPlay.disabled=false;
+  btnPause.disabled=true;
+  prenomEnCours.style.display="none";
+}
+
+function changePrenom(nb)
+{
+  indexActuel+=nb;
+  if(indexActuel==0){btnPrev.disabled=true;}
+  else
+  {
+    btnPrev.disabled=false;
+  }
+
+  if(indexActuel==zoom.length-1){btnNext.disabled=true;}
+  else
+  {
+    btnNext.disabled=false;
+  }
+
+  prenom.innerHTML=zoom[indexActuel];
+}
+
+function chrono()
+{
+    let minuteAffiche="";
+    let secondeAffiche="";
+
+    seconde++;
+    if(seconde==60)
+    {
+      seconde=0;
+      minute++;
+    }
+
+    minuteAffiche=(minute<10) ? "0"+minute : minute;
+    secondeAffiche=(seconde<10) ? "0"+seconde : seconde;
+    timer.innerHTML=minuteAffiche+":"+secondeAffiche;
+}
+
+
+function chronoEnRouge()
+{
+  timer.style.color="red";
+}
+
+
+
+
+
+</script>
