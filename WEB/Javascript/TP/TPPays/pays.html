@@ -1,0 +1,133 @@
+
+<style>
+#game{display:none;}
+
+</style>
+
+<audio id="good" src="assets/audio/content.mp3"></audio>
+<audio id="bad" src="assets/audio/angry.mp3"></audio>
+
+<input id="btnPlay" type="button" value="Play">
+<input id="btnPause" disabled type="button" value="Pause">
+<h1 id="timer">00:00</h1>
+
+
+<div id="game">
+  <h1 id="question"></h1>
+  <input type="text" id="reponse"><input type="button" id="btnValidate" value="Valider">
+  <div id="resultat"></div>
+</div>
+
+<div id="scoreGame"></div>
+
+
+
+<script>
+  var p1 = {nom:"France",capitale:"Marseille"};
+  var p2 = {nom:"Norvege",capitale:"Oslo"};
+  var p3 = {nom:"Irlande",capitale:"Dublin"};
+  var p4 = {nom:"Croatie",capitale:"Zagreb"};
+  var p5 = {nom:"Espagne",capitale:"Madrid"};
+  var pays = [p1,p2,p3,p4,p5];
+  var score=0;
+  var minute=0;
+  var seconde=0;
+  var i=0;
+  btnPlay.onclick=start;
+  btnPause.onclick=pause;
+  btnValidate.onclick=checkReponse;
+  reponse.onkeyup=function()
+                  {
+                    if(e.key=="Enter")
+                    {
+                      checkReponse();
+                    }
+                  }
+
+
+  question.innerHTML=(i+1)+") Quelle est la capitale de : "+pays[i].nom;
+
+  var monInterval;
+
+  function chrono()
+  {
+      let minuteAffiche="";
+      let secondeAffiche="";
+
+      seconde++;
+      if(seconde==60)
+      {
+        seconde=0;
+        minute++;
+      }
+
+      minuteAffiche=(minute<10) ? "0"+minute : minute;
+      secondeAffiche=(seconde<10) ? "0"+seconde : seconde;
+      timer.innerHTML=minuteAffiche+":"+secondeAffiche;
+  }
+
+  function start()
+  {
+    monInterval=setInterval(chrono,1000);
+    btnPlay.disabled=true;
+    btnPause.disabled=false;
+    game.style.display="block";
+  }
+
+  function pause()
+  {
+    clearInterval(monInterval);
+    btnPlay.disabled=false;
+    btnPause.disabled=true;
+    game.style.display="none";
+  }
+
+  function changeQuestion()
+  {
+    question.innerHTML=(i+1)+") Quelle est la capitale de : "+pays[i].nom;
+  }
+
+  function checkReponse()
+  {
+      saisie = reponse.value;
+      if(saisie==pays[i].capitale)
+      {
+        score++;
+        resultat.innerHTML="Bonne réponse ! <img width=45 src='assets/img/content.png'>";
+        resultat.style.color="green";
+        good.play();
+      }
+      else
+      {
+        resultat.innerHTML="Mauvaise réponse ! <img width=45 src='assets/img/angry.png'>";
+        resultat.style.color="red";
+        bad.play();
+      }
+      //Au bout de 4secondes, fait disparaitre le resultat et l'image
+      setTimeout(function(){resultat.innerHTML=""},4000);
+
+      i++;
+      reponse.value="";
+
+      if(i>=pays.length)
+      {
+        finPartie();
+      }
+      else
+      {
+        changeQuestion();
+      }
+  }
+
+
+  function finPartie()
+  {
+    pause();
+    btnPlay.disabled=true;
+    scoreGame.innerHTML="Votre score : "+score+"/"+pays.length;
+  }
+
+
+
+
+</script>
