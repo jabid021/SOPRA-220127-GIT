@@ -1,0 +1,69 @@
+#logo
+{
+  position:absolute;
+  top:0;
+  width:15%;
+  height:15%;
+  background-image:url("img/licorne.png");
+  background-size: 100% 100%;
+}
+
+header img
+{
+ height: 30%;
+ width:100%;
+}
+
+#errorConnect{color:red;}
+
+body
+{
+  background-color:#E0EAB8;
+  font-family : 'Lobster',cursive;
+}
+
+
+#inscription input
+{
+  border-radius:25px;
+  text-align:center
+}
+
+#activites
+{
+  background-color:white;
+}
+
+.button
+{
+  width:120px;
+}
+
+
+#formActivite
+{
+  border: solid black 2px;
+  display:flex;
+  justify-content: center;
+  width:20%;
+  min-width:300px;
+  flex-wrap: wrap;
+  position: relative;
+  left:40%;
+}
+#formActivite table
+{
+  width:100%;
+}
+#ajouter
+{
+display:flex;
+justify-content:center
+}
+
+#btnForm
+{
+display:flex;
+width: 100%
+justify-content:space-around;
+}
