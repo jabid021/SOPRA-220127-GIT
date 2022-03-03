@@ -203,6 +203,8 @@ public class App {
 		String model = saisieString("Saisir le modèle du véhicule");
 		v.setModel(model);
 		daoVehicule.update(v);
+		
+		
 
 	}
 

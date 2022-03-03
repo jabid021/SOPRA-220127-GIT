@@ -21,13 +21,14 @@ import util.Context;
 
 public class DAOReservationJDBC implements IDAOReservation{
 
-	IDAOParticipant daoParticipant = Context.getSingleton().getDaoParticipant();
-	IDAOActivite daoActivite = Context.getSingleton().getDaoActivite();
-	IDAOCompte daoCompte = Context.getSingleton().getDaoCompte();
+	
 
 
 	@Override
 	public Reservation findById(Integer id) {
+		IDAOParticipant daoParticipant = Context.getSingleton().getDaoParticipant();
+		IDAOActivite daoActivite = Context.getSingleton().getDaoActivite();
+		IDAOCompte daoCompte = Context.getSingleton().getDaoCompte();
 		Reservation r = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -100,7 +101,10 @@ public class DAOReservationJDBC implements IDAOReservation{
 
 	}
 
-	public List<Reservation> findAllReservationClient(int id) {		
+	public List<Reservation> findAllReservationClient(int id) {	
+		IDAOParticipant daoParticipant = Context.getSingleton().getDaoParticipant();
+		IDAOActivite daoActivite = Context.getSingleton().getDaoActivite();
+		IDAOCompte daoCompte = Context.getSingleton().getDaoCompte();
 		List<Reservation> reservations = new ArrayList();
 		try{
 

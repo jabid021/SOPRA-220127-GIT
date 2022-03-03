@@ -64,6 +64,11 @@ justify-content:center
 #btnForm
 {
 display:flex;
-width: 100%
+width: 100%;
 justify-content:space-around;
+}
+
+#addStaff,#addFormCompte
+{
+	display:none;
 }

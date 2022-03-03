@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import dao.IDAOCompte;
@@ -49,8 +50,37 @@ public class DAOCompteJDBC implements IDAOCompte{
 
 	@Override
 	public List<Compte> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Compte c = null;
+		List<Compte> comptes = new ArrayList();
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection(urlBdd,loginBdd,passwordBdd);
+			PreparedStatement ps = conn.prepareStatement("SELECT * from compte");
+
+			ResultSet rs = ps.executeQuery();
+
+			while(rs.next()) 
+			{
+				if(rs.getString("type_compte").equals("client")) 
+				{
+					c = new Client(rs.getInt("id_compte"),rs.getString("mail"),rs.getString("password"),rs.getString("tel"),rs.getString("numero"),rs.getString("voie"),rs.getString("cp"),rs.getString("ville"));
+
+				}
+				else if (rs.getString("type_compte").equals("staff"))
+				{
+					c = new Staff(rs.getInt("id_compte"),rs.getString("mail"),rs.getString("password"),rs.getString("metier"));
+				}
+				comptes.add(c);
+			}
+
+			rs.close();
+			ps.close();
+			conn.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return comptes;
 	}
 
 	@Override

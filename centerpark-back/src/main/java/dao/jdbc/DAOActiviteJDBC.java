@@ -20,11 +20,11 @@ import util.Context;
 
 public class DAOActiviteJDBC implements IDAOActivite {
 
-	static IDAOVehicule daoVehicule = Context.getSingleton().getDaoVehicule();
+	
 
 	@Override
 	public Activite findById(Integer id) {
-
+		IDAOVehicule daoVehicule = Context.getSingleton().getDaoVehicule();
 		Activite a = null;
 
 
@@ -67,6 +67,7 @@ public class DAOActiviteJDBC implements IDAOActivite {
 
 	@Override
 	public List<Activite> findAll() {
+		IDAOVehicule daoVehicule = Context.getSingleton().getDaoVehicule();
 		List<Activite> aList = new ArrayList<Activite>();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -171,6 +172,7 @@ public class DAOActiviteJDBC implements IDAOActivite {
 	}
 
 	public List<Activite> findAllDisponibles() {
+		IDAOVehicule daoVehicule = Context.getSingleton().getDaoVehicule();
 		List<Activite> aList = new ArrayList<Activite>();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
