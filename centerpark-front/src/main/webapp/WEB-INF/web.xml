@@ -10,14 +10,5 @@
       <include-prelude>banniere.jsp</include-prelude>
     </jsp-property-group>
   </jsp-config>
-  <servlet>
-    <description></description>
-    <display-name>CompteController</display-name>
-    <servlet-name>CompteController</servlet-name>
-    <servlet-class>controllers.CompteController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CompteController</servlet-name>
-    <url-pattern>/CompteController</url-pattern>
-  </servlet-mapping>
+ 
 </web-app>

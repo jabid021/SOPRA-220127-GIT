@@ -18,5 +18,5 @@
 
     <header>
         <img src="https://previews.123rf.com/images/vicushka/vicushka1506/vicushka150600102/41061682-hojas-de-helecho-sobre-borrosa-fondo-bandera-naturaleza-para-el-sitio-web.jpg" alt="bannière">
-        <a href="index.html"><div id="logo"></div></a>
+        <a href="index.jsp"><div id="logo"></div></a>
     </header>

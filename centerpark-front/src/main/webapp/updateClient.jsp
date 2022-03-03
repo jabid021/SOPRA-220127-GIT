@@ -1,31 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@ page import="model.*" %>
-<%@ page import="util.Context" %>
-    
-    
+ 
     <main>
-    
-    <%
-    int id = Integer.parseInt(request.getParameter("id"));
-    Client c = (Client)Context.getSingleton().getDaoCompte().findById(id);
-    	
-    %>
-    
-    
-    <form id="updateFormCompte">
+ 
+    <form action="compte" method="post" id="updateFormCompte">
+			<input type="hidden" name="tache" value="update">
+			<input type="hidden" name="typeCompte" value="client">
+			<input type="hidden" name="id" value="${client.numero}">
 			<div>
-				Mail : <input required type="text" value="<%=c.getMail() %>"placeholder="Saisissez un mail">
+				Mail : <input required name="mail" type="text" value="${client.mail}" placeholder="Saisissez un mail">
 			</div>
 			<div>
-				Password : <input required value="<%=c.getPassword() %>" type="password"
+				Password : <input name="password" required value="${client.password}" type="password"
 					placeholder="Saisissez un password">
 			</div>
-			<div>Tel : <input  type="text" value="<%=c.getTel() %>"placeholder="Saisissez le tel"> </div>
-			<div>Numero : <input  type="text" value="<%=c.getAdresse().getNumero() %>" placeholder="Saisissez le numero"> </div>
-			<div>Voie : <input  type="text" value="<%=c.getAdresse().getVoie() %>" placeholder="Saisissez la voie"> </div>
-			<div>CP : <input  type="text" value="<%=c.getAdresse().getCp() %>" placeholder="Saisissez le CP"> </div>
-			<div>Ville : <input  type="text" value="<%=c.getAdresse().getVille() %>" placeholder="Saisissez la ville"> </div>
+			<div>Tel : <input  name="tel" required type="text" value="${client.tel}" placeholder="Saisissez le tel"> </div>
+			<div>Numero : <input   name="numero" required type="text" value="${client.adresse.numero}" placeholder="Saisissez le numero"> </div>
+			<div>Voie : <input   name="voie" required type="text" value="${client.adresse.voie}" placeholder="Saisissez la voie"> </div>
+			<div>CP : <input   name="cp" required type="text" value="${client.adresse.cp}" placeholder="Saisissez le CP"> </div>
+			<div>Ville : <input   name="ville" required type="text" value="${client.adresse.numero}" placeholder="Saisissez la ville"> </div>
 
 			
 
