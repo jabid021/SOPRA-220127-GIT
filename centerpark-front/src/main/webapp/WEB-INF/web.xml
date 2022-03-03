@@ -10,5 +10,14 @@
       <include-prelude>banniere.jsp</include-prelude>
     </jsp-property-group>
   </jsp-config>
- 
+  <servlet>
+    <description></description>
+    <display-name>VehiculeController</display-name>
+    <servlet-name>VehiculeController</servlet-name>
+    <servlet-class>controllers.VehiculeController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VehiculeController</servlet-name>
+    <url-pattern>/VehiculeController</url-pattern>
+  </servlet-mapping>
 </web-app>
