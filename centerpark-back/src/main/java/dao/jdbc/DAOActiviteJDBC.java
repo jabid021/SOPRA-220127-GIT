@@ -1,4 +1,4 @@
-package dao;
+package dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,18 +9,18 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.IDAOActivite;
+import dao.IDAOVehicule;
 import model.Activite;
 import model.Aquatique;
-import model.Client;
-import model.Compte;
 import model.Meteo;
 import model.Safari;
-import model.Staff;
 import model.Vehicule;
+import util.Context;
 
-public class DAOActivite implements IDAO<Activite, Integer> {
+public class DAOActiviteJDBC implements IDAOActivite {
 
-	static DAOVehicule daoVehicule = new DAOVehicule();
+	static IDAOVehicule daoVehicule = Context.getSingleton().getDaoVehicule();
 
 	@Override
 	public Activite findById(Integer id) {

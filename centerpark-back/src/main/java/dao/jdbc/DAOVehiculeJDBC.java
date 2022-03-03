@@ -1,4 +1,4 @@
-package dao;
+package dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,9 +7,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.IDAOVehicule;
 import model.Vehicule;
 
-public class DAOVehicule implements IDAO<Vehicule,Integer>{
+public class DAOVehiculeJDBC implements IDAOVehicule{
 
 	@Override
 	public Vehicule findById(Integer id) {

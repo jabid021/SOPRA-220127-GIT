@@ -1,4 +1,4 @@
-package dao;
+package dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,17 +8,22 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.IDAOActivite;
+import dao.IDAOCompte;
+import dao.IDAOParticipant;
+import dao.IDAOReservation;
 import model.Activite;
 import model.Client;
 import model.Participant;
 import model.Reservation;
 import model.Statut;
+import util.Context;
 
-public class DAOReservation implements IDAO<Reservation,Integer>{
+public class DAOReservationJDBC implements IDAOReservation{
 
-	DAOParticipant daoParticipant = new DAOParticipant();
-	DAOActivite daoActivite = new DAOActivite();
-	DAOCompte daoCompte = new DAOCompte();
+	IDAOParticipant daoParticipant = Context.getSingleton().getDaoParticipant();
+	IDAOActivite daoActivite = Context.getSingleton().getDaoActivite();
+	IDAOCompte daoCompte = Context.getSingleton().getDaoCompte();
 
 
 	@Override

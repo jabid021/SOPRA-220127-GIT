@@ -1,4 +1,4 @@
-package dao;
+package dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,12 +7,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.IDAOAnimal;
 import model.Animal;
 import model.Ecureuil;
 import model.Sanglier;
 import model.Serpent;
 
-public class DAOAnimal implements IDAO<Animal, Integer> {
+public class DAOAnimalJDBC implements IDAOAnimal {
 
 
 	@Override

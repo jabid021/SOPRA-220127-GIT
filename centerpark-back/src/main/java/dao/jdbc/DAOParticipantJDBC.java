@@ -1,4 +1,4 @@
-package dao;
+package dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,9 +7,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
 
+import dao.IDAOParticipant;
 import model.Participant;
 
-public class DAOParticipant implements IDAO<Participant, Integer> {
+public class DAOParticipantJDBC implements IDAOParticipant {
 
 	@Override
 	public Participant findById(Integer id) {

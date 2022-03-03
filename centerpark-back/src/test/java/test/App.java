@@ -4,24 +4,38 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
 
-import dao.DAOActivite;
-import dao.DAOAnimal;
-import dao.DAOCompte;
-import dao.DAOParticipant;
-import dao.DAOReservation;
-import dao.DAOVehicule;
-import model.*;
+import dao.IDAOActivite;
+import dao.IDAOAnimal;
+import dao.IDAOCompte;
+import dao.IDAOParticipant;
+import dao.IDAOReservation;
+import dao.IDAOVehicule;
+import model.Activite;
+import model.Animal;
+import model.Aquatique;
+import model.Client;
+import model.Compte;
+import model.Ecureuil;
+import model.Meteo;
+import model.Participant;
+import model.Reservation;
+import model.Safari;
+import model.Sanglier;
+import model.Serpent;
+import model.Staff;
+import model.Vehicule;
+import util.Context;
 
 
 public class App {
 
 	static Compte connected;
-	static DAOCompte daoCompte = new DAOCompte();
-	static DAOActivite daoActivite = new DAOActivite();
-	static DAOAnimal daoAnimal = new DAOAnimal();
-	static DAOReservation daoReservation = new DAOReservation();
-	static DAOParticipant daoParticipant = new DAOParticipant();
-	static DAOVehicule daoVehicule = new DAOVehicule();
+	static IDAOCompte daoCompte = Context.getSingleton().getDaoCompte();
+	static IDAOActivite daoActivite = Context.getSingleton().getDaoActivite();
+	static IDAOAnimal daoAnimal = Context.getSingleton().getDaoAnimal();
+	static IDAOReservation daoReservation = Context.getSingleton().getDaoReservation();
+	static IDAOParticipant daoParticipant = Context.getSingleton().getDaoParticipant();
+	static IDAOVehicule daoVehicule = Context.getSingleton().getDaoVehicule();
 
 	public static String saisieString(String msg) 
 	{
@@ -92,7 +106,8 @@ public class App {
 		String mail = saisieString("Saisir votre mail");
 		String password = saisieString("Saisir votre password");
 		connected=daoCompte.seConnecter(mail,password);
-
+		Context.getSingleton().setConnected(connected);
+		
 		if(connected instanceof Client) {menuClient();}
 
 		else if(connected instanceof Staff) {menuStaff();}
