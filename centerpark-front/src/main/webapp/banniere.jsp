@@ -1,7 +1,7 @@
-<!-- Banniere du site, Formulaire de connexion, un lien vers une page inscription (uniquement client) -->
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 
-<html>
-  <head>
+<head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -13,38 +13,10 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/icon.jpg">
-    <title>Index</title>
-  </head>
+ </head>
 
 
-  <body>
     <header>
         <img src="https://previews.123rf.com/images/vicushka/vicushka1506/vicushka150600102/41061682-hojas-de-helecho-sobre-borrosa-fondo-bandera-naturaleza-para-el-sitio-web.jpg" alt="bannière">
         <a href="index.html"><div id="logo"></div></a>
     </header>
-    <main align="center">
-      <h4> Connexion </h4>
-      <form>
-        <table align="center">
-        <tr>
-          <td>Email :</td>
-          <td> <input required placeholder="Email" type="email"></td>
-        </tr>
-
-        <tr>
-          <td>Password : </td>
-          <td><input required placeholder="Password" pattern ="[A-z]{4,8}" type="password"></td>
-        </tr>
-
-
-        </table>
-        <br>
-        <div id="errorConnect">Identifiants invalides</div>
-        <br>
-        <input value="Se connecter" type="submit">
-      </form>
-      <a href="inscription.html"> Inscription </a>
-    </main>
-  </body>
-
-</html>
