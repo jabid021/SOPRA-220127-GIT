@@ -6,28 +6,9 @@ Modifier aura un lien vers la page updateAnimal.html?id=x
 
 
 
- <html>
-
- <head>
-   <meta charset="utf-8">
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-   <link rel="icon" href="img/icon.jpg">
-   <link rel="stylesheet" href="style.css">
    <title>Gestion des animaux</title>
- </head>
 
 
- <body>
-   <header>
-       <img src="https://previews.123rf.com/images/vicushka/vicushka1506/vicushka150600102/41061682-hojas-de-helecho-sobre-borrosa-fondo-bandera-naturaleza-para-el-sitio-web.jpg" alt="bannière">
-       <a href="index.html"><div id="logo"></div></a>
-   </header>
    <main align="center">
     <h1 style="text-align: center;">Liste des animaux</h1><br><br>
     <div id="tableau">
@@ -42,7 +23,7 @@ Modifier aura un lien vers la page updateAnimal.html?id=x
               </tr>
             </thead>
             <tbody>
-              <tr>
+             <!-- <tr>
                 <td>1</td>
                 <td>Pumba</td>
                 <td>Sanglier</td>
@@ -62,7 +43,16 @@ Modifier aura un lien vers la page updateAnimal.html?id=x
                 <td>Ecureuil</td>
                 <td><a href="updateAnimal.html"><button type="button" class="btn btn-primary">Modifier</button></a></td>
                 <td><button type="button" class="btn btn-danger">Supprimer</button></td>
-              </tr>
+              </tr>-->
+              <%
+				List<Animal> animals = Context.getSingleton().getDaoAnimal().findAll();
+			
+				for(Animal a : animals)
+				{
+					out.println("<tr><td>"+a.getId()+"</td><td>"+a.getNom()+"</td><td>"+client.getPassword()+"</td><td>/</td><th>"+c.getClass().getSimpleName().toLowerCase()+"</th><th><a href='compte?id="+client.getNumero()+"'><input type='button' class='btn btn-warning'value='Modifier'></a><form action='compte' method='post'><input type='hidden' name='tache' value='delete'><input name='id' type='hidden' value='"+c.getNumero()+"'><input type='submit'class='btn btn-danger' value='Supprimer'></form></th></tr>");
+				}
+			
+			%>
             </tbody>
           </table>
     </div>
@@ -99,6 +89,4 @@ Modifier aura un lien vers la page updateAnimal.html?id=x
         </form>
     </div>
 </main>
- </body>
 
- </html>
