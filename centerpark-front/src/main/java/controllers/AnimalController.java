@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Animal;
+import model.Client;
+import model.Ecureuil;
+import model.Sanglier;
+import model.Serpent;
 import util.Context;
 
 @WebServlet("/animal")
@@ -39,8 +43,21 @@ public class AnimalController extends HttpServlet {
 		
 		if(request.getParameter("tache").equals("insert")) 
 		{
-			Animal a = new Animal(request.getParameter("nom"),request.getParameter("type"));
-			Context.getSingleton().getDaoAnimal().insert(a);
+			if(request.getParameter("typeAnimal").equals("Sanglier")) 
+			{
+				Sanglier sg = new Sanglier(request.getParameter("nom"));
+				Context.getSingleton().getDaoAnimal().insert(sg);
+			}
+			else if(request.getParameter("typeAnimal").equals("Serpent")) 
+			{
+				Serpent sp = new Serpent(request.getParameter("nom"));
+				Context.getSingleton().getDaoAnimal().insert(sp);
+			}
+			else if(request.getParameter("typeAnimal").equals("Ecureuil")) 
+			{
+				Ecureuil ec = new Ecureuil(request.getParameter("nom"));
+				Context.getSingleton().getDaoAnimal().insert(ec);
+			}
 		
 		}
 		
@@ -48,8 +65,24 @@ public class AnimalController extends HttpServlet {
 		{
 	
 			int id = Integer.parseInt(request.getParameter("id"));
-			Animal a = new Animal(id,request.getParameter("nom"),request.getParameter("type"));
-			Context.getSingleton().getDaoAnimal().update(a);
+			
+			if(request.getParameter("typeAnimal").equals("Sanglier")) 
+			{
+				Sanglier sg = new Sanglier(id,request.getParameter("nom"));
+				Context.getSingleton().getDaoAnimal().update(sg);
+			}
+			else if(request.getParameter("typeAnimal").equals("Serpent")) 
+			{
+				Serpent sp = new Serpent(id,request.getParameter("nom"));
+				Context.getSingleton().getDaoAnimal().update(sp);
+			}
+			else if(request.getParameter("typeAnimal").equals("Ecureuil")) 
+			{
+				Ecureuil ec = new Ecureuil(id,request.getParameter("nom"));
+				Context.getSingleton().getDaoAnimal().update(ec);
+			}
+			
+			
 		}
 		
 		else if(request.getParameter("tache").equals("delete"))

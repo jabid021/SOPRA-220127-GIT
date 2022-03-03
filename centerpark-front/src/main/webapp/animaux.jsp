@@ -4,9 +4,11 @@ Bouton ajouter pour avoir acces au formulaire d'ajout (nom + type en liste derou
 Modifier aura un lien vers la page updateAnimal.html?id=x
  -->
 
+<%@ page import="java.util.List" %>
+<%@ page import="model.*" %>
+<%@ page import="util.Context" %>
 
-
-   <title>Gestion des animaux</title>
+<title>Gestion des animaux</title>
 
 
    <main align="center">
@@ -15,11 +17,10 @@ Modifier aura un lien vers la page updateAnimal.html?id=x
         <table class="table table-striped">
             <thead>
               <tr>
-                <th>id animal</th>
-                <th>nom</th>
-                <th>type animal</th>
-                <th></th>
-                <th></th>
+                <th>Id Animal</th>
+                <th>Nom</th>
+                <th>Type Animal</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -49,12 +50,28 @@ Modifier aura un lien vers la page updateAnimal.html?id=x
 			
 				for(Animal a : animals)
 				{
-					out.println("<tr><td>"+a.getId()+"</td><td>"+a.getNom()+"</td><td>"+client.getPassword()+"</td><td>/</td><th>"+c.getClass().getSimpleName().toLowerCase()+"</th><th><a href='compte?id="+client.getNumero()+"'><input type='button' class='btn btn-warning'value='Modifier'></a><form action='compte' method='post'><input type='hidden' name='tache' value='delete'><input name='id' type='hidden' value='"+c.getNumero()+"'><input type='submit'class='btn btn-danger' value='Supprimer'></form></th></tr>");
+					if( a instanceof Sanglier)
+					{
+						Animal animal = (Sanglier)a;
+						out.println("<tr><td>"+animal.getId()+"</td><td>"+animal.getNom()+"</td><td>"+animal.getClass().getSimpleName()+"</td><td><a href='animal?id="+animal.getId()+"'><input type='button' class='btn btn-warning'value='Modifier'></a><form action='animal' method='post'><input type='hidden' name='tache' value='delete'><input name='id' type='hidden' value='"+animal.getId()+"'><input type='submit'class='btn btn-danger' value='Supprimer'></form></td></tr>");
+					}
+					else if( a instanceof Serpent)
+					{
+						Animal animal = (Serpent)a;
+						out.println("<tr><td>"+animal.getId()+"</td><td>"+animal.getNom()+"</td><td>"+animal.getClass().getSimpleName()+"</td><td><a href='animal?id="+animal.getId()+"'><input type='button' class='btn btn-warning'value='Modifier'></a><form action='animal' method='post'><input type='hidden' name='tache' value='delete'><input name='id' type='hidden' value='"+animal.getId()+"'><input type='submit'class='btn btn-danger' value='Supprimer'></form></td></tr>");
+					}
+					else if( a instanceof Ecureuil)
+					{
+						Animal animal =  (Ecureuil)a;
+						out.println("<tr><td>"+animal.getId()+"</td><td>"+animal.getNom()+"</td><td>"+animal.getClass().getSimpleName()+"</td><td><a href='animal?id="+animal.getId()+"'><input type='button' class='btn btn-warning'value='Modifier'></a><form action='animal' method='post'><input type='hidden' name='tache' value='delete'><input name='id' type='hidden' value='"+animal.getId()+"'><input type='submit'class='btn btn-danger' value='Supprimer'></form></td></tr>");
+					}
 				}
 			
 			%>
             </tbody>
           </table>
+              
+          
     </div>
 
     <div >
@@ -62,28 +79,29 @@ Modifier aura un lien vers la page updateAnimal.html?id=x
 
             <fieldset>
                 <legend>Ajouter un animal</legend>
+                <input type="hidden" name="tache" value="insert">
                 <table align="center">
 
 
 
                         <tr>
-                            <th>nom</th>
-                            <td><input type="text"></td>
+                            <th>Nom</th>
+                            <td><input required type="text" name="nom" placeholder="Saisissez un nom"></td>
                         </tr>
 
                         <tr>
-                            <th>type</th>
+                            <th>Type Animal</th>
                             <td>
                                 <select name="type">
-                                    <option >Sanglier</option>
-                                    <option >Serpent</option>
-                                    <option>Ecureuil</option>
+                                    <option id="typeAnimalSanglier" name="typeAnimal">Sanglier</option>
+                                    <option id="typeAnimalSerpent" name="typeAnimal">Serpent</option>
+                                    <option id="typeAnimalSEcureuil" name="typeAnimal">Ecureuil</option>
                                   </select>
                             </td>
                         </tr>
                 </table>
                 <br>
-                <button type="button" class="btn btn-success">Ajouter</button>
+                <input type="submit" class="btn btn-success mb-2" value="Ajouter un animal">
 
             </fieldset>
         </form>
