@@ -2,22 +2,14 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>centerpark-front</display-name>
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>home</welcome-file>
   </welcome-file-list>
   <jsp-config>
     <jsp-property-group>
       <url-pattern>*.jsp</url-pattern>
-      <include-prelude>banniere.jsp</include-prelude>
+      <include-prelude>/banniere.jsp</include-prelude>
     </jsp-property-group>
   </jsp-config>
-  <servlet>
-    <description></description>
-    <display-name>AnimalController</display-name>
-    <servlet-name>AnimalController</servlet-name>
-    <servlet-class>controllers.AnimalController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AnimalController</servlet-name>
-    <url-pattern>/AnimalController</url-pattern>
-  </servlet-mapping>
+  
 </web-app>
+
