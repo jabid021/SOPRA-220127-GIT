@@ -1,3 +1,10 @@
+<c:if test="${connected.getClass().getSimpleName()=='Client'}">
+	<c:redirect url = "client"/>
+</c:if>
+<c:if test="${connected.getClass().getSimpleName()=='Staff'}">
+	<c:redirect url = "staff"/>
+</c:if>
+
 <title>Accueil</title>
     <main align="center">
       <h4> Connexion </h4>
