@@ -1,5 +1,3 @@
-
-
 <c:if test="${connected==null}">
 	<c:redirect url = "home"/>
 </c:if>
