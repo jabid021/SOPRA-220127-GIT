@@ -9,7 +9,7 @@
 <title>Gestion des comptes</title>
 <main>
 
-	<input type="button" value="Ajouter" class="btn btn-sucess">
+	<input type="button" value="Ajouter" id="btnShowAddForm" class="btn btn-success">
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -48,3 +48,6 @@
 	<br> <br>
 
 </main>
+<script>
+btnShowAddForm.onclick=function(){$("#addFormVehicule").show();}
+</script>
