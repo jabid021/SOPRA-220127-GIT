@@ -3,7 +3,7 @@
 
 <main>
 
-	<h2 align="center">Activités CenterPark</h2>
+	<h2 align="center">Activites CenterPark</h2>
 	<table style="width: 100%" border align="center" id="activites">
 		<thead>
 			<tr align="center">
@@ -13,35 +13,14 @@
 				<th>Prix</th>
 				<th>Meteo</th>
 				<th>Type</th>
-				<th>Véhicule</th>
+				<th>Vehicule</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
 
 		<tbody>
 
-			<%
-				List<Activite> activites=Context.getSingleton().getDaoActivite().findAll();
 			
-				for(Activite a : activites)
-				{
-					if(a instanceof Aquatique)
-					{
-						Aquatique aqua = (Aquatique)a;
-						out.println("<tr><td>"+aqua.getId()+"</td><td>"+aqua.getDate()+"</td><td>"+aqua.getHeure()+"</td><td>"+aqua.getPrix()+"</td><td>"+aqua.getMeteo()+"</td><td>"+aqua.getClass().getSimpleName()+"</td><td>null</td><th><a href='activite?id="+aqua.getId()+"'><input type='button' class='btn btn-warning'value='Modifier'></a><form action='activite' method='post'><input type='hidden' name='tache' value='delete'><input name='id' type='hidden' value='"+aqua.getId()+"'><input type='submit'class='btn btn-danger' value='Supprimer'></form></th></tr>");
-
-					}
-					
-					else if(a instanceof Safari)
-					{
-						Safari safari = (Safari)a;
-						out.println("<tr><td>"+safari.getId()+"</td><td>"+safari.getDate()+"</td><td>"+safari.getHeure()+"</td><td>"+safari.getPrix()+"</td><td>"+safari.getMeteo()+"</td><td>"+safari.getClass().getSimpleName()+"</td><td>"+safari.getVehicule()+"</td><th><a href='activite?id="+safari.getId()+"'><input type='button' class='btn btn-warning'value='Modifier'></a><form action='activite' method='post'><input type='hidden' name='tache' value='delete'><input name='id' type='hidden' value='"+safari.getId()+"'><input type='submit'class='btn btn-danger' value='Supprimer'></form></th></tr>");
-
-					}
-					
-				}
-			
-			%>
 
 		</tbody>
 
@@ -88,8 +67,9 @@
 		<div id="addSafari" style="display: none">
 			<div>
 				Vehicule : <select name=vehicule>
-					<option value="1">Jeep</option>
-					<option value="2">Range</option>
+					<c:forEach items="${vehicules}" var="v">
+						<option value="${v.id}">${v.model}</option>
+					</c:forEach>
 				</select>
 			</div>
 		</div>
