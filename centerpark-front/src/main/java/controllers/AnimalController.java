@@ -45,7 +45,7 @@ public class AnimalController extends HttpServlet {
 		{
 			if(request.getParameter("typeAnimal").equals("Sanglier")) 
 			{
-				System.out.println(3);
+				
 				Sanglier sg = new Sanglier(request.getParameter("nom"));
 				Context.getSingleton().getDaoAnimal().insert(sg);
 			}
@@ -64,7 +64,6 @@ public class AnimalController extends HttpServlet {
 		
 		else if(request.getParameter("tache").equals("update")) 
 		{
-			System.out.println("1");
 	
 			int id = Integer.parseInt(request.getParameter("id"));
 			

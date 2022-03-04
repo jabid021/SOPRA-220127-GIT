@@ -2,7 +2,6 @@
     pageEncoding="utf-8"%>
  
   <main align="center">
-<<<<<<< Updated upstream
   	
     <form action="animal" method="post" id="updateAnimal">
     <input type="hidden" name="tache" value="update">

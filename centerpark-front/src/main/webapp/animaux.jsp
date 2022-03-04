@@ -32,17 +32,17 @@ Modifier aura un lien vers la page updateAnimal.html?id=x
 				{
 					if( a instanceof Sanglier)
 					{
-						Animal animal = (Sanglier)a;
+						Sanglier animal = (Sanglier)a;
 						out.println("<tr><td>"+animal.getId()+"</td><td>"+animal.getNom()+"</td><td>"+animal.getClass().getSimpleName()+"</td><td><a href='animal?id="+animal.getId()+"'><input type='button' class='btn btn-warning'value='Modifier'></a><form action='animal' method='post'><input type='hidden' name='tache' value='delete'><input name='id' type='hidden' value='"+animal.getId()+"'><input type='submit'class='btn btn-danger' value='Supprimer'></form></td></tr>");
 					}
 					else if( a instanceof Serpent)
 					{
-						Animal animal = (Serpent)a;
+						Serpent animal = (Serpent)a;
 						out.println("<tr><td>"+animal.getId()+"</td><td>"+animal.getNom()+"</td><td>"+animal.getClass().getSimpleName()+"</td><td><a href='animal?id="+animal.getId()+"'><input type='button' class='btn btn-warning'value='Modifier'></a><form action='animal' method='post'><input type='hidden' name='tache' value='delete'><input name='id' type='hidden' value='"+animal.getId()+"'><input type='submit'class='btn btn-danger' value='Supprimer'></form></td></tr>");
 					}
 					else if( a instanceof Ecureuil)
 					{
-						Animal animal =  (Ecureuil)a;
+						Ecureuil animal =  (Ecureuil)a;
 						out.println("<tr><td>"+animal.getId()+"</td><td>"+animal.getNom()+"</td><td>"+animal.getClass().getSimpleName()+"</td><td><a href='animal?id="+animal.getId()+"'><input type='button' class='btn btn-warning'value='Modifier'></a><form action='animal' method='post'><input type='hidden' name='tache' value='delete'><input name='id' type='hidden' value='"+animal.getId()+"'><input type='submit'class='btn btn-danger' value='Supprimer'></form></td></tr>");
 					}
 				}
@@ -74,10 +74,10 @@ Modifier aura un lien vers la page updateAnimal.html?id=x
                         <tr>
                             <th>Type Animal</th>
                             <td>
-                                <select name="type">
-                                    <option name="typeAnimal" value="Sanglier">Sanglier</option>
-                                    <option name="typeAnimal" value="Serpent">Serpent</option>
-                                    <option name="typeAnimal" value="Ecureuil">Ecureuil</option>
+                                <select name="typeAnimal">
+                                    <option value="Sanglier">Sanglier</option>
+                                    <option value="Serpent">Serpent</option>
+                                    <option value="Ecureuil">Ecureuil</option>
                                   </select>
                             </td>
                         </tr>
