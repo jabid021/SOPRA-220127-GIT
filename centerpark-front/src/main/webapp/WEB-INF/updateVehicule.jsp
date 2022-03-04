@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" %>
 <title>Modifier Vehicule</title>
 	<main>
 	<form action="vehicule" method="post" id="updateFormVehicule">
@@ -11,7 +12,7 @@
 		</div>
 		<div class="form-group">
 			<label for="exampleInputPassword1">Modele</label> <input required type="text"
-				class="form-control" name="modele" value="${vehicule.model}" placeholder="Saisissez le modèle">
+				class="form-control" name="modele" value="${vehicule.model}" placeholder="Saisissez le modÃ¨le">
 		</div>
 
 		<input type="submit" class="btn btn-success"

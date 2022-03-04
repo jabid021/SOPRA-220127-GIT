@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" %>
 <title>Inscription Client</title>
 <main align="center">
   <h1> Inscription client </h1>

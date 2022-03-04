@@ -69,7 +69,19 @@ public class CompteController extends HttpServlet {
 				Staff s = new Staff(request.getParameter("mail"),request.getParameter("password"),request.getParameter("metier"));
 				Context.getSingleton().getDaoCompte().insert(s);
 			}
-			response.sendRedirect("compte");
+			
+			//sinon c'est le staff qui fait un nouveau compte
+			if(request.getSession().getAttribute("connected")!=null) 
+			{
+				response.sendRedirect("compte");
+			}
+			
+			//Si on est pas encore connecté, c'est une inscription
+			else {
+				response.sendRedirect("home");
+			}
+			
+			
 		}
 
 		else if(request.getParameter("tache").equals("update")) 
@@ -87,17 +99,7 @@ public class CompteController extends HttpServlet {
 				
 			}
 			
-			//sinon c'est le staff qui fait une modif
-			if(request.getSession().getAttribute("connected")!=null) 
-			{
-				response.sendRedirect("compte");
-			}
-			
-			//Si on est pas encore connecté, c'est une inscription
-			else {
-				response.sendRedirect("home");
-			}
-			
+			response.sendRedirect("compte");
 		}
 
 		else if(request.getParameter("tache").equals("delete"))

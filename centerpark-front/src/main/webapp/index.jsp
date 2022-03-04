@@ -1,8 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" %>
+
 <c:if test="${connected.getClass().getSimpleName()=='Client'}">
-	<c:redirect url = "client"/>
+	<c:redirect url = "client.html"/>
 </c:if>
 <c:if test="${connected.getClass().getSimpleName()=='Staff'}">
-	<c:redirect url = "staff"/>
+	<c:redirect url = "staff.jsp"/>
 </c:if>
 
 <title>Accueil</title>

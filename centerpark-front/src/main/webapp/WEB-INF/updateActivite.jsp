@@ -79,7 +79,7 @@
 		<div>
 			<input type="submit" value="Valider" class="btn btn-success button">
 			<input type="reset" class="btn btn-danger button"> <a
-				href="activite.jsp"><input type="button" value="Retour"
+				href="activite"><input type="button" value="Retour"
 				class="btn btn-primary button"></a>
 		</div>
 
