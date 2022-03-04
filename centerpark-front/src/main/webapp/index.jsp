@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-
+<title>Accueil</title>
     <main align="center">
       <h4> Connexion </h4>
       <form action="home" method="post">

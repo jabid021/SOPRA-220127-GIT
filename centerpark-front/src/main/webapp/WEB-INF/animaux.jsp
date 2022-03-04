@@ -1,12 +1,3 @@
-<!--
-Afficher un tableau avec une liste d'animaux (id,nom,type) (modifier + Suppr)
-Bouton ajouter pour avoir acces au formulaire d'ajout (nom + type en liste deroulante)
-Modifier aura un lien vers la page updateAnimal.html?id=x
- -->
-
-<%@ page import="java.util.List" %>
-<%@ page import="model.*" %>
-<%@ page import="util.Context" %>
 
 <title>Gestion des animaux</title>
 

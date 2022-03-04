@@ -1,12 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@ page import="java.util.List"%>
-<%@ page import="model.*"%>
-<%@ page import="util.Context"%>
-<!--<%@ include file="banniere.jsp" %>-->
-
-
-<title>Gestion des comptes</title>
+<title>Gestion des Vehicules</title>
 <main>
 
 	<input type="button" value="Ajouter" id="btnShowAddForm" class="btn btn-success">
@@ -14,7 +6,7 @@
 		<thead>
 			<tr>
 				<th scope="col">ID</th>
-				<th scope="col">Modèle</th>
+				<th scope="col">Modele</th>
 				<th scope="col">Actions</th>
 			</tr>
 		</thead>
@@ -37,11 +29,11 @@
 		<input type="hidden" name="tache" value="insert">
 		<table>
 			<tr>
-				<td>Modèle :</td>
+				<td>Modele :</td>
 				<td><input required type="text" name="modele"
-					placeholder="Saisissez un modèle"></td>
+					placeholder="Saisissez un modele"></td>
 				<td><input type="submit" class="btn btn-success mb-2"
-					value="Ajouter un véhicule"></td>
+					value="Ajouter un vehicule"></td>
 			</tr>
 		</table>
 	</form>
