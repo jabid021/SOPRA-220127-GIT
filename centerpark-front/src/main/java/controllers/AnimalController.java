@@ -81,7 +81,7 @@ public class AnimalController extends HttpServlet {
 				Ecureuil ec = new Ecureuil(id,request.getParameter("nom"));
 				Context.getSingleton().getDaoAnimal().update(ec);
 			}
-			
+			System.out.println(request.getParameter("id"));
 			
 		}
 		
