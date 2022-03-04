@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,10 +23,21 @@ import util.Context;
 public class ActiviteController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		List<Vehicule> vehicules = Context.getSingleton().getDaoVehicule().findAll();
+		Meteo[] meteos = Meteo.values();
+		request.setAttribute("vehicules", vehicules);
+		request.setAttribute("meteos", meteos);
 		//findAll()
 		if(request.getParameter("id")==null) 
 		{
-			System.out.println("findall");
+			List<Activite> activites = Context.getSingleton().getDaoActivite().findAll();
+			
+			request.setAttribute("activites", activites);
+			getServletContext().getRequestDispatcher("/WEB-INF/activite.jsp").forward(request, response);
+
+			
+			
 		}
 		//findById
 		else 
@@ -33,9 +45,10 @@ public class ActiviteController extends HttpServlet {
 			int id = Integer.parseInt(request.getParameter("id"));
 			Activite a = Context.getSingleton().getDaoActivite().findById(id);
 			request.setAttribute("activite", a);
+			getServletContext().getRequestDispatcher("/WEB-INF/updateActivite.jsp").forward(request, response);
 		}
 
-		getServletContext().getRequestDispatcher("/updateActivite.jsp").forward(request, response);
+		
 	}
 
 
@@ -111,7 +124,7 @@ public class ActiviteController extends HttpServlet {
 		}
 
 
-		response.sendRedirect("activite.jsp");
+		response.sendRedirect("activite");
 
 
 	}
