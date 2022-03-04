@@ -10,5 +10,14 @@
       <include-prelude>banniere.jsp</include-prelude>
     </jsp-property-group>
   </jsp-config>
- 
+  <servlet>
+    <description></description>
+    <display-name>AnimalController</display-name>
+    <servlet-name>AnimalController</servlet-name>
+    <servlet-class>controllers.AnimalController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AnimalController</servlet-name>
+    <url-pattern>/AnimalController</url-pattern>
+  </servlet-mapping>
 </web-app>
