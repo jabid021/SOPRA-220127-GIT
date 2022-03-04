@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
- 
+
+ <title>Modifier Client</title>
     <main>
  
     <form action="compte" method="post" id="updateFormCompte">

@@ -1,6 +1,4 @@
- <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
- 
+<title>Gestion des Activites</title>
   <main align="center">
   	
     <form action="animal" method="post" id="updateAnimal">
