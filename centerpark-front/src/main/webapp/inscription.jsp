@@ -1,9 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="UTF-8"%>
-    
 
-  
-  <main align="center">
+<title>Inscription Client</title>
+<main align="center">
   <h1> Inscription client </h1>
 
   <form action="compte" method="post">
