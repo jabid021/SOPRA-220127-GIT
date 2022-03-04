@@ -2,6 +2,7 @@
     pageEncoding="utf-8"%>
  
   <main align="center">
+<<<<<<< Updated upstream
   	
     <form action="animal" method="post" id="updateAnimal">
     <input type="hidden" name="tache" value="update">
@@ -12,7 +13,8 @@
         <table align="center">
                 <tr>
                     <th>nom</th>
-                    <td><input value="${animal.nom}" type="text"></td>
+
+                    <td><input name="nom" value="${animal.nom}" type="text" placeholder="Saisissez le nom"></td>
                 </tr>
 
                 <tr>
@@ -27,7 +29,8 @@
                 </tr>
         </table>
         <br>
-        <button type="submit" class="btn btn-success">Modifier</button> 
+
+        <button type="submit" class="btn btn-warning">Modifier</button>
         <a href="animaux.jsp"><button type="button" class="btn btn-danger">Annuler</button></a>
     </fieldset>
 </form>

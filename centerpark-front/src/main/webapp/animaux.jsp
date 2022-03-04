@@ -24,27 +24,7 @@ Modifier aura un lien vers la page updateAnimal.html?id=x
               </tr>
             </thead>
             <tbody>
-             <!-- <tr>
-                <td>1</td>
-                <td>Pumba</td>
-                <td>Sanglier</td>
-                <td><a href="updateAnimal.html"><button type="button" class="btn btn-primary">Modifier</button></a></td>
-                <td><button type="button" class="btn btn-danger">Supprimer</button></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>KobraKai</td>
-                <td>Serpent</td>
-                <td><a href="updateAnimal.html"><button type="button" class="btn btn-primary">Modifier</button></a></td>
-                <td><button type="button" class="btn btn-danger">Supprimer</button></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Scrat</td>
-                <td>Ecureuil</td>
-                <td><a href="updateAnimal.html"><button type="button" class="btn btn-primary">Modifier</button></a></td>
-                <td><button type="button" class="btn btn-danger">Supprimer</button></td>
-              </tr>-->
+
               <%
 				List<Animal> animals = Context.getSingleton().getDaoAnimal().findAll();
 			
@@ -75,11 +55,13 @@ Modifier aura un lien vers la page updateAnimal.html?id=x
     </div>
 
     <div >
-        <form >
+        <form action="animal" method="post">
+        	<input type="hidden" name="tache" value="insert">
 
             <fieldset>
                 <legend>Ajouter un animal</legend>
-                <input type="hidden" name="tache" value="insert">
+                
+                
                 <table align="center">
 
 
@@ -93,15 +75,16 @@ Modifier aura un lien vers la page updateAnimal.html?id=x
                             <th>Type Animal</th>
                             <td>
                                 <select name="type">
-                                    <option id="typeAnimalSanglier" name="typeAnimal">Sanglier</option>
-                                    <option id="typeAnimalSerpent" name="typeAnimal">Serpent</option>
-                                    <option id="typeAnimalSEcureuil" name="typeAnimal">Ecureuil</option>
+                                    <option name="typeAnimal" value="Sanglier">Sanglier</option>
+                                    <option name="typeAnimal" value="Serpent">Serpent</option>
+                                    <option name="typeAnimal" value="Ecureuil">Ecureuil</option>
                                   </select>
                             </td>
                         </tr>
                 </table>
                 <br>
-                <input type="submit" class="btn btn-success mb-2" value="Ajouter un animal">
+                
+                <input type="submit" class="btn btn-success" value="Ajouter un animal">
 
             </fieldset>
         </form>
