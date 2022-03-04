@@ -1,6 +1,8 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.List;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +26,11 @@ public class AnimalController extends HttpServlet {
 		//findAll()
 		if(request.getParameter("id")==null) 
 		{
-			System.out.println("findall");
+			List<Animal> animal=Context.getSingleton().getDaoAnimal().findAll();
+			request.setAttribute("listeAnimal", animal);
+			System.out.println(animal);
+			getServletContext().getRequestDispatcher("/WEB-INF/animaux.jsp").forward(request, response);
+			
 		}
 		//findById
 		else 
@@ -32,9 +38,9 @@ public class AnimalController extends HttpServlet {
 			int id = Integer.parseInt(request.getParameter("id"));
 			Animal a = Context.getSingleton().getDaoAnimal().findById(id);
 			request.setAttribute("animal", a);
+			getServletContext().getRequestDispatcher("/WEB-INF/updateAnimal.jsp").forward(request, response);
 		}
 		
-		getServletContext().getRequestDispatcher("/updateAnimal.jsp").forward(request, response);
 	}
 
 	//Update / Insert / Delete
@@ -93,7 +99,7 @@ public class AnimalController extends HttpServlet {
 			Context.getSingleton().getDaoAnimal().delete(id);
 		}
 		
-		response.sendRedirect("animaux.jsp");
+		response.sendRedirect("animal");
 	
 	}
 

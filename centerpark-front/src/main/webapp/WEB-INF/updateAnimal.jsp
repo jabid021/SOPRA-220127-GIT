@@ -1,4 +1,4 @@
-<title>Gestion des Activites</title>
+<title>Gestion des Animaux</title>
   <main align="center">
   	
     <form action="animal" method="post" id="updateAnimal">
