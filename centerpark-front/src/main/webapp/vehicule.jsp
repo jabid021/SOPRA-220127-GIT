@@ -1,12 +1,10 @@
-<!--
-Afficher un tableau avec une liste de vehicule (id,model) (modifier + Suppr)
-Bouton ajouter pour avoir acces au formulaire d'ajout (nom + model)
-Modifier aura un lien vers la page updateVehicule.html?id=x
- -->
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ page import="java.util.List"%>
+<%@ page import="model.*"%>
+<%@ page import="util.Context"%>
 <!--<%@ include file="banniere.jsp" %>-->
-	
+
 
 <title>Gestion des comptes</title>
 <main>
@@ -17,28 +15,20 @@ Modifier aura un lien vers la page updateVehicule.html?id=x
 			<tr>
 				<th scope="col">ID</th>
 				<th scope="col">Modèle</th>
-				<th scope="col">Modification</th>
-				<th scope="col">Suppresion</th>
+				<th scope="col">Actions</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<th scope="row">1</th>
-				<td>Jeep</td>
-				<td><a href="vehicule?id=1"><input type="button"
-						class="btn btn-warning" value="Modifier" /></a></td>
-				<td><input type="submit" class="btn btn-danger"
-					value="Supprimer"></td>
-			</tr>
-			<tr>
-				<th scope="row">2</th>
-				<td>Range</td>
-				<td><a href="updateVehicule.html"><input type="button"
-						class="btn btn-warning" value="Modifier" /></a></td>
-				<td><input type="submit" class="btn btn-danger"
-					value="Supprimer"></td>
+			<%
+			List<Vehicule> vehicules = Context.getSingleton().getDaoVehicule().findAll();
 
-			</tr>
+			for (Vehicule v : vehicules) {
+				out.println("<tr><td>" + v.getId() + "</td><td>" + v.getModel() + "</td><th><a href='vehicule?id=" + v.getId()
+				+ "'><input type='button' class='btn btn-warning'value='Modifier'></a><form action='vehicule' method='post'><input type='hidden' name='tache' value='delete'><input name='id' type='hidden' value='"
+				+ v.getId() + "'><input type='submit' class='btn btn-danger' value='Supprimer'></form></th></tr>");
+
+			}
+			%>
 		</tbody>
 	</table>
 	<hr>
@@ -48,7 +38,8 @@ Modifier aura un lien vers la page updateVehicule.html?id=x
 		<table>
 			<tr>
 				<td>Modèle :</td>
-				<td><input required type="text" name="modele" placeholder="Saisissez un modèle"></td>
+				<td><input required type="text" name="modele"
+					placeholder="Saisissez un modèle"></td>
 				<td><input type="submit" class="btn btn-success mb-2"
 					value="Ajouter un véhicule"></td>
 			</tr>
@@ -57,4 +48,3 @@ Modifier aura un lien vers la page updateVehicule.html?id=x
 	<br> <br>
 
 </main>
-

@@ -42,6 +42,11 @@ public class VehiculeController extends HttpServlet {
 			Vehicule v = new Vehicule(id,request.getParameter("modele"));
 			Context.getSingleton().getDaoVehicule().update(v);
 		}
+		else if(request.getParameter("tache").equals("delete"))
+		{
+			int id = Integer.parseInt(request.getParameter("id"));
+			Context.getSingleton().getDaoVehicule().delete(id);
+		}
 
 		response.sendRedirect("vehicule.jsp");
 	}
