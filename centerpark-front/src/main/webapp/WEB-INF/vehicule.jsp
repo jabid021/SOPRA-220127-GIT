@@ -1,7 +1,8 @@
 <title>Gestion des Vehicules</title>
 <main>
 
-	<input type="button" value="Ajouter" id="btnShowAddForm" class="btn btn-success">
+	<input type="button" value="Ajouter" id="btnShowAddForm"
+		class="btn btn-success">
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -11,7 +12,21 @@
 			</tr>
 		</thead>
 		<tbody>
-			<%
+			<c:forEach items="${listeVehicule}" var="vehicule">
+				<tr>
+					<td>${vehicule.id}</td>
+					<td>${vehicule.model}</td>
+					<td><a href='vehicule?id=${vehicule.id}'> <input
+							type='button' class='btn btn-warning' value='Modifier'></a>
+						<form action='vehicule' method='post'>
+							<input type='hidden' name='tache' value='delete'>
+							<input name='id' type='hidden' value='${vehicule.id}'>
+							<input type='submit' class='btn btn-danger' value='Supprimer'>
+						</form>
+					</td>
+				</tr>
+			</c:forEach>
+			<%-- <%
 			List<Vehicule> vehicules = Context.getSingleton().getDaoVehicule().findAll();
 
 			for (Vehicule v : vehicules) {
@@ -20,7 +35,7 @@
 				+ v.getId() + "'><input type='submit' class='btn btn-danger' value='Supprimer'></form></th></tr>");
 
 			}
-			%>
+			%> --%>
 		</tbody>
 	</table>
 	<hr>
@@ -41,5 +56,7 @@
 
 </main>
 <script>
-btnShowAddForm.onclick=function(){$("#addFormVehicule").show();}
+	btnShowAddForm.onclick = function() {
+		$("#addFormVehicule").show();
+	}
 </script>

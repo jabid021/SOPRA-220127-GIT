@@ -1,12 +1,15 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Compte;
 import model.Vehicule;
 import util.Context;
 
@@ -16,7 +19,9 @@ public class VehiculeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//findAll()
 		if(request.getParameter("id")==null) {
-			System.out.println("findall");
+			List<Vehicule> vehicules=Context.getSingleton().getDaoVehicule().findAll();
+			request.setAttribute("listeVehicule", vehicules);
+			getServletContext().getRequestDispatcher("/WEB-INF/vehicule.jsp").forward(request, response);
 		}
 		//findById
 		else 
@@ -24,9 +29,8 @@ public class VehiculeController extends HttpServlet {
 			int id = Integer.parseInt(request.getParameter("id"));
 			Vehicule v = Context.getSingleton().getDaoVehicule().findById(id);
 			request.setAttribute("vehicule", v);
+			getServletContext().getRequestDispatcher("/WEB-INF/updateVehicule.jsp").forward(request, response);
 		}
-
-		getServletContext().getRequestDispatcher("/updateVehicule.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,7 +52,7 @@ public class VehiculeController extends HttpServlet {
 			Context.getSingleton().getDaoVehicule().delete(id);
 		}
 
-		response.sendRedirect("vehicule.jsp");
+		response.sendRedirect("vehicule");
 	}
 
 }

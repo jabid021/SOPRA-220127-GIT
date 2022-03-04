@@ -6,7 +6,7 @@
 		<input type="hidden" name="id" value="${vehicule.id}">
 		<div class="form-group">
 			<label for="exampleInputEmail1">ID :</label> <input type="text"
-				class="form-control" id="id_vehicule" placeholder="1" readonly>
+				class="form-control" id="id_vehicule" value="${vehicule.id}" readonly>
 
 		</div>
 		<div class="form-group">
@@ -15,7 +15,7 @@
 		</div>
 
 		<input type="submit" class="btn btn-success"
-			value="Modifier les infos"> <a href="vehicule.jsp"><button
+			value="Modifier les infos"> <a href="vehicule"><button
 				type="button" class="btn btn-danger">Annuler</button></a>
 
 	</form>
