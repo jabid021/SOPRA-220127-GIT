@@ -25,6 +25,7 @@
 			<tbody>
 			
 			<%
+		
 				List<Compte> comptes=Context.getSingleton().getDaoCompte().findAll();
 			
 				for(Compte c : comptes)
