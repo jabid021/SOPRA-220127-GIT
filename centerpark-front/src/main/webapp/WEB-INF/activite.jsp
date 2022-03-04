@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <title>Gestion des activites</title>
 
 <main>
@@ -19,9 +20,49 @@
 		</thead>
 
 		<tbody>
+			<c:forEach items="${activites}" var="a">
+				<c:choose>
+					<c:when test="${a.getClass().getSimpleName()=='Aquatique'}">
+						<tr>
+							<td>${a.id}</td>
+							<td>${a.date}</td>
+							<td>${a.heure}</td>
+							<td>${a.prix}</td>
+							<td>${a.meteo}</td>
+							<td>Aquatique</td>
+							<td>null</td>
+							<td><a href='activite?id=${a.id}'><input
+									type='button' class='btn btn-warning' value='Modifier'></a>
+								<form action='activite' method='post'>
+									<input type='hidden' name='tache' value='delete'> <input
+										name='id' type='hidden' value='${a.id}'> <input
+										type='submit' class='btn btn-danger' value='Supprimer'>
+								</form></td>
+						</tr>
+					</c:when>
+					<c:when test="${a.getClass().getSimpleName()=='Safari'}">
+						<tr>
+							<td>${a.id}</td>
+							<td>${a.date}</td>
+							<td>${a.heure}</td>
+							<td>${a.prix}</td>
+							<td>${a.meteo}</td>
+							<td>Safari</td>
+							<td>${a.vehicule}</td>
+							<td><a href='activite?id=${a.id}'><input
+									type='button' class='btn btn-warning' value='Modifier'></a>
+								<form action='activite' method='post'>
+									<input type='hidden' name='tache' value='delete'> <input
+										name='id' type='hidden' value='${a.id}'> <input
+										type='submit' class='btn btn-danger' value='Supprimer'>
+								</form></td>
+						</tr>
+					</c:when>
 
-			
+				</c:choose>
 
+
+			</c:forEach>
 		</tbody>
 
 		</tbody>
@@ -33,7 +74,7 @@
 
 	<br>
 	<div id="ajouter">
-		<input type="button" value="Ajouter" class="btn btn-info button">
+		<input type="button" value="Ajouter" id="btnShowAddForm" class="btn btn-info button">
 	</div>
 	<br> <br>
 
@@ -41,8 +82,10 @@
 	<form action="activite" method="post" id="addFormActivite">
 		<input type="hidden" name="tache" value="insert">
 		<div>
-			Type activite : <input checked id="typeActiviteAquatique" type="radio" name="typeActivite" value="aquatique">Aquatique
-			<input id="typeActiviteSafari" type="radio" name="typeActivite" value="safari">Safari
+			Type activite : <input checked id="typeActiviteAquatique"
+				type="radio" name="typeActivite" value="aquatique">Aquatique
+			<input id="typeActiviteSafari" type="radio" name="typeActivite"
+				value="safari">Safari
 		</div>
 		<div>
 			Date : <input required type="date" name="date">
@@ -53,13 +96,13 @@
 		</div>
 		<div>
 			Prix : <input name=prix type="number" placeholder="prix" min=0
-				max=999 step=0.01> €
+				max=999 step=0.01>€
 		</div>
 		<div>
-			Météo : <select name=meteo>
-				<option>Soleil</option>
-				<option>Pluie</option>
-				<option>Neige</option>
+			Meteo : <select name=meteo>
+				<c:forEach items="${meteos}" var="m">
+					<option>${m}</option>
+				</c:forEach>
 			</select>
 		</div>
 
@@ -76,8 +119,7 @@
 
 
 		<input type="submit" class="btn btn-success mb-2"
-			value="Ajouter une activité"> 
-		<input type="reset"
+			value="Ajouter une activite"> <input type="reset"
 			class="btn btn-danger button">
 
 	</form>
@@ -85,17 +127,16 @@
 </main>
 
 <script>
+	typeActiviteAquatique.onchange = showFormActivite;
+	typeActiviteSafari.onchange = showFormSafari;
+	btnShowAddForm.onclick = function() {
+		$("#addFormActivite").show();
+	}
+	function showFormActivite() {
+		$("#addSafari").hide();
+	}
 
-typeActiviteAquatique.onchange=showFormActivite;
-typeActiviteSafari.onchange=showFormSafari;
-btnShowAddForm.onclick=function(){$("#addFormActivite").show();}
-function showFormActivite()
-{
-	$("#addSafari").hide();
-}
-
-function showFormSafari()
-{
-	$("#addSafari").show();
-}
+	function showFormSafari() {
+		$("#addSafari").show();
+	}
 </script>
