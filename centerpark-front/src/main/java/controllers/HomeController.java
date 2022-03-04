@@ -16,7 +16,7 @@ import util.Context;
 public class HomeController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		System.out.println("ici");
 		
 	}
 
@@ -32,7 +32,11 @@ public class HomeController extends HttpServlet {
 
 		else if(connected instanceof Staff) {response.sendRedirect("staff.html");}
 
-		else {getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);}
+		else 
+		{
+			request.setAttribute("error", "Identifiants invalides");
+			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		}
 		
 
 

@@ -25,11 +25,8 @@
 			<tbody>
 			
 			<%
-			out.println("ttttt");
-			
-			
+		
 				List<Compte> comptes=Context.getSingleton().getDaoCompte().findAll();
-				out.println(comptes);
 			
 				for(Compte c : comptes)
 				{

@@ -18,10 +18,10 @@
 
         </table>
         <br>
-        <div id="errorConnect">Identifiants invalides</div>
+        <div id="errorConnect">${error}</div>
         <br>
         <input value="Se connecter" type="submit">
       </form>
-      <a href="inscription.html"> Inscription </a>
+      <a href="inscription.jsp"> Inscription </a>
     </main>
 
