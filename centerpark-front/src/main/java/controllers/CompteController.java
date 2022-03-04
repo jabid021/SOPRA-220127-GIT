@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import model.Client;
 import model.Staff;
 import util.Context;
@@ -17,7 +18,7 @@ public class CompteController extends HttpServlet {
 
 	//FindById + FindAll()
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		//findAll()
 		if(request.getParameter("id")==null) 
 		{
@@ -30,20 +31,22 @@ public class CompteController extends HttpServlet {
 			Client c = (Client)Context.getSingleton().getDaoCompte().findById(id);
 			request.setAttribute("client", c);
 		}
-		
+
 		getServletContext().getRequestDispatcher("/updateClient.jsp").forward(request, response);
+
 	}
+
 
 	//Update / Insert / Delete
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		System.out.println("1");
-		
+
 		if(request.getParameter("tache").equals("insert")) 
 		{
 			if(request.getParameter("typeCompte").equals("client")) 
 			{
-				
+
 				Client c = new Client(request.getParameter("mail"),request.getParameter("password"),request.getParameter("tel"),request.getParameter("numero"),request.getParameter("voie"),request.getParameter("ville"),request.getParameter("cp"));
 				Context.getSingleton().getDaoCompte().insert(c);
 			}
@@ -52,9 +55,9 @@ public class CompteController extends HttpServlet {
 				Staff s = new Staff(request.getParameter("mail"),request.getParameter("password"),request.getParameter("metier"));
 				Context.getSingleton().getDaoCompte().insert(s);
 			}
-			
+
 		}
-		
+
 		else if(request.getParameter("tache").equals("update")) 
 		{
 			System.out.println("2");
@@ -72,16 +75,17 @@ public class CompteController extends HttpServlet {
 				Context.getSingleton().getDaoCompte().update(s);
 			}
 		}
-		
+
 		else if(request.getParameter("tache").equals("delete"))
 		{
-			
+
 			int id = Integer.parseInt(request.getParameter("id"));
 			Context.getSingleton().getDaoCompte().delete(id);
 		}
-		
+
 		response.sendRedirect("comptes.jsp");
-	
+
+
 	}
 
 }

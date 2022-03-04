@@ -3,16 +3,16 @@
 
     <main align="center">
       <h4> Connexion </h4>
-      <form>
+      <form action="home" method="post">
         <table align="center">
         <tr>
           <td>Email :</td>
-          <td> <input required placeholder="Email" type="email"></td>
+          <td> <input required placeholder="Email" name="mail" type="email"></td>
         </tr>
 
         <tr>
           <td>Password : </td>
-          <td><input required placeholder="Password" pattern ="[A-z]{4,8}" type="password"></td>
+          <td><input required placeholder="Password" name="password" pattern ="[A-z]{4,8}" type="password"></td>
         </tr>
 
 
