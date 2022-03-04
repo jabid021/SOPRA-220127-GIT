@@ -10,7 +10,6 @@
       <include-prelude>banniere.jsp</include-prelude>
     </jsp-property-group>
   </jsp-config>
-
-
+ 
 </web-app>
 
