@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<main>
+
+<title>Modifier Vehicule</title>
+	<main>
 	<form action="vehicule" method="post" id="updateFormVehicule">
 		<input type="hidden" name="tache" value="update">
 		<input type="hidden" name="id" value="${vehicule.id}">
@@ -10,8 +10,8 @@
 
 		</div>
 		<div class="form-group">
-			<label for="exampleInputPassword1">Modèle</label> <input required type="text"
-				class="form-control" name="modele" value="${vehicule.model}" placeholder="Saisissez le modèle">
+			<label for="exampleInputPassword1">Modele</label> <input required type="text"
+				class="form-control" name="modele" value="${vehicule.model}" placeholder="Saisissez le mod�le">
 		</div>
 
 		<input type="submit" class="btn btn-success"

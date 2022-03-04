@@ -1,14 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@ page import="java.util.List" %>
-<%@ page import="model.*" %>
-<%@ page import="util.Context" %>
-<!--<%@ include file="banniere.jsp" %>-->
+
+
+
 	
 
 <title>Gestion des comptes</title>
 <main>
 		<input type="button" value="Ajouter" id="btnShowAddForm" class="btn btn-success">
+	
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -24,30 +22,63 @@
 			</thead>
 			<tbody>
 			
-			<%
-				List<Compte> comptes=Context.getSingleton().getDaoCompte().findAll();
+			<c:forEach items="${listeCompte}" var="compte">
 			
-				for(Compte c : comptes)
-				{
-					if(c instanceof Client)
-					{
-						Client client = (Client)c;
-						out.println("<tr><td>"+client.getNumero()+"</td><td>"+client.getMail()+"</td><td>"+client.getPassword()+"</td><td>"+client.getTel()+"</td><td>"+client.getAdresse()+"</td><td>/</td><th>"+c.getClass().getSimpleName().toLowerCase()+"</th><th><a href='compte?id="+client.getNumero()+"'><input type='button' class='btn btn-warning'value='Modifier'></a><form action='compte' method='post'><input type='hidden' name='tache' value='delete'><input name='id' type='hidden' value='"+c.getNumero()+"'><input type='submit'class='btn btn-danger' value='Supprimer'></form></th></tr>");
-
-					}
-					else if(c instanceof Staff)
-					{
-						Staff staff = (Staff)c;
-						out.println("<tr><td>"+staff.getNumero()+"</td><td>"+staff.getMail()+"</td><td>"+staff.getPassword()+"</td><td>/</td><td>/</td><td>"+staff.getMetier()+"</td><th>"+c.getClass().getSimpleName().toLowerCase()+"</th><th><input type='button' class='btn btn-warning'value='Modifier'><input type='button'class='btn btn-danger' value='Supprimer'></th></tr>");
-
-					}
-					
-				}
+			<c:choose>
+				<c:when  test="${compte.getClass().getSimpleName()=='Client'}">
+				<tr>
+					<td>${compte.numero}</td>
+					<td>${compte.mail}</td>
+					<td>${compte.password}</td>
+					<td>${compte.tel}</td>
+					<td>${compte.adresse.numero} ${compte.adresse.voie}, ${compte.adresse.cp}, ${compte.adresse.ville}</td>
+					<td>/</td>
+					<td>${compte.getClass().getSimpleName().toLowerCase()}</td>
+					<td>
+						<a href='compte?id=${compte.numero}'>
+							<input type='button' class='btn btn-warning'value='Modifier'>
+						</a>
+						<form action='compte' method='post'>
+							<input type='hidden' name='tache' value='delete'>
+							<input name='id' type='hidden' value='${compte.numero}'>
+							<input type='submit'class='btn btn-danger' value='Supprimer'>
+						</form>
+					</td>
+				</tr>
+			</c:when>
 			
-			%>
-		
+			<c:otherwise>
+			
+				<tr>
+					<td>${compte.numero}</td>
+					<td>${compte.mail}</td>
+					<td>${compte.password}</td>
+					<td>/</td>
+					<td>/</td>
+					<td>${compte.metier}</td>
+					<td>${compte.getClass().getSimpleName().toLowerCase()}</td>
+					<td>
+						<a href='compte?id=${compte.numero}'>
+							<input type='button' class='btn btn-warning'value='Modifier'>
+						</a>
+						<form action='compte' method='post'>
+							<input type='hidden' name='tache' value='delete'>
+							<input name='id' type='hidden' value='${compte.numero}'>
+							<input type='submit'class='btn btn-danger' value='Supprimer'>
+						</form>
+					</td>
+				</tr>
+				
+			</c:otherwise>
+			
+			</c:choose>
+			
+			</c:forEach>
+	
 			</tbody>
 		</table>
+		
+		
 		<hr>
 		<br>
 		<form action="compte" method="post" id="addFormCompte">
