@@ -1,5 +1,6 @@
 package model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -18,6 +19,7 @@ public class Pokemon {
 	private int pv;
 	private transient Dresseur dresseur;
 	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "ENUM('Eau','Plante','Feu','Roche','Dragon', 'Acier','Ismail')")
 	private Type type;
 	
 	

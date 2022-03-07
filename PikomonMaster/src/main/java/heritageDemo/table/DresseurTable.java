@@ -1,21 +1,37 @@
-package model;
+package heritageDemo.table;
 
 import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
 
-@Entity
-public class Dresseur extends Personne {
+import model.Adresse;
+import model.Arene;
+import model.Item;
+import model.Pokemon;
+import model.Ville;
+
+//@Entity
+public class DresseurTable extends PersonneTable {
 
 	private transient Adresse adresse;
 	private transient Arene arene;
 	private transient List<Pokemon> equipe;
 	private transient List<Item> inventaire;
+	private String attributDresseur;
 	
-	public Dresseur() {}
+
+	public String getAttributDresseur() {
+		return attributDresseur;
+	}
+
+	public void setAttributDresseur(String attributDresseur) {
+		this.attributDresseur = attributDresseur;
+	}
+
+	public DresseurTable() {}
 	
-	public Dresseur(String nom, LocalDate naissance,int numero, Ville ville) {
+	public DresseurTable(String nom, LocalDate naissance,int numero, Ville ville) {
 		super(nom,naissance);
 		this.adresse = new Adresse(numero,ville);
 	}

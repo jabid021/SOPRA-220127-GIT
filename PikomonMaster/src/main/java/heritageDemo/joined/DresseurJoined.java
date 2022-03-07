@@ -1,21 +1,40 @@
-package model;
+package heritageDemo.joined;
 
 import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
-@Entity
-public class Dresseur extends Personne {
+import model.Adresse;
+import model.Arene;
+import model.Item;
+import model.Pokemon;
+import model.Ville;
+
+//@Entity
+@PrimaryKeyJoinColumn(name = "personne_fk")
+public class DresseurJoined extends PersonneJoined {
 
 	private transient Adresse adresse;
 	private transient Arene arene;
 	private transient List<Pokemon> equipe;
 	private transient List<Item> inventaire;
+	private String attributDresseur;
 	
-	public Dresseur() {}
 	
-	public Dresseur(String nom, LocalDate naissance,int numero, Ville ville) {
+	
+	public String getAttributDresseur() {
+		return attributDresseur;
+	}
+
+	public void setAttributDresseur(String attributDresseur) {
+		this.attributDresseur = attributDresseur;
+	}
+
+	public DresseurJoined() {}
+	
+	public DresseurJoined(String nom, LocalDate naissance,int numero, Ville ville) {
 		super(nom,naissance);
 		this.adresse = new Adresse(numero,ville);
 	}

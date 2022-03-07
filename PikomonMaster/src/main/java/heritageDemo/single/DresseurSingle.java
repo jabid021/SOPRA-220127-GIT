@@ -1,21 +1,30 @@
-package model;
+package heritageDemo.single;
 
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-@Entity
-public class Dresseur extends Personne {
+import model.Adresse;
+import model.Arene;
+import model.Item;
+import model.Pokemon;
+import model.Ville;
+
+//@Entity
+@DiscriminatorValue("dresseur")
+public class DresseurSingle extends PersonneSingle {
 
 	private transient Adresse adresse;
 	private transient Arene arene;
 	private transient List<Pokemon> equipe;
 	private transient List<Item> inventaire;
+	private String attributDresseur;
 	
-	public Dresseur() {}
+	public DresseurSingle() {}
 	
-	public Dresseur(String nom, LocalDate naissance,int numero, Ville ville) {
+	public DresseurSingle(String nom, LocalDate naissance,int numero, Ville ville) {
 		super(nom,naissance);
 		this.adresse = new Adresse(numero,ville);
 	}
@@ -50,6 +59,15 @@ public class Dresseur extends Personne {
 
 	public void setInventaire(List<Item> inventaire) {
 		this.inventaire = inventaire;
+	}
+
+
+	public String getAttributDresseur() {
+		return attributDresseur;
+	}
+
+	public void setAttributDresseur(String attributDresseur) {
+		this.attributDresseur = attributDresseur;
 	}
 
 	@Override

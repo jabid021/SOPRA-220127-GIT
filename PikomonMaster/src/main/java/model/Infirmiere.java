@@ -1,8 +1,14 @@
 package model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Infirmiere extends Personne{
 
-	private Centre centre;
+	private transient Centre centre;
+	
+	public Infirmiere() {
+	}
 	
 	public Infirmiere(String nom) {
 		super(nom);

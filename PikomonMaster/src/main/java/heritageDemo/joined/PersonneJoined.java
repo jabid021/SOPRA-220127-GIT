@@ -1,4 +1,4 @@
-package model;
+package heritageDemo.joined;
 
 import java.time.LocalDate;
 
@@ -8,26 +8,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.SequenceGenerator;
 
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@SequenceGenerator(name = "seqPersonneJPA",sequenceName = "seqPersonne")
-public abstract class Personne {
+//@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class PersonneJoined {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seqPersonneJPA")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Integer id;
 	protected String nom;
 	protected LocalDate naissance;
 	
-	public Personne() {}	
+	public PersonneJoined() {}	
 	
-	public Personne(String nom) {
+	public PersonneJoined(String nom) {
 		this.nom = nom;
 	}
 
-	public Personne(String nom,LocalDate naissance) {
+	public PersonneJoined(String nom,LocalDate naissance) {
 		this.nom = nom;
 		this.naissance=naissance;
 	}

@@ -1,20 +1,25 @@
 package model;
 
-import javax.annotation.processing.Generated;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 //Obligatoire
 @Entity
+@Table(name="city") 
 public class Ville {
 
 	//Obligatoire
 	@Id
 	//Semi-Obligatoire (Obligatoire si on veut de l'auto increment)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_city")
 	private Integer id;
+	
+	@Column(name="name",length = 20,nullable = false,unique = true)
 	private String nom;
 	
 	private transient Centre centre;

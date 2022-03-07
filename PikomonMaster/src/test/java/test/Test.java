@@ -22,7 +22,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		
-		Infirmiere inf = new Infirmiere("Joelle");
+		Infirmiere inf = new Infirmiere("Joelle1");
 		Centre centre = new Centre(inf);
 		Ville v1 = new Ville("Relifac-le-haut",centre);
 		
@@ -42,8 +42,10 @@ public class Test {
 		inventaire.add(i3);
 		matthieu.setInventaire(inventaire);
 		
-		Infirmiere inf2 = new Infirmiere("Joelle");
+		Infirmiere inf2 = new Infirmiere("Joelle2");
 		Centre centre2 = new Centre(inf2);
+		
+		Infirmiere inf3 = new Infirmiere("Joelle3");
 		
 		Ville v2 = new Ville("Carmin-sur-mer",centre2);
 		Dresseur ismail  = new Dresseur("Ismail",LocalDate.parse("1996-02-16"),11,v2);
@@ -85,9 +87,13 @@ public class Test {
 		em.persist(i2);
 		em.persist(i3);
 		
-		em.persist(arene);		
-		
-		
+		em.persist(arene);
+	
+		em.persist(matthieu);
+		em.persist(ismail);
+		em.persist(inf);
+		em.persist(inf2);
+		em.persist(inf3);
 		em.getTransaction().commit();
 		
 		
