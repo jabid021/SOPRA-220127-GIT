@@ -1,18 +1,29 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 @Entity
-public class Personne {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="type_personne")
+@Table(name="people")
+public abstract class Personne {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String nom;
-	private String prenom;
+	protected Integer id;
+	
+	@Column(name="lastname",length=40)
+	protected String nom;
+	@Column(name="firstname",length=40)
+	protected String prenom;
 	
 	public Personne() {}
 

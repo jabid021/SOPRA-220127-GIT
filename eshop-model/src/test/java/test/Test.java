@@ -1,9 +1,13 @@
 package test;
 
+import java.time.LocalDate;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import model.Client;
+import model.Fournisseur;
 import model.Personne;
 
 public class Test {
@@ -13,11 +17,14 @@ public class Test {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("eshopUnit");
 		EntityManager em = emf.createEntityManager();
 		
-		Personne p1 = new Personne("Abid","Jordan");
+		Fournisseur p1 = new Fournisseur("Abid","Jordan","AJC");
+		Client c1 = new Client("Doe","John",42,LocalDate.parse("1980-01-01"));
+		
 		
 		em.getTransaction().begin();
 		
 		em.persist(p1);
+		em.persist(c1);
 		
 		em.getTransaction().commit();
 		
