@@ -1,12 +1,28 @@
 package model;
 
+import javax.annotation.processing.Generated;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+//Obligatoire
+@Entity
 public class Ville {
 
+	//Obligatoire
+	@Id
+	//Semi-Obligatoire (Obligatoire si on veut de l'auto increment)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nom;
-	private Centre centre;
-	private Arene arene;
 	
+	private transient Centre centre;
+	private transient Arene arene;
+	
+	//Obligatoire
+	public Ville() {
+	}
 	
 	public Ville(String nom, Centre centre) {
 		this.nom = nom;

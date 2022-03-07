@@ -1,13 +1,26 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Arene {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private int ordre;
+	@Enumerated(EnumType.STRING)
 	private Type type;
-	private Ville ville;
-	private Dresseur maitre;
+	private transient Ville ville;
+	private transient Dresseur maitre;
 	
+	public Arene() {
+	}
 	
 	public Arene(int ordre, Type type, Ville ville, Dresseur maitre) {
 		this.ordre = ordre;

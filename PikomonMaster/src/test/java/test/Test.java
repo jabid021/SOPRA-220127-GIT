@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import model.Arene;
 import model.Centre;
 import model.Dresseur;
@@ -55,7 +59,44 @@ public class Test {
 		
 		
 		
-				
+			
+		
+		EntityManagerFactory emf  = Persistence.createEntityManagerFactory("demoJPA");
+		
+		EntityManager em  = emf.createEntityManager();
+		
+		em.getTransaction().begin();
+		
+		
+		em.persist(v1);
+		em.persist(v2);
+		
+		em.persist(centre);
+		em.persist(centre2);
+		
+		em.persist(p1);
+		em.persist(p2);
+		em.persist(p3);
+		em.persist(p4);
+		em.persist(p5);
+		em.persist(p6);
+		
+		em.persist(i1);
+		em.persist(i2);
+		em.persist(i3);
+		
+		em.persist(arene);		
+		
+		
+		em.getTransaction().commit();
+		
+		
+		
+		
+		System.out.println(em.find(Pokemon.class, 1));
+		
+		em.close();
+		emf.close();
 		
 		
 		
