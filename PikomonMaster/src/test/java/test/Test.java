@@ -20,8 +20,9 @@ import model.Ville;
 
 public class Test {
 
-	public static void main(String[] args) {
-		
+	
+	public static void initBdd() 
+	{
 		Infirmiere inf = new Infirmiere("Joelle1");
 		Centre centre = new Centre(inf);
 		Ville v1 = new Ville("Relifac-le-haut",centre);
@@ -62,9 +63,6 @@ public class Test {
 		p5.setDresseur(ismail);
 		p6.setDresseur(ismail);
 		
-		List<Pokemon> pokemons2= new ArrayList();
-		Collections.addAll(pokemons2, p4,p5,p6);
-		ismail.setEquipe(pokemons2);
 		
 		Arene arene = new Arene(1, Type.Mixte, v2, ismail);
 		
@@ -80,11 +78,13 @@ public class Test {
 		em.getTransaction().begin();
 		
 		
+	
+		
+		//em.persist(centre);
+		//em.persist(centre2);
+		
 		em.persist(v1);
 		em.persist(v2);
-		
-		em.persist(centre);
-		em.persist(centre2);
 		
 		em.persist(p1);
 		em.persist(p2);
@@ -93,29 +93,46 @@ public class Test {
 		em.persist(p5);
 		em.persist(p6);
 		
-		em.persist(i1);
-		em.persist(i2);
-		em.persist(i3);
-		
 		em.persist(arene);
+		//em.persist(i1);
+		//em.persist(i2);
+		//em.persist(i3);
+		
+		
 	
-		em.persist(matthieu);
-		em.persist(ismail);
-		em.persist(inf);
-		em.persist(inf2);
-		em.persist(inf3);
+		//em.persist(matthieu);
+		
+		//em.persist(ismail);
+		
+		//em.persist(inf);
+		//em.persist(inf2);
+		//em.persist(inf3);
+		
+		
 		em.getTransaction().commit();
 		
-		
-		
-		
 		System.out.println(em.find(Pokemon.class, 1));
-		
+
 		em.close();
 		emf.close();
+	
+	}
+	
+	public static void main(String[] args) {
+		
+	
+		EntityManagerFactory emf  = Persistence.createEntityManagerFactory("demoJPA");
+		EntityManager em = emf.createEntityManager();
+		
+		Pokemon p = em.find(Pokemon.class,1);
 		
 		
-		
+		em.close();
+		for(Pokemon poke : p.getDresseur().getEquipe()) 
+		{
+			System.out.println(poke);
+		}
+		emf.close();
 		
 		
 		

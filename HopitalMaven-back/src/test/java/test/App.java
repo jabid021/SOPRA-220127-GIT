@@ -22,7 +22,6 @@ import model.Visite;
 public class App {
 
 	static LinkedList<Patient> fileAttente = new LinkedList();
-	static List<Visite> visites = new ArrayList();
 	static Compte connected;
 	static DAOCompte daoCompte = new DAOCompte();
 	static DAOPatient daoPatient = new DAOPatient();
@@ -189,13 +188,14 @@ public class App {
 			fileAttente.add(p);
 
 		} else {
+			Medecin m = (Medecin) connected;
 			// Retirer le premier patient de la file, lui creer une visite
 			if (!fileAttente.isEmpty()) {
 				Patient p = fileAttente.poll();
 				Visite visite = new Visite(p, (Medecin) connected);
-				visites.add(visite);
+				m.getVisites().add(visite);
 			}
-			if (visites.size() == 10) {
+			if (m.getVisites().size() == 10) {
 				sauvegarderVisite();
 			}
 		}
@@ -279,8 +279,8 @@ public class App {
 		// stockage des visites dans une liste de visites
 		// inscription dans base de donnees par le medecin ou quand 10 visites dans la
 		// liste
-
-		for (Visite v : visites) {
+		Medecin m = (Medecin) connected;
+		for (Visite v : m.getVisites()) {
 			daoVisite.insert(v);
 		}
 

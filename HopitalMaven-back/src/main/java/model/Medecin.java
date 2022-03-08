@@ -1,7 +1,10 @@
 package model;
 
+import java.util.List;
+
 public class Medecin extends Compte {
 
+	private List<Visite> visites;
     private int salle;
     
     public Medecin(Integer id, String mail, String password) {
@@ -16,6 +19,17 @@ public class Medecin extends Compte {
 
 	public void setSalle(int salle) {
 		this.salle = salle;
+	}
+	
+
+
+	public List<Visite> getVisites() {
+		return visites;
+	}
+
+
+	public void setVisites(List<Visite> visites) {
+		this.visites = visites;
 	}
 
 

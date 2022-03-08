@@ -1,5 +1,6 @@
 package model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -20,6 +21,7 @@ public class Arene {
 	
 	@OneToOne
 	private  Ville ville;
+	//@OneToOne(cascade = CascadeType.PERSIST)
 	@OneToOne
 	private  Dresseur maitre;
 	

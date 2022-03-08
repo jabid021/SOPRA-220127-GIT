@@ -2,6 +2,9 @@ package model;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 public class Patient implements Serializable {
 	 
 	private Integer id;
