@@ -1,10 +1,15 @@
 package model;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Adresse {
 
 	private int numero;
-	private Ville ville;
+	private transient Ville ville;
 	
+	public Adresse() {
+	}
 	
 	public Adresse(int numero, Ville ville) {
 		this.numero = numero;

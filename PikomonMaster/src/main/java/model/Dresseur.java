@@ -3,12 +3,14 @@ package model;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
 @Entity
 public class Dresseur extends Personne {
 
-	private transient Adresse adresse;
+	@Embedded
+	private Adresse adresse;
 	private transient Arene arene;
 	private transient List<Pokemon> equipe;
 	private transient List<Item> inventaire;
