@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Pokemon {
@@ -17,7 +18,10 @@ public class Pokemon {
 	private String nom;
 	private int attaque;
 	private int pv;
-	private transient Dresseur dresseur;
+	
+	
+	@ManyToOne
+	private Dresseur dresseur;
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "ENUM('Eau','Plante','Feu','Roche','Dragon', 'Acier','Ismail')")
 	private Type type;

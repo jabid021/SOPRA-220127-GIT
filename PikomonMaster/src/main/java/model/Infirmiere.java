@@ -1,11 +1,13 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Infirmiere extends Personne{
 
-	private transient Centre centre;
+	@OneToOne
+	private Centre centre;
 	
 	public Infirmiere() {
 	}

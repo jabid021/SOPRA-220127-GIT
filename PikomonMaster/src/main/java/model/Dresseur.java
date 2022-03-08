@@ -5,15 +5,23 @@ import java.util.List;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Dresseur extends Personne {
 
 	@Embedded
 	private Adresse adresse;
-	private transient Arene arene;
-	private transient List<Pokemon> equipe;
-	private transient List<Item> inventaire;
+	@OneToOne
+	private Arene arene;
+	
+	@OneToMany
+	private List<Pokemon> equipe;
+	
+	@ManyToMany
+	private List<Item> inventaire;
 	
 	public Dresseur() {}
 	

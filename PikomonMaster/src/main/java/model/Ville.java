@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 //Obligatoire
@@ -22,8 +23,10 @@ public class Ville {
 	@Column(name="name",length = 20,nullable = false,unique = true)
 	private String nom;
 	
-	private transient Centre centre;
-	private transient Arene arene;
+	@OneToOne
+	private Centre centre;
+	@OneToOne
+	private Arene arene;
 	
 	//Obligatoire
 	public Ville() {

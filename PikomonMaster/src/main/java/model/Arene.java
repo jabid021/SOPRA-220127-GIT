@@ -6,6 +6,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Arene {
@@ -16,8 +17,11 @@ public class Arene {
 	private int ordre;
 	@Enumerated(EnumType.STRING)
 	private Type type;
-	private transient Ville ville;
-	private transient Dresseur maitre;
+	
+	@OneToOne
+	private  Ville ville;
+	@OneToOne
+	private  Dresseur maitre;
 	
 	public Arene() {
 	}

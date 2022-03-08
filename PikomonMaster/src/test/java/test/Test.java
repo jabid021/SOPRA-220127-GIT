@@ -30,9 +30,14 @@ public class Test {
 		Pokemon p1 = new Pokemon("Dracolosse", 150, 100, Type.Dragon);
 		Pokemon p2 = new Pokemon("Amphinobi",120,70,Type.Eau);
 		Pokemon p3 = new Pokemon ("Exagide",130,80,Type.Acier);
+		p1.setDresseur(matthieu);
+		p2.setDresseur(matthieu);
+		p3.setDresseur(matthieu);
+		
 		List<Pokemon> pokemons= new ArrayList();
 		Collections.addAll(pokemons, p1,p2,p3);
 		matthieu.setEquipe(pokemons);
+		
 		Item i1 = new Item("potion");
 		Item i2 = new Item("PokeBall");
 		Item i3= new Item("MasterBall");
@@ -53,10 +58,15 @@ public class Test {
 		Pokemon p5 = new Pokemon ("Herbizare",120,100,Type.Plante);
 		Pokemon p6 = new Pokemon("Carapuce",60,80,Type.Eau);
 		
+		p4.setDresseur(ismail);
+		p5.setDresseur(ismail);
+		p6.setDresseur(ismail);
+		
 		List<Pokemon> pokemons2= new ArrayList();
 		Collections.addAll(pokemons2, p4,p5,p6);
+		ismail.setEquipe(pokemons2);
 		
-		Arene arene = new Arene(1, Type.Ismail, v2, ismail);
+		Arene arene = new Arene(1, Type.Mixte, v2, ismail);
 		
 		
 		

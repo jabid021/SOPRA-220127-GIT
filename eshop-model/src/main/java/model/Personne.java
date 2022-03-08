@@ -2,6 +2,7 @@ package model;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,11 +26,15 @@ public abstract class Personne {
 	@Column(name="firstname",length=40)
 	protected String prenom;
 	
+	@Embedded
+	protected Adresse adresse;
+	
 	public Personne() {}
 
-	public Personne(String nom, String prenom) {
+	public Personne(String nom, String prenom,Adresse adresse) {
 		this.nom = nom;
 		this.prenom = prenom;
+		this.adresse=adresse;
 	}
 
 	public Integer getId() {
@@ -56,10 +61,6 @@ public abstract class Personne {
 		this.prenom = prenom;
 	}
 
-	@Override
-	public String toString() {
-		return "Personne [id=" + id + ", nom=" + nom + ", prenom=" + prenom + "]";
-	}
 	
 	
 	

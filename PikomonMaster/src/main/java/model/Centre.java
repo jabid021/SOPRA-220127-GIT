@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Centre {
@@ -11,8 +12,11 @@ public class Centre {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private transient Infirmiere responsable;
-	private transient Ville ville;
+	
+	@OneToOne
+	private Infirmiere responsable;
+	@OneToOne
+	private Ville ville;
 	
 	public Centre() {}
 	
