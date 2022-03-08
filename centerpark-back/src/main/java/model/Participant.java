@@ -1,12 +1,25 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Participant {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_participant")
 	private Integer id;
+	
 	private String nom;
 	private String prenom;
 	private int age;
 	
-	
+	public Participant() {
+	}
 	
 	public Participant(String nom, String prenom, int age) {
 		this.nom = nom;
