@@ -2,16 +2,23 @@ package model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+@Entity
+//@DiscriminatorValue("Medecin")
 public class Medecin extends Compte {
 
+	@OneToMany(mappedBy = "medecin")
 	private List<Visite> visites;
-    private int salle;
+    private transient int salle;
     
     public Medecin(Integer id, String mail, String password) {
 		super(id, mail, password);
- 
 	}
 
+    public Medecin() {
+	}
 
 	public int getSalle() {
 		return salle;

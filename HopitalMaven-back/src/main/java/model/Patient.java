@@ -5,11 +5,16 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity
 public class Patient implements Serializable {
 	 
+	@Id
 	private Integer id;
 	private String nom;
 	private String prenom;
+	
+	public Patient() {
+	}
 	
 	public Patient(Integer id, String nom, String prenom) {
 		this.id = id;

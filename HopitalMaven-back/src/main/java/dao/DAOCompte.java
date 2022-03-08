@@ -59,8 +59,9 @@ public class DAOCompte implements IDAO<Compte, Integer> {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				Compte c = new Compte(rs.getInt("id"), rs.getString("login"), rs.getString("password"));
-				comptes.add(c);
+				//Compte c = new Compte(rs.getInt("id"), rs.getString("login"), rs.getString("password"));
+				
+				comptes.add(null);
 			}
 
 			rs.close();
@@ -85,7 +86,7 @@ public class DAOCompte implements IDAO<Compte, Integer> {
 			if (c instanceof Medecin) {
 
 				PreparedStatement ps = conn.prepareStatement("INSERT INTO compte (login, password, type_compte) VALUES (?,?,?)");
-				ps.setString(1, c.getMail());
+				ps.setString(1, c.getLogin());
 				ps.setString(2, c.getPassword());
 				ps.setString(3, "Medecin");
 
@@ -94,7 +95,7 @@ public class DAOCompte implements IDAO<Compte, Integer> {
 				ps.close();
 			} else if (c instanceof Secretaire) {
 				PreparedStatement ps = conn.prepareStatement("INSERT INTO compte (login, password, type_compte) VALUES (?,?,?)");
-				ps.setString(1, c.getMail());
+				ps.setString(1, c.getLogin());
 				ps.setString(2, c.getPassword());
 				ps.setString(3, "Secretaire");
 
@@ -119,7 +120,7 @@ public class DAOCompte implements IDAO<Compte, Integer> {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection(urlBdd, loginBdd, passwordBdd);
 			PreparedStatement ps = conn.prepareStatement("UPDATE compte SET login=?, password=?");
-			ps.setString(1, c.getMail());
+			ps.setString(1, c.getLogin());
 			ps.setString(2, c.getPassword());
 
 			ps.executeUpdate();
