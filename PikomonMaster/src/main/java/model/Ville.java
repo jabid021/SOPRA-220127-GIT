@@ -25,7 +25,7 @@ public class Ville {
 	
 	@OneToOne
 	private Centre centre;
-	@OneToOne
+	@OneToOne(mappedBy = "ville")
 	private Arene arene;
 	
 	//Obligatoire

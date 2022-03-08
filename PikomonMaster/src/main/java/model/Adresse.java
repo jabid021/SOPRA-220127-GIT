@@ -1,12 +1,14 @@
 package model;
 
 import javax.persistence.Embeddable;
+import javax.persistence.ManyToOne;
 
 @Embeddable
 public class Adresse {
 
 	private int numero;
-	private transient Ville ville;
+	@ManyToOne()
+	private Ville ville;
 	
 	public Adresse() {
 	}

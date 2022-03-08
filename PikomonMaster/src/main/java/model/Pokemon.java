@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -21,7 +22,11 @@ public class Pokemon {
 	
 	
 	@ManyToOne
+	@JoinColumn(name="dresseur_fk")
 	private Dresseur dresseur;
+	
+	
+	
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "ENUM('Eau','Plante','Feu','Roche','Dragon', 'Acier','Ismail')")
 	private Type type;

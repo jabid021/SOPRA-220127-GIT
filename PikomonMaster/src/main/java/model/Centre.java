@@ -15,7 +15,8 @@ public class Centre {
 	
 	@OneToOne
 	private Infirmiere responsable;
-	@OneToOne
+	
+	@OneToOne(mappedBy = "centre")
 	private Ville ville;
 	
 	public Centre() {}

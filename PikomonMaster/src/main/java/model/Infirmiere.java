@@ -6,7 +6,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Infirmiere extends Personne{
 
-	@OneToOne
+	@OneToOne(mappedBy = "responsable")
 	private Centre centre;
 	
 	public Infirmiere() {

@@ -16,7 +16,7 @@ public class Item {
 	private Integer id;
 	private String libelle;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy = "inventaire")
 	private List<Dresseur> dresseurs;
 	
 	public Item() {}	

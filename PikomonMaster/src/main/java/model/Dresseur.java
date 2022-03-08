@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -14,13 +16,19 @@ public class Dresseur extends Personne {
 
 	@Embedded
 	private Adresse adresse;
-	@OneToOne
+	
+	@OneToOne(mappedBy = "maitre")
 	private Arene arene;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "dresseur")
 	private List<Pokemon> equipe;
 	
 	@ManyToMany
+	@JoinTable(
+			name="sac",
+			joinColumns = @JoinColumn(name="owner"),
+			inverseJoinColumns = @JoinColumn(name="consommable")
+			)
 	private List<Item> inventaire;
 	
 	public Dresseur() {}
