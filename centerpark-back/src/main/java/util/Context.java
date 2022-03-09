@@ -1,5 +1,8 @@
 package util;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import dao.IDAOActivite;
 import dao.IDAOAnimal;
 import dao.IDAOCompte;
@@ -7,11 +10,11 @@ import dao.IDAOParticipant;
 import dao.IDAOReservation;
 import dao.IDAOVehicule;
 import dao.jdbc.DAOActiviteJDBC;
-import dao.jdbc.DAOAnimalJDBC;
 import dao.jdbc.DAOCompteJDBC;
-import dao.jdbc.DAOParticipantJDBC;
 import dao.jdbc.DAOReservationJDBC;
-import dao.jdbc.DAOVehiculeJDBC;
+import dao.jpa.DAOAnimal;
+import dao.jpa.DAOParticipant;
+import dao.jpa.DAOVehicule;
 import model.Compte;
 
 public class Context {
@@ -19,15 +22,16 @@ public class Context {
 //L'objet _singleton sera l'unique objet Context de l'appli et contiendra un pointeur vers tous les autres attributs	
 //Obligatoire
 private static Context _singleton=null;	
+private EntityManagerFactory emf  = Persistence.createEntityManagerFactory("centerpark");
 
 //Option pour notre Projet//
 private Compte connected;
 private IDAOCompte daoCompte = new DAOCompteJDBC();
 private IDAOActivite daoActivite = new DAOActiviteJDBC();
-private IDAOAnimal daoAnimal = new DAOAnimalJDBC();
+private IDAOAnimal daoAnimal = new DAOAnimal();
 private IDAOReservation daoReservation = new DAOReservationJDBC();
-private IDAOParticipant daoParticipant = new DAOParticipantJDBC();
-private IDAOVehicule daoVehicule = new DAOVehiculeJDBC();
+private IDAOParticipant daoParticipant = new DAOParticipant();
+private IDAOVehicule daoVehicule = new DAOVehicule();
 
 
 //Obligatoire
@@ -43,8 +47,18 @@ public static Context getSingleton()
 	
 	return _singleton;
 }
+public EntityManagerFactory getEmf() {
+	return emf;
+}
+
+public void setEmf(EntityManagerFactory emf) {
+	this.emf = emf;
+}
 
 
+public void close() {
+	emf.close();
+}
 //Option pour notre Projet//
 public Compte getConnected() {
 	return connected;
