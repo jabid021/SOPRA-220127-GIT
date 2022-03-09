@@ -92,8 +92,8 @@ public class DAOReservationJDBC implements IDAOReservation{
 	}
 
 	@Override
-	public void update(Reservation r) {
-
+	public Reservation update(Reservation r) {
+		return null;
 	}
 
 	@Override

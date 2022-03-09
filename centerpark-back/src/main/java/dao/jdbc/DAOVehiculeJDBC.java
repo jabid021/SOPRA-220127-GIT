@@ -89,7 +89,7 @@ public class DAOVehiculeJDBC implements IDAOVehicule{
 	}
 
 	@Override
-	public void update(Vehicule v) {
+	public Vehicule update(Vehicule v) {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -107,6 +107,7 @@ public class DAOVehiculeJDBC implements IDAOVehicule{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 
 	@Override
