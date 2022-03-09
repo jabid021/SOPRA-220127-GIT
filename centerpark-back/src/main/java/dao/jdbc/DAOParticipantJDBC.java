@@ -78,9 +78,9 @@ public class DAOParticipantJDBC implements IDAOParticipant {
 	}
 
 	@Override
-	public void update(Participant o) {
+	public Participant update(Participant o) {
 		// TODO Auto-generated method stub
-
+		return null;
 	}
 
 	@Override
