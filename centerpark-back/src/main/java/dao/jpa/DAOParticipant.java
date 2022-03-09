@@ -25,9 +25,20 @@ public class DAOParticipant implements IDAOParticipant{
 		em.close();
 		return Participants;
 	}
+	
+	
+	@Override
+	public Participant insert(Participant p) {
+		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
+		em.getTransaction().begin();
+		em.persist(p);
+		em.getTransaction().commit();
+		em.close();
+		return p;
+	}
 
 	@Override
-	public Participant save(Participant p) {
+	public Participant update(Participant p) {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		p = em.merge(p);

@@ -25,9 +25,18 @@ public class DAOVehicule implements IDAOVehicule{
 		em.close();
 		return vehicules;
 	}
-
+	
 	@Override
-	public Vehicule save(Vehicule v) {
+	public Vehicule insert(Vehicule v) {
+		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
+		em.getTransaction().begin();
+		em.persist(v);
+		em.getTransaction().commit();
+		em.close();
+		return v;
+	}
+	@Override
+	public Vehicule update(Vehicule v) {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		v = em.merge(v);
