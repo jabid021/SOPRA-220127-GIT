@@ -1,5 +1,8 @@
 package util;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import dao.IDAOActivite;
 import dao.IDAOAnimal;
 import dao.IDAOCompte;
@@ -12,6 +15,7 @@ import dao.jdbc.DAOCompteJDBC;
 import dao.jdbc.DAOParticipantJDBC;
 import dao.jdbc.DAOReservationJDBC;
 import dao.jdbc.DAOVehiculeJDBC;
+import dao.jpa.DAOActivite;
 import model.Compte;
 
 public class Context {
@@ -23,12 +27,22 @@ private static Context _singleton=null;
 //Option pour notre Projet//
 private Compte connected;
 private IDAOCompte daoCompte = new DAOCompteJDBC();
-private IDAOActivite daoActivite = new DAOActiviteJDBC();
+private IDAOActivite daoActivite = new DAOActivite();
 private IDAOAnimal daoAnimal = new DAOAnimalJDBC();
 private IDAOReservation daoReservation = new DAOReservationJDBC();
 private IDAOParticipant daoParticipant = new DAOParticipantJDBC();
 private IDAOVehicule daoVehicule = new DAOVehiculeJDBC();
 
+private EntityManagerFactory emf = Persistence.createEntityManagerFactory("centerpark");
+
+
+public EntityManagerFactory getEmf() {
+	return emf;
+}
+
+public void setEmf(EntityManagerFactory emf) {
+	this.emf = emf;
+}
 
 //Obligatoire
 private Context() {}
@@ -103,6 +117,10 @@ public void setDaoVehicule(IDAOVehicule daoVehicule) {
 }
 
 
+public void close() {
+	emf.close();
+	
+}
 
 
 

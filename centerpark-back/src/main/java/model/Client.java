@@ -6,9 +6,12 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
 @DiscriminatorValue("client")
+@Table(name="client")
+
 public class Client extends Compte {
 	
 	private String tel;

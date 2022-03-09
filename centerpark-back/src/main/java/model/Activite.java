@@ -14,10 +14,12 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 @Entity
 @Inheritance(strategy= InheritanceType.JOINED)
+@Table(name="activite")
 public abstract class Activite {
 
 	@Id
