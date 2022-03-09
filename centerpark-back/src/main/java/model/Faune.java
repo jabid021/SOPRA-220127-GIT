@@ -12,28 +12,31 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Faune {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
+	@Column(name = "id_faune")
+	private Integer id;	
+	
+	
 	@ManyToOne
 	@JoinColumn(name="animal_fk")
 	private Animal animal;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_faune")
-	private Integer id;
+
 	@ManyToOne
 	@JoinColumn(name="safari_fk")
 	private Safari safari;
-	
+
 	public Faune() {
 	}
-	
+
 	public Faune(Animal animal, Integer id, Safari safari) {
 		this.animal = animal;
 		this.id = id;
 		this.safari = safari;
 	}
 
-	
+
 
 	public Integer getId() {
 		return id;
@@ -64,5 +67,5 @@ public class Faune {
 		return "Faune [animal=" + animal + ", id=" + id + ", safari=" + safari + "]";
 	}
 
-	
+
 }

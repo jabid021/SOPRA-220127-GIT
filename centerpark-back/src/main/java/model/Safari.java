@@ -34,7 +34,6 @@ public class Safari extends Activite {
 		this.vehicule=vehicule;
 		this.rencontres=rencontres;
 	}
-
 	public Vehicule getVehicule() {
 		return vehicule;
 	}

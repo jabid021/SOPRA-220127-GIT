@@ -2,16 +2,48 @@ package model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Reservation {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_reservation")
 	private Integer id;
-	private Activite activite;
-	private Client client;
-	private Participant participant;
-	private Statut statut;
-	private Integer note; //null au debut puis 0-10
+	
+	@Column(name="date_reservation")
 	private LocalDate date;
 	
+	private Integer note; //null au debut puis 0-10
+
+	@ManyToOne
+	@JoinColumn(name="activite_fk")
+	private Activite activite;
+	
+	@ManyToOne
+	@JoinColumn(name="client_fk")
+	private Client client;
+	
+	@OneToOne
+	@JoinColumn(name="participant_fk")
+	private Participant participant;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "ENUM('En_Cours','A_Venir','Termine')")
+	private Statut statut;
+	
+	public Reservation() {
+	}	
 	
 	//insert
 	public Reservation(Activite activite, Client client, Participant participant) {

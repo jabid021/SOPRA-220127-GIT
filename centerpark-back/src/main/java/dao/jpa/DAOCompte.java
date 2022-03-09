@@ -26,9 +26,9 @@ public class DAOCompte implements IDAOCompte {
 	}
 
 	@Override
-	public void update(Compte o) {
+	public Compte update(Compte o) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	@Override
