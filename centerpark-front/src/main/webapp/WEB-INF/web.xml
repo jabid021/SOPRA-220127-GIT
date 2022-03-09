@@ -10,6 +10,7 @@
       <include-prelude>/banniere.jsp</include-prelude>
     </jsp-property-group>
   </jsp-config>
-  
+  <listener>
+    <listener-class>listeners.StartProject</listener-class>
+  </listener>
 </web-app>
-

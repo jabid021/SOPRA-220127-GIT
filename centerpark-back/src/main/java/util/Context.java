@@ -9,43 +9,27 @@ import dao.IDAOCompte;
 import dao.IDAOParticipant;
 import dao.IDAOReservation;
 import dao.IDAOVehicule;
-import dao.jdbc.DAOActiviteJDBC;
-import dao.jdbc.DAOCompteJDBC;
-import dao.jdbc.DAOReservationJDBC;
+import dao.jpa.DAOActivite;
 import dao.jpa.DAOAnimal;
+import dao.jpa.DAOCompte;
 import dao.jpa.DAOParticipant;
+import dao.jpa.DAOReservation;
 import dao.jpa.DAOVehicule;
-import model.Compte;
 
 public class Context {
 	
-//L'objet _singleton sera l'unique objet Context de l'appli et contiendra un pointeur vers tous les autres attributs	
-//Obligatoire
-private static Context _singleton=null;	
 private EntityManagerFactory emf  = Persistence.createEntityManagerFactory("centerpark");
 
-//Option pour notre Projet//
-private EntityManagerFactory emf  = Persistence.createEntityManagerFactory("centerpark");
-private Compte connected;
-private EntityManagerFactory emf  = Persistence.createEntityManagerFactory("demoJPA");
+private static Context _singleton=null;	
 
 private IDAOCompte daoCompte = new DAOCompte();
-private IDAOActivite daoActivite = new DAOActiviteJDBC();
+private IDAOActivite daoActivite = new DAOActivite();
 private IDAOAnimal daoAnimal = new DAOAnimal();
-private IDAOReservation daoReservation = new DAOReservationJDBC();
+private IDAOReservation daoReservation = new DAOReservation();
 private IDAOParticipant daoParticipant = new DAOParticipant();
 private IDAOVehicule daoVehicule = new DAOVehicule();
 
-private EntityManagerFactory emf = Persistence.createEntityManagerFactory("centerpark");
 
-
-public EntityManagerFactory getEmf() {
-	return emf;
-}
-
-public void setEmf(EntityManagerFactory emf) {
-	this.emf = emf;
-}
 
 //Obligatoire
 private Context() {}
@@ -60,26 +44,8 @@ public static Context getSingleton()
 	
 	return _singleton;
 }
-public EntityManagerFactory getEmf() {
-	return emf;
-}
-
-public EntityManagerFactory getEmf() {
-	return emf;
-}
 
 
-public void close() {
-	emf.close();
-}
-//Option pour notre Projet//
-public Compte getConnected() {
-	return connected;
-}
-
-public void setConnected(Compte connected) {
-	this.connected = connected;
-}
 
 public IDAOCompte getDaoCompte() {
 	return daoCompte;
@@ -130,9 +96,8 @@ public void setDaoVehicule(IDAOVehicule daoVehicule) {
 }
 
 
-public void close() {
-	emf.close();
-	
+public EntityManagerFactory getEmf() {
+	return emf;
 }
 
 public void close() {emf.close();}

@@ -20,6 +20,7 @@ public class VehiculeController extends HttpServlet {
 		//findAll()
 		if(request.getParameter("id")==null) {
 			List<Vehicule> vehicules=Context.getSingleton().getDaoVehicule().findAll();
+			System.out.println(vehicules);
 			request.setAttribute("listeVehicule", vehicules);
 			getServletContext().getRequestDispatcher("/WEB-INF/vehicule.jsp").forward(request, response);
 		}
@@ -43,7 +44,9 @@ public class VehiculeController extends HttpServlet {
 		else if(request.getParameter("tache").equals("update")) 
 		{
 			int id = Integer.parseInt(request.getParameter("id"));
+			int version = Context.getSingleton().getDaoVehicule().findById(id).getVersion();
 			Vehicule v = new Vehicule(id,request.getParameter("modele"));
+			v.setVersion(version);
 			Context.getSingleton().getDaoVehicule().update(v);
 		}
 		else if(request.getParameter("tache").equals("delete"))

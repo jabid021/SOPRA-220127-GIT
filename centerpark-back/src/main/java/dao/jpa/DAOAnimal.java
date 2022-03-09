@@ -38,9 +38,13 @@ public class DAOAnimal implements IDAOAnimal{
 	@Override
 	public Animal update(Animal a) {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
+		
+		try {
 		em.getTransaction().begin();
+		
 		a = em.merge(a);
 		em.getTransaction().commit();
+		}catch(Exception e) {e.printStackTrace();}
 		em.close();
 		return a;
 	}

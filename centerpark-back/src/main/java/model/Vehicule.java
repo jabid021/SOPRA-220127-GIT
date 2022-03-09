@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name="vehicule")
@@ -17,6 +18,10 @@ public class Vehicule {
 	@Column(name = "id_vehicule")
 	private Integer id;
 	private String model;
+	
+	
+	@Version
+	private int version;
 
 	public Vehicule() {
 	}
@@ -47,11 +52,21 @@ public class Vehicule {
 		this.id = id;
 	}
 
-	@Override
-	public String toString() {
-		return "Vehicule [id=" + id + ", model=" + model + "]";
+	
+	public int getVersion() {
+		return version;
 	}
 
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+	@Override
+	public String toString() {
+		return "Vehicule [id=" + id + ", model=" + model + ", version=" + version + "]";
+	}
+
+	
 
 
 

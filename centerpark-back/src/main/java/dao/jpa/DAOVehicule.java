@@ -37,9 +37,11 @@ public class DAOVehicule implements IDAOVehicule{
 	}
 	@Override
 	public Vehicule update(Vehicule v) {
+		System.out.println(v);
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		v = em.merge(v);
+		System.out.println(v);
 		em.getTransaction().commit();
 		em.close();
 		return v;

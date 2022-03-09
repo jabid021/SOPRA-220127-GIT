@@ -106,7 +106,7 @@ public class App {
 		String mail = saisieString("Saisir votre mail");
 		String password = saisieString("Saisir votre password");
 		connected=daoCompte.seConnecter(mail,password);
-		Context.getSingleton().setConnected(connected);
+		//Context.getSingleton().setConnected(connected);
 		
 		if(connected instanceof Client) {menuClient();}
 

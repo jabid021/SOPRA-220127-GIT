@@ -16,6 +16,7 @@ import util.Context;
 public class HomeController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 	}
 
