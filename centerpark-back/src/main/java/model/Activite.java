@@ -22,7 +22,7 @@ public abstract class Activite {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_acivite")
+	@Column(name="id_activite")
 	protected Integer id;
 	
 	@Enumerated(EnumType.STRING)
@@ -35,7 +35,7 @@ public abstract class Activite {
 	protected LocalTime heure;
 	protected double prix;
 	
-	@OneToMany(mappedBy = "reservation")
+	@OneToMany(mappedBy = "activite")
 	protected List<Reservation> reservations;
 	
 	public Activite() {

@@ -129,7 +129,7 @@ public class DAOCompteJDBC implements IDAOCompte{
 	}
 
 	@Override
-	public void update(Compte c) {
+	public Compte update(Compte c) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection(urlBdd,loginBdd,passwordBdd);
@@ -172,6 +172,7 @@ public class DAOCompteJDBC implements IDAOCompte{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 
 	@Override

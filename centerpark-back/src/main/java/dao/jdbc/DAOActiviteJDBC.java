@@ -140,7 +140,7 @@ public class DAOActiviteJDBC implements IDAOActivite {
 
 
 	@Override
-	public void update(Activite a) {
+	public Activite update(Activite a) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/centerpark","root","");
@@ -170,7 +170,7 @@ public class DAOActiviteJDBC implements IDAOActivite {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		return null;
 	}
 
 	@Override
