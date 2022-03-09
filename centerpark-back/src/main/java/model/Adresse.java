@@ -1,13 +1,16 @@
 package model;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Adresse {
 
-	
 	private String numero;
 	private String voie;
 	private String ville;
 	private String cp;
 	
+	public Adresse() {}
 	
 	public Adresse(String numero, String voie, String ville, String cp) {
 		this.numero = numero;

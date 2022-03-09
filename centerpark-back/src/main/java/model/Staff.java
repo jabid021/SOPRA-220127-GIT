@@ -1,9 +1,15 @@
 package model;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("staff")
 public class Staff extends Compte {
 
-	
 	private String metier;
+	
+	public Staff() {}
 	
 	public Staff(String mail, String password,String metier) {
 		super(mail, password);
