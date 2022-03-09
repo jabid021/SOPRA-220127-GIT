@@ -14,45 +14,45 @@ public class DAOReservation implements IDAOReservation {
 	@Override
 	public Reservation findById(Integer id) {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
-		Reservation o = em.find(Reservation.class, id);
+		Reservation r = em.find(Reservation.class, id);
 		em.close();
-		return o;
+		return r;
 	}
 
 	@Override
 	public List<Reservation> findAll() {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
-		List<Reservation> arenes = em.createQuery("SELECT o from Reservation o").getResultList();
+		List<Reservation> arenes = em.createQuery("SELECT r from Reservation r").getResultList();
 		em.close();
 		return arenes;
 	}
 
 	@Override
-	public Reservation insert(Reservation o) {
+	public Reservation insert(Reservation r) {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
 		em.getTransaction().begin();
-		em.persist(o);
+		em.persist(r);
 		em.getTransaction().commit();
 		em.close();
-		return o;
+		return r;
 	}
 
 	@Override
-	public Reservation update(Reservation o) {
+	public Reservation update(Reservation r) {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
 		em.getTransaction().begin();
-		o = em.merge(o);
+		r = em.merge(r);
 		em.getTransaction().commit();
 		em.close();
-		return o;
+		return r;
 	}
 
 	@Override
 	public void delete(Integer id) {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
 		em.getTransaction().begin();
-		Reservation o = em.find(Reservation.class, id);
-		em.remove(o);
+		Reservation r = em.find(Reservation.class, id);
+		em.remove(r);
 		em.getTransaction().commit();
 		em.close();
 	}
@@ -60,7 +60,7 @@ public class DAOReservation implements IDAOReservation {
 	@Override
 	public List<Reservation> findAllReservationClient(int id) {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
-		Query q = em.createQuery("SELECT o from Reservation o where o.reservation.client = :id");
+		Query q = em.createQuery("SELECT r from Reservation r where r.client.numero = :id");
 		q.setParameter("id", id);
 		List<Reservation> arenes = q.getResultList();
 		em.close();

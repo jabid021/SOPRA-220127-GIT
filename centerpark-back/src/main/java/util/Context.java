@@ -1,5 +1,8 @@
 package util;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import dao.IDAOActivite;
 import dao.IDAOAnimal;
 import dao.IDAOCompte;
@@ -21,6 +24,7 @@ public class Context {
 private static Context _singleton=null;	
 
 //Option pour notre Projet//
+private EntityManagerFactory emf  = Persistence.createEntityManagerFactory("centerpark");
 private Compte connected;
 private IDAOCompte daoCompte = new DAOCompteJDBC();
 private IDAOActivite daoActivite = new DAOActiviteJDBC();
@@ -42,6 +46,10 @@ public static Context getSingleton()
 	}
 	
 	return _singleton;
+}
+
+public EntityManagerFactory getEmf() {
+	return emf;
 }
 
 
