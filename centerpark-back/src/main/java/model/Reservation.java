@@ -2,8 +2,12 @@ package model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 public class Reservation {
-	
+
 	private Integer id;
 	private Activite activite;
 	private Client client;
@@ -12,7 +16,7 @@ public class Reservation {
 	private Integer note; //null au debut puis 0-10
 	private LocalDate date;
 	
-	
+
 	//insert
 	public Reservation(Activite activite, Client client, Participant participant) {
 		this.activite = activite;

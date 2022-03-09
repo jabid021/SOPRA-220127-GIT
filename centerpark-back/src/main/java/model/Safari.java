@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+import javax.persistence.Entity;
+
+
 public class Safari extends Activite {
 
 	private Vehicule vehicule;
@@ -14,13 +17,11 @@ public class Safari extends Activite {
 		this.vehicule=vehicule;
 		this.rencontres=rencontres;
 	}
-	
-	public Safari(Integer id,Meteo meteo, LocalDate date, LocalTime heure, double prix,Vehicule vehicule, List<Animal> rencontres) {
-		super(id,meteo, date, heure, prix);
+	public Safari(Integer id, Meteo meteo, LocalDate date, LocalTime heure, double prix,Vehicule vehicule, List<Animal> rencontres) {
+		super(id, meteo, date, heure, prix);
 		this.vehicule=vehicule;
 		this.rencontres=rencontres;
 	}
-
 	public Vehicule getVehicule() {
 		return vehicule;
 	}
