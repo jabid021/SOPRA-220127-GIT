@@ -8,10 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type_animal",columnDefinition = "enum('Sanglier', 'Ecureuil', 'Serpent')")
+@Table(name="animal")
+
 public abstract class Animal {
 	
 	@Id

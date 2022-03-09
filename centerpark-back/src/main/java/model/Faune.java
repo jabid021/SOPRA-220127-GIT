@@ -9,8 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="faune")
+
 public class Faune {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

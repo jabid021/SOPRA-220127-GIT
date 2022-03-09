@@ -36,6 +36,16 @@ private IDAOReservation daoReservation = new DAOReservationJDBC();
 private IDAOParticipant daoParticipant = new DAOParticipant();
 private IDAOVehicule daoVehicule = new DAOVehicule();
 
+private EntityManagerFactory emf = Persistence.createEntityManagerFactory("centerpark");
+
+
+public EntityManagerFactory getEmf() {
+	return emf;
+}
+
+public void setEmf(EntityManagerFactory emf) {
+	this.emf = emf;
+}
 
 //Obligatoire
 private Context() {}
@@ -120,6 +130,10 @@ public void setDaoVehicule(IDAOVehicule daoVehicule) {
 }
 
 
+public void close() {
+	emf.close();
+	
+}
 
 public void close() {emf.close();}
 

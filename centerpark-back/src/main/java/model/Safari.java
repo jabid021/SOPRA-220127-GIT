@@ -9,9 +9,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 @Entity
 @PrimaryKeyJoinColumn(name="activite_fk")
+@Table(name="safari")
+
 public class Safari extends Activite {
 
 	@ManyToOne

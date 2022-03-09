@@ -5,8 +5,11 @@ import java.time.LocalTime;
 
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 @Entity
 @PrimaryKeyJoinColumn(name = "activite_fk")
+@Table(name="aquatique")
+
 public class Aquatique extends Activite{
 
 public Aquatique() {
