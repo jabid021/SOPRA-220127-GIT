@@ -27,7 +27,9 @@ private EntityManagerFactory emf  = Persistence.createEntityManagerFactory("cent
 //Option pour notre Projet//
 private EntityManagerFactory emf  = Persistence.createEntityManagerFactory("centerpark");
 private Compte connected;
-private IDAOCompte daoCompte = new DAOCompteJDBC();
+private EntityManagerFactory emf  = Persistence.createEntityManagerFactory("demoJPA");
+
+private IDAOCompte daoCompte = new DAOCompte();
 private IDAOActivite daoActivite = new DAOActiviteJDBC();
 private IDAOAnimal daoAnimal = new DAOAnimal();
 private IDAOReservation daoReservation = new DAOReservationJDBC();
@@ -52,6 +54,9 @@ public EntityManagerFactory getEmf() {
 	return emf;
 }
 
+public EntityManagerFactory getEmf() {
+	return emf;
+}
 
 
 public void close() {
@@ -116,7 +121,7 @@ public void setDaoVehicule(IDAOVehicule daoVehicule) {
 
 
 
-
+public void close() {emf.close();}
 
 
 	
