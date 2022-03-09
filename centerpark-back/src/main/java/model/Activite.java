@@ -5,7 +5,6 @@ import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -15,20 +14,24 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
 
 @Entity
-@Inheritance(strategy= InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy= InheritanceType.JOINED)
 public abstract class Activite {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_acivite")
 	protected Integer id;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "ENUM('Pluie','Soleil','Neige')")
 	protected Meteo meteo;
+	
+	@Column(name="date_activite")
 	protected LocalDate date;
+	@Column(name="heure_activite")
 	protected LocalTime heure;
 	protected double prix;
 	
@@ -45,7 +48,13 @@ public abstract class Activite {
 		this.prix = prix;
 	}
 
-	
+	public Activite(Integer id, Meteo meteo, LocalDate date, LocalTime heure, double prix) {
+		this.meteo = meteo;
+		this.date = date;
+		this.heure = heure;
+		this.prix = prix;
+		this.id=id;
+	}
 
 
 	public Meteo getMeteo() {

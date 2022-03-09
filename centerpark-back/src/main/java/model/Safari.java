@@ -17,7 +17,11 @@ public class Safari extends Activite {
 		this.vehicule=vehicule;
 		this.rencontres=rencontres;
 	}
-
+	public Safari(Integer id, Meteo meteo, LocalDate date, LocalTime heure, double prix,Vehicule vehicule, List<Animal> rencontres) {
+		super(id, meteo, date, heure, prix);
+		this.vehicule=vehicule;
+		this.rencontres=rencontres;
+	}
 	public Vehicule getVehicule() {
 		return vehicule;
 	}
