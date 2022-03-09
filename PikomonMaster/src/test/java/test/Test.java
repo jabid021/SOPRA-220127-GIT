@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import model.Arene;
 import model.Centre;
@@ -17,6 +18,7 @@ import model.Item;
 import model.Pokemon;
 import model.Type;
 import model.Ville;
+import util.Context;
 
 public class Test {
 
@@ -118,24 +120,101 @@ public class Test {
 	
 	}
 	
+	public static void demoRequetes() 
+	{
+		EntityManagerFactory emf  = Persistence.createEntityManagerFactory("demoJPA");
+		EntityManager em = emf.createEntityManager();
+	
+		Infirmiere inf = new Infirmiere("test");
+		
+		//---------INSERT UNIQUEMENT (sans id si auto, avec id sinon) / Plante si l'id existe deja--------*
+		
+		em.getTransaction().begin();
+		//Insert (sans id si auto, avec id sinon)
+		
+		//em.persist(inf);
+		em.getTransaction().commit();
+		em.close();
+		//----------------------------------------------
+		
+		
+		
+		//---------UPDATE (ou insert si l'id n'existe pas)--------
+		em = emf.createEntityManager();
+		Infirmiere i = em.find(Infirmiere.class, 52);
+		
+		em.getTransaction().begin();
+		//Update
+		i.setNom("Nouveau Nom");
+		//em.merge(inf);
+		em.getTransaction().commit();
+		em.close();
+		//-----------------------------------------------------
+		
+		
+		
+		//---------------FINDALL----------------
+		
+		em = emf.createEntityManager();
+		Query q = em.createQuery("SELECT p from Pokemon p where p.nom like '%ra%'");
+		List<Pokemon> pokes= q.getResultList();
+		for(Pokemon p : pokes) 
+		{
+			System.out.println(p.getNom());
+		}
+		em.close();
+		//--------------
+		
+		
+		
+		//--------------DELETE 1-------------------
+		em = emf.createEntityManager();
+		em.getTransaction().begin();
+		Infirmiere iDelete = em.find(Infirmiere.class, 202);
+		em.remove(iDelete);
+		em.getTransaction().commit();
+		
+		emf.close();
+		//------------------------------------------
+		
+		
+
+		//--------------DELETE 2-------------------
+		em = emf.createEntityManager();
+		em.getTransaction().begin();
+		//Infirmiere infCopie = em.merge(i);
+		i=em.merge(i);
+		em.remove(i);
+		em.getTransaction().commit();
+		
+		emf.close();
+		//------------------------------------------
+		
+		
+		//em.persit(x) => x est managed
+		//em.find(X.class,id) => l'objet retourné il est managed
+		// List<X> list = em.getResultList() => Tous les objets managed
+		//xCopie = em.merge(x) => x n'est pas managed, par contre xCopie l'est !
+	}
 	public static void main(String[] args) {
 		
 	
-		EntityManagerFactory emf  = Persistence.createEntityManagerFactory("demoJPA");
-		EntityManager em = emf.createEntityManager();
-		
-		Pokemon p = em.find(Pokemon.class,1);
-		
-		
-		em.close();
-		for(Pokemon poke : p.getDresseur().getEquipe()) 
+		List<Pokemon> pokes = Context.getSingleton().getDaoPokemon().findByNameLike("ra");
+		for(Pokemon p : pokes) 
 		{
-			System.out.println(poke);
+			System.out.println(p.getNom());
 		}
-		emf.close();
 		
+		Ville v = Context.getSingleton().getDaoVille().findByName("Carmin-sur-merr");
+		System.out.println(v);
+	
+		List<Ville> villes = Context.getSingleton().getDaoVille().findByTypeArene(Type.Mixte);
+		for(Ville vi : villes) 
+		{
+			System.out.println(vi.getNom()+" - "+vi.getArene().getMaitre().getNom());
+		}
 		
-		
+		Context.getSingleton().close();
 	}
 
 }
