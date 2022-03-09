@@ -1,13 +1,27 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Vehicule {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_vehicule")
 	private Integer id;
 	private String model;
 
+	public Vehicule() {
+	}
+	
 	public Vehicule(String model) {
 		this.model = model;
 	}
-	
+
 	public Vehicule(Integer id,String model) {
 		this.id=id;
 		this.model = model;
@@ -21,7 +35,7 @@ public class Vehicule {
 		this.model = model;
 	}
 
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -35,7 +49,7 @@ public class Vehicule {
 		return "Vehicule [id=" + id + ", model=" + model + "]";
 	}
 
-	
-	
-	
+
+
+
 }

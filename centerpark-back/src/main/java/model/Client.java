@@ -2,13 +2,24 @@ package model;
 
 import java.util.List;
 
-public class Client extends Compte {
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
+@Entity
+@DiscriminatorValue("client")
+public class Client extends Compte {
 	
 	private String tel;
+	
+	@Embedded
 	private Adresse adresse;
+	
+	@OneToMany(mappedBy = "client")
 	private List<Reservation> reservations;
 	
+	public Client() {}
 	
 	public Client(String mail, String password, String tel,String numero, String voie, String ville, String cp) {
 		super(mail, password);

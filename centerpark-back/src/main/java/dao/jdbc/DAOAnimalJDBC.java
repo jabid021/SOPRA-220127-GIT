@@ -155,7 +155,7 @@ public class DAOAnimalJDBC implements IDAOAnimal {
 	}
 
 	@Override
-	public void update(Animal a) {
+	public Animal update(Animal a) {
 		{
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
@@ -177,7 +177,7 @@ public class DAOAnimalJDBC implements IDAOAnimal {
 				e.printStackTrace();
 			}
 		}
-
+		return null;
 	}
 
 	@Override
