@@ -1,5 +1,8 @@
 package util;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import dao.IDAOActivite;
 import dao.IDAOAnimal;
 import dao.IDAOCompte;
@@ -8,10 +11,10 @@ import dao.IDAOReservation;
 import dao.IDAOVehicule;
 import dao.jdbc.DAOActiviteJDBC;
 import dao.jdbc.DAOAnimalJDBC;
-import dao.jdbc.DAOCompteJDBC;
 import dao.jdbc.DAOParticipantJDBC;
 import dao.jdbc.DAOReservationJDBC;
 import dao.jdbc.DAOVehiculeJDBC;
+import dao.jpa.DAOCompte;
 import model.Compte;
 
 public class Context {
@@ -22,7 +25,9 @@ private static Context _singleton=null;
 
 //Option pour notre Projet//
 private Compte connected;
-private IDAOCompte daoCompte = new DAOCompteJDBC();
+private EntityManagerFactory emf  = Persistence.createEntityManagerFactory("demoJPA");
+
+private IDAOCompte daoCompte = new DAOCompte();
 private IDAOActivite daoActivite = new DAOActiviteJDBC();
 private IDAOAnimal daoAnimal = new DAOAnimalJDBC();
 private IDAOReservation daoReservation = new DAOReservationJDBC();
@@ -44,6 +49,9 @@ public static Context getSingleton()
 	return _singleton;
 }
 
+public EntityManagerFactory getEmf() {
+	return emf;
+}
 
 //Option pour notre Projet//
 public Compte getConnected() {
@@ -104,7 +112,7 @@ public void setDaoVehicule(IDAOVehicule daoVehicule) {
 
 
 
-
+public void close() {emf.close();}
 
 
 	

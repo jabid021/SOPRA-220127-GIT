@@ -1,19 +1,21 @@
 package test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import dao.IDAOCompte;
+import model.Compte;
+import util.Context;
 
 public class TestJPA {
 
+	static IDAOCompte daoCompte = Context.getSingleton().getDaoCompte();
 	public static void main(String[] args) {
-		EntityManagerFactory emf  = Persistence.createEntityManagerFactory("centerpark");
-		EntityManager em = emf.createEntityManager();
+		
+	
+		Compte c = Context.getSingleton().getDaoCompte().seConnecter("client@client", "client");
+		System.out.println(c.getNumero());
+		Context.getSingleton().close();
 		
 		
 		
-		em.close();
-		emf.close();
 	}
 
 }
