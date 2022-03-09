@@ -5,20 +5,32 @@ import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 
-
+@Entity
+@PrimaryKeyJoinColumn(name="activite_fk")
 public class Safari extends Activite {
 
+	@ManyToOne
+	@JoinColumn(name = "vehicule_fk")
 	private Vehicule vehicule;
-	private List<Animal> rencontres;
+	@OneToMany(mappedBy = "safari")
+	private List<Faune>rencontres;	
 	
-	public Safari(Meteo meteo, LocalDate date, LocalTime heure, double prix,Vehicule vehicule, List<Animal> rencontres) {
+	public Safari() {
+	}
+	
+	public Safari(Meteo meteo, LocalDate date, LocalTime heure, double prix,Vehicule vehicule,  List<Faune> rencontres) {
 		super(meteo, date, heure, prix);
 		this.vehicule=vehicule;
 		this.rencontres=rencontres;
 	}
-	public Safari(Integer id, Meteo meteo, LocalDate date, LocalTime heure, double prix,Vehicule vehicule, List<Animal> rencontres) {
-		super(id, meteo, date, heure, prix);
+	
+	public Safari(Integer id,Meteo meteo, LocalDate date, LocalTime heure, double prix,Vehicule vehicule,  List<Faune> rencontres) {
+		super(id,meteo, date, heure, prix);
 		this.vehicule=vehicule;
 		this.rencontres=rencontres;
 	}
@@ -30,11 +42,11 @@ public class Safari extends Activite {
 		this.vehicule = vehicule;
 	}
 	
-	public List<Animal> getRencontres() {
+	public  List<Faune> getFaune() {
 		return rencontres;
 	}
 
-	public void setRencontres(List<Animal> rencontres) {
+	public void setFaune( List<Faune> rencontres) {
 		this.rencontres = rencontres;
 	}
 

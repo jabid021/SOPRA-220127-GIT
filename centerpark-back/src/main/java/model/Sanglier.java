@@ -1,7 +1,13 @@
 package model;
 
+import javax.persistence.Entity;
+
+@Entity
+//@DiscriminatorValue("Sanglier")
 public class Sanglier extends Animal {
 
+	public Sanglier() {}
+	
 	public Sanglier(String nom) {
 		super(nom);
 	}
