@@ -25,6 +25,7 @@ private static Context _singleton=null;
 private EntityManagerFactory emf  = Persistence.createEntityManagerFactory("centerpark");
 
 //Option pour notre Projet//
+private EntityManagerFactory emf  = Persistence.createEntityManagerFactory("centerpark");
 private Compte connected;
 private IDAOCompte daoCompte = new DAOCompteJDBC();
 private IDAOActivite daoActivite = new DAOActiviteJDBC();
@@ -51,9 +52,6 @@ public EntityManagerFactory getEmf() {
 	return emf;
 }
 
-public void setEmf(EntityManagerFactory emf) {
-	this.emf = emf;
-}
 
 
 public void close() {
