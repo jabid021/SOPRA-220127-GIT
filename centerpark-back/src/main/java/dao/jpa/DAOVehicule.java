@@ -25,7 +25,7 @@ public class DAOVehicule implements IDAOVehicule{
 		em.close();
 		return vehicules;
 	}
-	
+
 	@Override
 	public Vehicule insert(Vehicule v) {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
@@ -37,12 +37,14 @@ public class DAOVehicule implements IDAOVehicule{
 	}
 	@Override
 	public Vehicule update(Vehicule v) {
-		System.out.println(v);
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
-		em.getTransaction().begin();
-		v = em.merge(v);
-		System.out.println(v);
-		em.getTransaction().commit();
+
+		try {
+			em.getTransaction().begin();
+
+			v = em.merge(v);
+			em.getTransaction().commit();
+		}catch(Exception e) {e.printStackTrace();}
 		em.close();
 		return v;
 	}

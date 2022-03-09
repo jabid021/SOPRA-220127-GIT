@@ -72,20 +72,24 @@ public class AnimalController extends HttpServlet {
 		{
 	
 			int id = Integer.parseInt(request.getParameter("id"));
+			int version = Context.getSingleton().getDaoAnimal().findById(id).getVersion();
 			
 			if(request.getParameter("typeAnimal").equals("Sanglier")) 
 			{
 				Sanglier sg = new Sanglier(id,request.getParameter("nom"));
+				sg.setVersion(version);
 				Context.getSingleton().getDaoAnimal().update(sg);
 			}
 			else if(request.getParameter("typeAnimal").equals("Serpent")) 
 			{
 				Serpent sp = new Serpent(id,request.getParameter("nom"));
+				sp.setVersion(version);
 				Context.getSingleton().getDaoAnimal().update(sp);
 			}
 			else if(request.getParameter("typeAnimal").equals("Ecureuil")) 
 			{
 				Ecureuil ec = new Ecureuil(id,request.getParameter("nom"));
+				ec.setVersion(version);
 				Context.getSingleton().getDaoAnimal().update(ec);
 			}
 			System.out.println(request.getParameter("id"));

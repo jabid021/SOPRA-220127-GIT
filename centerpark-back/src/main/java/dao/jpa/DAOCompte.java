@@ -24,7 +24,7 @@ public class DAOCompte implements IDAOCompte {
 		Compte c = em.find(Compte.class, id);
 		em.close();
 		return c;
-		
+
 	}
 
 	@Override
@@ -48,9 +48,13 @@ public class DAOCompte implements IDAOCompte {
 	@Override
 	public Compte update(Compte c) {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
-		em.getTransaction().begin();
-		c = em.merge(c);
-		em.getTransaction().commit();
+
+		try {
+			em.getTransaction().begin();
+
+			c = em.merge(c);
+			em.getTransaction().commit();
+		}catch(Exception e) {e.printStackTrace();}
 		em.close();
 		return c;
 	}
@@ -68,7 +72,7 @@ public class DAOCompte implements IDAOCompte {
 	@Override
 	public Compte seConnecter(String mail, String password) {
 
-		
+
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
 		Query q = em.createQuery("SELECT c from Compte c where c.mail = :mail and c.password = :password");
 		q.setParameter("mail", mail);
@@ -76,17 +80,17 @@ public class DAOCompte implements IDAOCompte {
 		Compte c=null;
 		try {
 			c = (Compte) q.getSingleResult();
-			
-			
-			
+
+
+
 		} catch (Exception e) {
 
 		}
 		em.close();
 		return c;
-		
+
 	}
-	
-	
+
+
 
 }

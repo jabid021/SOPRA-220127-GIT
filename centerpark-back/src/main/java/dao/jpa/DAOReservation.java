@@ -40,9 +40,13 @@ public class DAOReservation implements IDAOReservation {
 	@Override
 	public Reservation update(Reservation r) {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
-		em.getTransaction().begin();
-		r = em.merge(r);
-		em.getTransaction().commit();
+
+		try {
+			em.getTransaction().begin();
+
+			r = em.merge(r);
+			em.getTransaction().commit();
+		}catch(Exception e) {e.printStackTrace();}
 		em.close();
 		return r;
 	}

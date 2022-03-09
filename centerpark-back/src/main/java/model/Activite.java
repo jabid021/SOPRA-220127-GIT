@@ -15,6 +15,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 
 @Entity
@@ -39,7 +40,9 @@ public abstract class Activite {
 	
 	@OneToMany(mappedBy = "activite")
 	protected List<Reservation> reservations;
-	
+	@Version
+	private int version;
+
 	public Activite() {
 	}
 	
@@ -118,6 +121,14 @@ public abstract class Activite {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 	
 	

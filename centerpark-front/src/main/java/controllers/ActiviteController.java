@@ -91,13 +91,14 @@ public class ActiviteController extends HttpServlet {
 		{
 			System.out.println("update");
 			System.out.println(request.getParameter("typeActivite"));
-
+			
 			if(request.getParameter("typeActivite").equals("Aquatique")) 
 			{
 				int id = Integer.parseInt(request.getParameter("id"));
-
+				int version = Context.getSingleton().getDaoActivite().findById(id).getVersion();
 				System.out.println("aquatique");
 				Aquatique a = new Aquatique(id,Meteo.valueOf(request.getParameter("meteo")),LocalDate.parse(request.getParameter("date")),LocalTime.parse(request.getParameter("heure")),Double.parseDouble(request.getParameter("prix")));
+				a.setVersion(version);
 				Context.getSingleton().getDaoActivite().update(a);
 				System.out.println(a);
 			}
@@ -105,11 +106,13 @@ public class ActiviteController extends HttpServlet {
 			{
 				System.out.println("on est dans safari");
 				int id_safari = Integer.parseInt(request.getParameter("id"));
+				int version = Context.getSingleton().getDaoActivite().findById(id_safari).getVersion();
 				int id_vehicule = Integer.parseInt(request.getParameter("vehicule"));
+				
 				Vehicule v = Context.getSingleton().getDaoVehicule().findById(id_vehicule);
-				System.out.println(v.toString());
 
 				Safari s = new Safari(id_safari,Meteo.valueOf(request.getParameter("meteo")),LocalDate.parse(request.getParameter("date")),LocalTime.parse(request.getParameter("heure")),Double.parseDouble(request.getParameter("prix")),v,null);
+				s.setVersion(version);
 				Context.getSingleton().getDaoActivite().update(s);
 
 			}

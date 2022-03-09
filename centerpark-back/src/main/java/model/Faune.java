@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name="faune")
@@ -29,7 +30,11 @@ public class Faune {
 	@ManyToOne
 	@JoinColumn(name="safari_fk")
 	private Safari safari;
+	@Version
+	private int version;
 
+	
+	
 	public Faune() {
 	}
 
@@ -63,6 +68,15 @@ public class Faune {
 
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
+	}
+
+	
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 	@Override

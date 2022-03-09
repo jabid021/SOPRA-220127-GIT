@@ -25,7 +25,6 @@ public class CompteController extends HttpServlet {
 		{
 			List<Compte> comptes=Context.getSingleton().getDaoCompte().findAll();
 			request.setAttribute("listeCompte", comptes);
-			System.out.println(comptes);
 			getServletContext().getRequestDispatcher("/WEB-INF/comptes.jsp").forward(request, response);
 		}
 		//findById
@@ -87,14 +86,17 @@ public class CompteController extends HttpServlet {
 		else if(request.getParameter("tache").equals("update")) 
 		{
 			int id = Integer.parseInt(request.getParameter("id"));
+			int version = Context.getSingleton().getDaoCompte().findById(id).getVersion();
 			if(request.getParameter("typeCompte").equals("client")) 
 			{
 				Client c = new Client(id,request.getParameter("mail"),request.getParameter("password"),request.getParameter("tel"),request.getParameter("numero"),request.getParameter("voie"),request.getParameter("ville"),request.getParameter("cp"));
+				c.setVersion(version);
 				Context.getSingleton().getDaoCompte().update(c);
 			}
 			else if(request.getParameter("typeCompte").equals("staff"))
 			{
 				Staff s = new Staff(id,request.getParameter("mail"),request.getParameter("password"),request.getParameter("metier"));
+				s.setVersion(version);
 				Context.getSingleton().getDaoCompte().update(s);
 				
 			}
