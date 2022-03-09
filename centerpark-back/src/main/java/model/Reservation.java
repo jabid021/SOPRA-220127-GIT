@@ -39,6 +39,7 @@ public class Reservation {
 	private Participant participant;
 	
 	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "ENUM('En_Cours','A_Venir','Termine')")
 	private Statut statut;
 	
 	public Reservation() {
