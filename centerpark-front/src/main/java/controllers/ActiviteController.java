@@ -95,7 +95,7 @@ public class ActiviteController extends HttpServlet {
 			if(request.getParameter("typeActivite").equals("Aquatique")) 
 			{
 				int id = Integer.parseInt(request.getParameter("id"));
-				int version = Context.getSingleton().getDaoActivite().findById(id).getVersion();
+				int version = Integer.parseInt(request.getParameter("version"));
 				System.out.println("aquatique");
 				Aquatique a = new Aquatique(id,Meteo.valueOf(request.getParameter("meteo")),LocalDate.parse(request.getParameter("date")),LocalTime.parse(request.getParameter("heure")),Double.parseDouble(request.getParameter("prix")));
 				a.setVersion(version);
@@ -106,7 +106,7 @@ public class ActiviteController extends HttpServlet {
 			{
 				System.out.println("on est dans safari");
 				int id_safari = Integer.parseInt(request.getParameter("id"));
-				int version = Context.getSingleton().getDaoActivite().findById(id_safari).getVersion();
+				int version = Integer.parseInt(request.getParameter("version"));
 				int id_vehicule = Integer.parseInt(request.getParameter("vehicule"));
 				
 				Vehicule v = Context.getSingleton().getDaoVehicule().findById(id_vehicule);

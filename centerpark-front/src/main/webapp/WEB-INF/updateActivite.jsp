@@ -10,6 +10,7 @@
 		<input type="hidden" name="tache" value="update">
 		<!-- >input type="hidden" name="typeActivite" value="aquatique">-->
 		<input type="hidden" name="id" value="${activite.id}">
+		<input type="hidden" name="version" value="${activite.version}">
 		<table align="center">
 			<tr>
 				<td>Date :</td>

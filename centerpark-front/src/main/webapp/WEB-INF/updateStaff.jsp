@@ -7,6 +7,7 @@
 			<input type="hidden" name="tache" value="update">
 			<input type="hidden" name="typeCompte" value="staff">
 			<input type="hidden" name="id" value="${staff.numero}">
+			<input type="hidden" name="version" value="${staff.version}">
 			<div>
 				Mail : <input required name="mail" type="text" value="${staff.mail}" placeholder="Saisissez un mail">
 			</div>

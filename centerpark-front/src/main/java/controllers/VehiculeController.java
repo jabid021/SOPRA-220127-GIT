@@ -44,7 +44,7 @@ public class VehiculeController extends HttpServlet {
 		else if(request.getParameter("tache").equals("update")) 
 		{
 			int id = Integer.parseInt(request.getParameter("id"));
-			int version = Context.getSingleton().getDaoVehicule().findById(id).getVersion();
+			int version = Integer.parseInt(request.getParameter("version"));
 			Vehicule v = new Vehicule(id,request.getParameter("modele"));
 			v.setVersion(version);
 			Context.getSingleton().getDaoVehicule().update(v);

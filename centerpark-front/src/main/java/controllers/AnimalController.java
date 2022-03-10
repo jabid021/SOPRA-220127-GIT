@@ -72,7 +72,7 @@ public class AnimalController extends HttpServlet {
 		{
 	
 			int id = Integer.parseInt(request.getParameter("id"));
-			int version = Context.getSingleton().getDaoAnimal().findById(id).getVersion();
+			int version = Integer.parseInt(request.getParameter("version"));
 			
 			if(request.getParameter("typeAnimal").equals("Sanglier")) 
 			{

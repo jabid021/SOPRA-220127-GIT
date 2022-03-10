@@ -2,8 +2,10 @@
     pageEncoding="utf-8" %>
 <title>Modifier Vehicule</title>
 	<main>
+	<h1>${vehicule.version}</h1>
 	<form action="vehicule" method="post" id="updateFormVehicule">
 		<input type="hidden" name="tache" value="update">
+		<input type="hidden" name="version" value="${vehicule.version}">
 		<input type="hidden" name="id" value="${vehicule.id}">
 		<div class="form-group">
 			<label for="exampleInputEmail1">ID :</label> <input type="text"

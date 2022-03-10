@@ -86,7 +86,7 @@ public class CompteController extends HttpServlet {
 		else if(request.getParameter("tache").equals("update")) 
 		{
 			int id = Integer.parseInt(request.getParameter("id"));
-			int version = Context.getSingleton().getDaoCompte().findById(id).getVersion();
+			int version = Integer.parseInt(request.getParameter("version"));
 			if(request.getParameter("typeCompte").equals("client")) 
 			{
 				Client c = new Client(id,request.getParameter("mail"),request.getParameter("password"),request.getParameter("tel"),request.getParameter("numero"),request.getParameter("voie"),request.getParameter("ville"),request.getParameter("cp"));

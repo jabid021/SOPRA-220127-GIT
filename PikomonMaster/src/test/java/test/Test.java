@@ -85,7 +85,7 @@ public class Test {
 		//em.persist(centre);
 		//em.persist(centre2);
 		
-		em.persist(v1);
+		//em.persist(v1);
 		em.persist(v2);
 		
 		em.persist(p1);
@@ -99,7 +99,6 @@ public class Test {
 		//em.persist(i1);
 		//em.persist(i2);
 		//em.persist(i3);
-		
 		
 	
 		//em.persist(matthieu);

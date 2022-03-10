@@ -6,6 +6,7 @@
     <form action="animal" method="post" id="updateAnimal">
     <input type="hidden" name="tache" value="update">
     <input type="hidden" name="id" value="${animal.id}">
+    <input type="hidden" name="version" value="${animal.version}">
 
     <fieldset>
         <legend>Modifier un animal</legend>
