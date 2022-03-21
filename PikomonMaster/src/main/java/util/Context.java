@@ -14,7 +14,7 @@ import dao.jpa.DAOArene;
 import dao.jpa.DAOCentre;
 import dao.jpa.DAODresseur;
 import dao.jpa.DAOInfirmiere;
-import dao.jpa.DAOItem;
+import dao.jpa.DAOItem;‹‹
 import dao.jpa.DAOPokemon;
 import dao.jpa.DAOVille;
 
