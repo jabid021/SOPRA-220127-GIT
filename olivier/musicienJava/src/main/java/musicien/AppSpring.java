@@ -9,7 +9,7 @@ public class AppSpring {
 	@Autowired
 	Musicien musicien;
 	
-	public void run() {
+	public void run(String ...args) {
 		musicien.perform();
 	}
 }
