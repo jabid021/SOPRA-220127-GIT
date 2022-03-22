@@ -1,6 +1,8 @@
-package musicien;
+package pikomonMasterSpring;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import javax.persistence.EntityManagerFactory;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,25 +10,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import musicien.bean.Guitariste;
-import musicien.bean.Musicien;
-import musicien.config.AppConfig;
+import pikomon.config.SpringConfig;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {AppConfig.class})
-class MusicienTest {
+@ContextConfiguration(classes = { SpringConfig.class })
+class ConfigTest {
 
 	@Autowired
-	Musicien musicien;
-	
+	EntityManagerFactory entityManagerFactory;
+
 	@Test
 	void test() {
-		assertNotNull(musicien);
-	}
-	
-	@Test
-	void aspectTest() {
-		musicien.perform();
+		assertNotNull(entityManagerFactory);
 	}
 
 }

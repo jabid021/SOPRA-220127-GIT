@@ -14,6 +14,7 @@ public class Guitariste implements Musicien {
 	@Override
 	public void perform() {
 		System.out.println("le guirariste joue de son instrument, " + this.instrument.jouer());
+		//throw new IllegalArgumentException();
 	}
 
 	public Instrument getInstrument() {

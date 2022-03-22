@@ -56,8 +56,12 @@ public class DAOReservation implements IDAOReservation {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		Reservation r = em.find(Reservation.class, id);
-		em.remove(r);
-		em.getTransaction().commit();
+		try{
+			em.remove(r);
+			em.getTransaction().commit();
+		}catch(Exception e){
+			em.getTransaction().rollback();
+		}
 		em.close();
 	}
 
