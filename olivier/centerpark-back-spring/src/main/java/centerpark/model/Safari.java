@@ -12,7 +12,6 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@PrimaryKeyJoinColumn(name="activite_fk")
 @Table(name="safari")
 
 public class Safari extends Activite {
@@ -51,12 +50,6 @@ public class Safari extends Activite {
 
 	public void setFaune( List<Faune> rencontres) {
 		this.rencontres = rencontres;
-	}
-
-	@Override
-	public String toString() {
-		return "Safari [vehicule=" + vehicule + ", rencontres=" + rencontres + ", id=" + id + ", meteo=" + meteo
-				+ ", date=" + date + ", heure=" + heure + ", prix=" + prix + ", reservations=" + reservations + "]";
 	}
 
 	

@@ -3,6 +3,7 @@ package centerpark.model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,12 +20,12 @@ import javax.persistence.Version;
 
 
 @Entity
-@Inheritance(strategy= InheritanceType.JOINED)
+@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
 @Table(name="activite")
 public abstract class Activite {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id_activite")
 	protected Integer id;
 	
@@ -129,6 +130,23 @@ public abstract class Activite {
 
 	public void setVersion(int version) {
 		this.version = version;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Activite other = (Activite) obj;
+		return Objects.equals(id, other.id);
 	}
 	
 	

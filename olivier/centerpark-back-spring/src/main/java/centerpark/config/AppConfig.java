@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @PropertySource("classpath:infos.properties")
 @EnableTransactionManagement
-@ComponentScan({ "centerpark.dao" })
+@ComponentScan({ "centerpark.dao","centerpark.services" })
 @EnableJpaRepositories({ "centerpark.repositories" })
 public class AppConfig {
 

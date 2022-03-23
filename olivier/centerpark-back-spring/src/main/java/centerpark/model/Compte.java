@@ -1,5 +1,7 @@
 package centerpark.model;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
@@ -15,13 +17,13 @@ import javax.persistence.Version;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type_compte")
 @Table(name="compte")
-
 public abstract class Compte {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_compte")
     protected Integer numero;
+	@Column(name="mail",unique = true)
     protected String mail;
     protected String password;
     @Version
@@ -77,6 +79,23 @@ public abstract class Compte {
 
 	public void setVersion(int version) {
 		this.version = version;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(numero);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Compte other = (Compte) obj;
+		return Objects.equals(numero, other.numero);
 	}
 
 
