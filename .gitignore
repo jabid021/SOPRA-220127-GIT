@@ -7,4 +7,4 @@ bin/
 .metadata/
 Servers/
 persistence.xml
-*/*.properties
+**/*.properties
