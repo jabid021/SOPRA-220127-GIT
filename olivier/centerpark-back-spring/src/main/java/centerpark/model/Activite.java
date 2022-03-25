@@ -18,6 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
 @Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
@@ -34,6 +36,7 @@ public abstract class Activite {
 	protected Meteo meteo;
 	
 	@Column(name="date_activite")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	protected LocalDate date;
 	@Column(name="heure_activite")
 	protected LocalTime heure;

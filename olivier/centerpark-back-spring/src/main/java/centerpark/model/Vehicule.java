@@ -63,7 +63,11 @@ public class Vehicule {
 
 	@Override
 	public String toString() {
-		return "Vehicule [id=" + id + ", model=" + model + ", version=" + version + "]";
+		return "Vehicule [id=" + id + ", model=" + model +"]";
+	}
+	
+	public String getInfo() {
+		return id+" "+model;
 	}
 
 	

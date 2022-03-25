@@ -36,7 +36,7 @@ public class ActiviteService {
 
 	public void delete(Activite activite) {
 		reservationRepo.deleteByActivite(activite);
-		delete(activite);
+		activiteRepo.delete(activite);
 	}
 
 	public void delete(Integer id) {
