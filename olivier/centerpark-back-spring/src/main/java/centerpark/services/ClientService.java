@@ -32,10 +32,14 @@ public class ClientService {
 		if (c.getNumero() == null) {
 			throw new ClientException("le numero doit etre defini");
 		}
-		if (c.getMail() == null ||c.getMail().isEmpty()) {
+		if (c.getMail() == null || c.getMail().isEmpty()) {
 			throw new ClientException("le mail doit etre defini");
 		}
-		clientRepository.save(c);
+		Client clientEnBase = getByNumero(c.getNumero());
+		clientEnBase.setAdresse(c.getAdresse());
+		clientEnBase.setMail(c.getMail());
+		clientEnBase.setTel(c.getTel());
+		clientRepository.save(clientEnBase);
 	}
 
 	public List<Client> getAll() {
@@ -55,9 +59,6 @@ public class ClientService {
 	}
 
 	public void delete(Client c) {
-//		Client clientEnBaseAvecReservations = getByNumeroWithReservation(c.getNumero());
-//		reservationRepository.deleteAll(clientEnBaseAvecReservations.getReservations());
-//		clientRepository.delete(clientEnBaseAvecReservations);
 
 		Client clientEnBase = getByNumero(c.getNumero());
 		reservationRepository.deleteByClient(clientEnBase);
