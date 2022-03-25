@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,9 +21,12 @@
 				<tr>
 					<td>${v.id}</td>
 					<td>${v.model}</td>
+					<td><a href="${ctx}/vehicule/edit?id=${v.id}" class="btn btn-outline-primary">editer</a></td>
+					<td><a href="${ctx}/vehicule/delete?id=${v.id}" class="btn btn-outline-danger">supprimer</a></td>
 				</tr>
 			</c:forEach>
 		</table>
+		<a href="${ctx}/vehicule/add">ajouter un vehicule</a>
 	</div>
 </body>
 </html>
