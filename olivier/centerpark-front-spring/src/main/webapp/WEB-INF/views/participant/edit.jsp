@@ -27,10 +27,14 @@
 			<div class="form-group">
 				<form:label path="prenom">prenom:</form:label>
 				<form:input path="prenom" cssClass="form-control" />
+				<form:errors path="prenom">
+					<div class="alert alert-warning">mon message pour le prenom</div>
+				</form:errors>
 			</div>
 			<div class="form-group">
 				<form:label path="nom">nom:</form:label>
 				<form:input path="nom" cssClass="form-control" />
+				<form:errors path="nom" element="div" cssClass="alert alert-danger"></form:errors>
 			</div>
 			<div class="form-group">
 				<form:label path="age">age:</form:label>

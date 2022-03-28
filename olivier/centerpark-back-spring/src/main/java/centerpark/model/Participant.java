@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="participant")
@@ -16,8 +17,9 @@ public class Participant {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_participant")
 	private Integer id;
-	
+	@NotEmpty(message = "mon message dans le @NotEmpty")
 	private String nom;
+	@NotEmpty
 	private String prenom;
 	private int age;
 	@Version

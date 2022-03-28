@@ -48,6 +48,7 @@ class DemoTest {
 		assertThrows(ClientException.class, ()->{ clientService.create(new Client());});
 	}
 	
+	@Disabled
 	@Test
 	@Transactional
 	@Rollback
@@ -56,7 +57,7 @@ class DemoTest {
 		clientService.create(c);
 		assertNotNull(c.getNumero());
 	}
-	
+	@Disabled
 	@Test
 	@Transactional
 	@Commit
