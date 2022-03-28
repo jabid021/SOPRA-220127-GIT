@@ -8,18 +8,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name="vehicule")
 
 public class Vehicule {
 
+	@JsonView(JsonViews.Common.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_vehicule")
 	private Integer id;
+	@JsonView(JsonViews.Common.class)
 	private String model;
 	
-	
+	//@JsonIgnore
 	@Version
 	private int version;
 

@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @Configuration
 @EnableWebMvc
 @Import(AppConfig.class)
-@ComponentScan(basePackages = {"centerpark.controller"})
+@ComponentScan(basePackages = {"centerpark.controller","centerpark.restcontroller"})
 public class WebConfig {
 
 	@Bean
