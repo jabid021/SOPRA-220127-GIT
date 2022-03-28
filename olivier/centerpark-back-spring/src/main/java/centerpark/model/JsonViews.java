@@ -13,5 +13,9 @@ public class JsonViews {
 	public static class ReservationWithClient extends Common{
 		
 	}
+	
+	public static class ActiviteWithVehicule extends Common{
+		
+	}
 }
 

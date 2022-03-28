@@ -20,26 +20,39 @@ import javax.persistence.Version;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonView;
+
 
 @Entity
 @Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
 @Table(name="activite")
+@JsonTypeInfo(use=JsonTypeInfo.Id.NAME,include = JsonTypeInfo.As.PROPERTY,property = "type")
+@JsonSubTypes({
+	@Type(value=Safari.class,name="safari"),
+	@Type(value=Aquatique.class,name="aquatique")
+})
 public abstract class Activite {
 
+	@JsonView(JsonViews.Common.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id_activite")
 	protected Integer id;
-	
+	@JsonView(JsonViews.Common.class)
 	@Enumerated(EnumType.STRING)
 	//@Column(columnDefinition = "ENUM('Pluie','Soleil','Neige')")
 	protected Meteo meteo;
-	
+	@JsonView(JsonViews.Common.class)
 	@Column(name="date_activite")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	protected LocalDate date;
+	@JsonView(JsonViews.Common.class)
 	@Column(name="heure_activite")
 	protected LocalTime heure;
+	@JsonView(JsonViews.Common.class)
 	protected double prix;
 	
 	@OneToMany(mappedBy = "activite")

@@ -11,11 +11,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name="safari")
 
 public class Safari extends Activite {
 
+	@JsonView(JsonViews.ActiviteWithVehicule.class)
 	@ManyToOne
 	@JoinColumn(name = "vehicule_fk")
 	private Vehicule vehicule;
