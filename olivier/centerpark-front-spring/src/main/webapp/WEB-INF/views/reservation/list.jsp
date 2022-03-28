@@ -25,12 +25,14 @@
 					<td>${r.note}</td>
 					<td>${r.activite.getClass().simpleName}</td>
 					<td>${r.participant.identite}</td>
-					<td>edition</td>
-					<td>suppression</td>
+					<td><a href="${ctx}/reservation/edit?id=${r.id}" class="btn btn-outline-primary">edition</a></td>
+					<td><a href="${ctx}/reservation/delete?id=${r.id}" class="btn btn-outline-danger">suppression</a></td>
 				</tr>
 			</c:forEach>
 		</table>
+		<a href="${ctx}/reservation/add/aquatique" class="btn btn-link">reservation activite aquatique</a>
+		<a href="${ctx}/reservation/add/safari" class="btn btn-link">reservation activite safari</a>
 	</div>
-	<a href="${ctx}/reservation/add/aquatique" class="btn btn-link">reservation</a>
+	
 </body>
 </html>

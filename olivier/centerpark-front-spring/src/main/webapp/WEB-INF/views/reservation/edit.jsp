@@ -19,6 +19,7 @@
 		<h1>reservation</h1>
 		<form:form action="${ctx}/reservation/save" method="post"
 			modelAttribute="reservation">
+			<input type="hidden" name="type" value="${type}">
 			<div class="form-group">
 				<form:label path="id">id:</form:label>
 				<form:input path="id" readonly="true"
@@ -35,15 +36,15 @@
 				</form:select>
 			</div>
 			<div class="form-group">
-				<form:label path="participant.id">participant:</form:label>
-				<form:select path="participant.id" items="${participants}" itemLabel="identite"
+				<form:label path="idParticipant">participant:</form:label>
+				<form:select path="idParticipant" items="${participants}" itemLabel="identite"
 					itemValue="id"
 					cssClass="form-control">
 				</form:select>
 			</div>
 			<div class="form-group">
-				<form:label path="activite.id">activite</form:label>
-				<form:select path="activite.id" items="${activites}" itemValue="id" itemLabel="id"></form:select>
+				<form:label path="idActivite">activite de type ${type}:</form:label>
+				<form:select path="idActivite" items="${activites}" itemValue="id" itemLabel="id" cssClass="form-control"></form:select>
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-outline-primary">enregistrer</button>
