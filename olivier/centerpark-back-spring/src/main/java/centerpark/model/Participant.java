@@ -93,6 +93,10 @@ public class Participant {
 	public String toString() {
 		return "Participant [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", age=" + age + "]";
 	}
+	
+	public String getIdentite() {
+		return prenom+" "+nom;
+	}
 
 	
 	

@@ -15,6 +15,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="reservation")
 
@@ -25,6 +27,7 @@ public class Reservation {
 	@Column(name="id_reservation")
 	private Integer id;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name="date_reservation")
 	private LocalDate date;
 	

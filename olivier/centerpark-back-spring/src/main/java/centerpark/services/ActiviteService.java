@@ -7,8 +7,12 @@ import org.springframework.stereotype.Service;
 
 import centerpark.exception.ActiviteException;
 import centerpark.model.Activite;
+import centerpark.model.Aquatique;
+import centerpark.model.Safari;
 import centerpark.repositories.ActiviteRepository;
+import centerpark.repositories.AquatiqueRepository;
 import centerpark.repositories.ReservationRepository;
+import centerpark.repositories.SafariRepository;
 
 @Service
 public class ActiviteService {
@@ -17,6 +21,10 @@ public class ActiviteService {
 	private ActiviteRepository activiteRepo;
 	@Autowired
 	private ReservationRepository reservationRepo;
+	@Autowired
+	private AquatiqueRepository aquatiqueRepository;
+	@Autowired
+	private SafariRepository safariRepository;
 
 	public List<Activite> getAll() {
 		return activiteRepo.findAll();
@@ -41,5 +49,13 @@ public class ActiviteService {
 
 	public void delete(Integer id) {
 		delete(getById(id));
+	}
+
+	public List<Aquatique> getAllAquatique() {
+		return aquatiqueRepository.findAll();
+	}
+
+	public List<Safari> getAllSafari() {
+		return safariRepository.findAll();
 	}
 }
