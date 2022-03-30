@@ -65,19 +65,6 @@ public class Client extends Compte {
 	public void setReservations(List<Reservation> reservations) {
 		this.reservations = reservations;
 	}
-
-
-	@Override
-	public String toString() {
-		return "Client [tel=" + tel + ", adresse=" + adresse + ", reservations=" + reservations + ", numero=" + numero
-				+ ", mail=" + mail + ", password=" + password + "]";
-	}
-
-
-	
-
-	
-	
 	
 	
 }
