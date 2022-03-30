@@ -40,6 +40,12 @@ public class VehiculeRestController {
 	public List<Vehicule> getAll() {
 		return vehiculeService.getAll();
 	}
+	
+	@JsonView(JsonViews.VehiculeWithSafari.class)
+	@GetMapping("/{id}/safaris")
+	public Vehicule getByIdWithSafari(@PathVariable Integer id) {
+		return vehiculeService.getByIdWithSafari(id);
+	}
 
 	@JsonView(JsonViews.Common.class)
 	@GetMapping("/{id}")

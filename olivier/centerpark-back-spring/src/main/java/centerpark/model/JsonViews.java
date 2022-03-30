@@ -17,5 +17,9 @@ public class JsonViews {
 	public static class ActiviteWithVehicule extends Common{
 		
 	}
+	
+	public static class VehiculeWithSafari extends Common{
+		
+	}
 }
 

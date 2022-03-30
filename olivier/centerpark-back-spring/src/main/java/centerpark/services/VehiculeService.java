@@ -19,6 +19,10 @@ public class VehiculeService {
 		return vehiculeRepo.findAll();
 	}
 
+	public Vehicule getByIdWithSafari(Integer id) {
+		return vehiculeRepo.findByIdWithSafari(id).orElseThrow(VehiculeException::new);
+	}
+
 	public Vehicule getById(Integer id) {
 		return vehiculeRepo.findById(id).orElseThrow(VehiculeException::new);
 	}

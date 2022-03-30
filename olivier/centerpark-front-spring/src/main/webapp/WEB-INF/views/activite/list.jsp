@@ -16,6 +16,7 @@
 </head>
 <body>
 	<div class="container">
+	<jsp:include page="../menu.jsp"></jsp:include>
 		<h1>liste des activites</h1>
 		<table class="table">
 			<c:forEach items="${activites}" var="a">

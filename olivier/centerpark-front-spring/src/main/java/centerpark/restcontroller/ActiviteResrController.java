@@ -32,6 +32,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import centerpark.exception.ActiviteException;
 import centerpark.model.Activite;
+import centerpark.model.Aquatique;
 import centerpark.model.JsonViews;
 import centerpark.model.Safari;
 import centerpark.model.Vehicule;
@@ -43,6 +44,18 @@ public class ActiviteResrController {
 
 	@Autowired
 	private ActiviteService activiteService;
+	
+	@JsonView(JsonViews.Common.class)
+	@GetMapping("/aquatique")
+	public List<Aquatique> getAllAquitique(){
+		return activiteService.getAllAquatique();
+	}
+	
+	@JsonView(JsonViews.ActiviteWithVehicule.class)
+	@GetMapping("/safari")
+	public List<Safari> getAllSafari(){
+		return activiteService.getAllSafari();
+	}
 
 	@JsonView(JsonViews.ActiviteWithVehicule.class)
 	@GetMapping("")
