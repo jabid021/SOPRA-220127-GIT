@@ -7,6 +7,9 @@ import java.util.Set;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +33,7 @@ public class ExoRestController {
 	@Autowired
 	private UtilisateurRepository utilisateurRepo;
 
+	@PreAuthorize("isAnonymous()")
 	@JsonView(JsonViews.Common.class)
 	@PostMapping("/api/inscription")
 	public Utilisateur inscriptionUtilisateur(@Valid @RequestBody Utilisateur utilisateur, BindingResult br) {
@@ -56,8 +60,8 @@ public class ExoRestController {
 	}
 
 	@GetMapping("/api/hello")
-	public String hello() {
-		return "hello";
+	public String hello(@AuthenticationPrincipal Utilisateur utilisateur  ) {
+		return "hello "+utilisateur.getLogin();
 	}
 
 	@GetMapping("/api/admin")
