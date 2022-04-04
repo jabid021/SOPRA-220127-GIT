@@ -1,0 +1,10 @@
+<div>
+  <p>binding one-way</p>
+  <p>{{ sayHello() }} {{ olivier.prenom }}</p>
+</div>
+<div>
+  <p>binding 2-ways</p>
+  <div>
+    <input [(ngModel)]="olivier.prenom" />
+  </div>
+</div>
