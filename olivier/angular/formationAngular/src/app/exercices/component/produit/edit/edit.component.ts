@@ -1,5 +1,5 @@
 import { Produit } from './../../../model/produit';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'edit-produit',
@@ -8,12 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditComponent implements OnInit {
   produit: Produit = new Produit();
+  @Output()
+  produitReady: EventEmitter<Produit> = new EventEmitter<Produit>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
   displayConsole() {
-    console.log(this.produit);
+    //this.produitReady.emit({nom:this.produit.nom,prix:this.produit.prix});
+    this.produitReady.emit(this.produit);
   }
 }
