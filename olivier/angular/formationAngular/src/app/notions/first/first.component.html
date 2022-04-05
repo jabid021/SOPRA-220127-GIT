@@ -7,4 +7,15 @@
   <div>
     <input [(ngModel)]="olivier.prenom" />
   </div>
+  <div>
+    <button (click)="button()">click</button>
+  </div>
+  <div>
+    <font color="pink">
+      <p>du texte en couleur</p>
+    </font>
+    <font [color]="couleur">
+      <p>du texte en couleur</p>
+    </font>
+  </div>
 </div>

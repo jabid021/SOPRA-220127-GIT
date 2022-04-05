@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Personne } from '../model/personne';
 
 @Component({
@@ -8,7 +8,7 @@ import { Personne } from '../model/personne';
 })
 export class FirstComponent implements OnInit {
   prenom: string = 'olivier';
-
+  couleur: string = 'red';
   olivier: Personne = new Personne('olivier');
 
   constructor() {}
@@ -20,4 +20,22 @@ export class FirstComponent implements OnInit {
   sayHello(): string {
     return 'hello';
   }
+
+  button() {
+    console.log('click');
+  }
+
+  @HostListener('click')
+  clickComponent() {
+    console.log('click sur le component');
+  }
+
+  @HostListener('mouseover')
+  mouseOver() {
+    console.log('la sourie passe sur le component');
+  }
+
+  // get couleur(): string {
+  //   return 'red';
+  // }
 }
