@@ -1,11 +1,11 @@
 <div>
-  <p>binding one-way</p>
+  <p *ngIf="false">binding one-way</p>
   <p>{{ sayHello() }} {{ olivier.prenom }}</p>
 </div>
 <div>
   <p>binding 2-ways</p>
   <div>
-    <input [(ngModel)]="olivier.prenom" />
+    <input [(ngModel)]="couleur" />
   </div>
   <div>
     <button (click)="button()">click</button>
@@ -18,4 +18,12 @@
       <p>du texte en couleur</p>
     </font>
   </div>
+
+  <div *ngIf="false; else sinon_on_fait_ca"><p>C'est vrai</p></div>
+
+  <div [ngClass]="{ vert: couleur == 'pink', rouge: couleur == 'red' }">
+    application de class css
+  </div>
+
+  <ng-template #sinon_on_fait_ca> <p>C'est faux</p> </ng-template>
 </div>

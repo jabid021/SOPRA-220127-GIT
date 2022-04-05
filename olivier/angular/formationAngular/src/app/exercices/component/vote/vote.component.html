@@ -1,0 +1,9 @@
+<div>
+  <div *ngIf="vote > 0">
+    candidat en tete:{{ candidantEnTete }} avec {{ vote }} votes
+  </div>
+  <app-candidat candidat="macron" (aVoter)="voteRecu($event)"></app-candidat>
+  <app-candidat candidat="poutou" (aVoter)="voteRecu($event)"></app-candidat>
+  <app-candidat candidat="lepen" (aVoter)="voteRecu($event)"></app-candidat>
+  <app-candidat candidat="melenchon" (aVoter)="voteRecu($event)"></app-candidat>
+</div>
