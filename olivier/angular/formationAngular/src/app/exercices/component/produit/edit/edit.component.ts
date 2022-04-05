@@ -18,5 +18,6 @@ export class EditComponent implements OnInit {
   displayConsole() {
     //this.produitReady.emit({nom:this.produit.nom,prix:this.produit.prix});
     this.produitReady.emit(this.produit);
+    this.produit = new Produit();
   }
 }
