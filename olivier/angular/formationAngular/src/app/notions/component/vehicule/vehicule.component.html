@@ -1,0 +1,22 @@
+<table class="table">
+  <tr *ngFor="let o of vehicules">
+    <td>{{ o.id }}</td>
+    <td>{{ o.model }}</td>
+    <td>
+      <a
+        [routerLink]="['/vehicule', 'edit', o.id]"
+        routerLinkActive="active"
+        class="btn btn-outline-primary"
+        >editer</a
+      >
+    </td>
+    <td>
+      <button class="btn btn-outline-danger" (click)="delete(o.id!)">
+        supprimer
+      </button>
+    </td>
+  </tr>
+</table>
+<a routerLink="/vehicule/edit" routerLinkActive="active" class="btn btn-link"
+  >ajouter un vehicule</a
+>

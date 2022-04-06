@@ -18,7 +18,9 @@ import { HomeComponent } from './notions/compoment/home/home.component';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './notions/compoment/page-not-found/page-not-found.component';
 import { ProduitInfoComponent } from './notions/compoment/produit-info/produit-info.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { VehiculeComponent } from './notions/component/vehicule/vehicule.component';
+import { VehiculeEditComponent } from './notions/component/vehicule-edit/vehicule-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +37,15 @@ import { ProduitInfoComponent } from './notions/compoment/produit-info/produit-i
     HomeComponent,
     PageNotFoundComponent,
     ProduitInfoComponent,
+    VehiculeComponent,
+    VehiculeEditComponent,
   ],
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(routes),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

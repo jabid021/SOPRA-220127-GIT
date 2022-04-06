@@ -1,3 +1,5 @@
+import { VehiculeEditComponent } from './notions/component/vehicule-edit/vehicule-edit.component';
+import { VehiculeComponent } from './notions/component/vehicule/vehicule.component';
 import { ProduitInfoComponent } from './notions/compoment/produit-info/produit-info.component';
 import { PageNotFoundComponent } from './notions/compoment/page-not-found/page-not-found.component';
 import { VoteComponent } from './exercices/component/vote/vote.component';
@@ -10,6 +12,9 @@ export const routes: Routes = [
   { path: 'produits', component: ListComponent },
   { path: 'election', component: VoteComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'vehicule', component: VehiculeComponent },
+  { path: 'vehicule/edit', component: VehiculeEditComponent },
+  { path: 'vehicule/edit/:id', component: VehiculeEditComponent },
   { path: 'produit/info/:nom', component: ProduitInfoComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
