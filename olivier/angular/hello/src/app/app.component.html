@@ -1,0 +1,9 @@
+<a routerLink="/home" routerLinkActive="active">home</a>
+<a routerLink="/form" routerLinkActive="active">bonjour</a>
+<a
+  routerLink="/hello"
+  routerLinkActive="active"
+  [queryParams]="{ nom: 'olivier' }"
+  >bonjour olivier</a
+>
+<router-outlet></router-outlet>
