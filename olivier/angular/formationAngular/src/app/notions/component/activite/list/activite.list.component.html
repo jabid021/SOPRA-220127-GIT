@@ -1,0 +1,32 @@
+<table class="table">
+  <tr *ngFor="let a of activites">
+    <td>{{ a.id }}</td>
+    <td>{{ getType(a) }}</td>
+    <td>{{ a.meteo }}</td>
+    <td>{{ a.date | date: "dd/MM/yyyy" }}</td>
+    <td>{{ a.heure }}</td>
+    <td>{{ a.prix }}</td>
+    <td>
+      {{ getVehicule(a)?.model }}
+    </td>
+    <td>
+      <a
+        [routerLink]="['/activite', 'edit', a.id]"
+        routerLinkActive="active"
+        class="btn btn-outline-primary"
+        >editer</a
+      >
+    </td>
+    <td>
+      <button (click)="delete(a.id!)" class="btn btn-outline-danger">
+        supprimer
+      </button>
+    </td>
+  </tr>
+</table>
+<a routerLink="/activite/add/aquatique" class="btn btn-link"
+  >nouvelle activite aquatique</a
+>
+<a routerLink="/activite/add/safari" class="btn btn-link"
+  >nouvelle actique safari</a
+>
