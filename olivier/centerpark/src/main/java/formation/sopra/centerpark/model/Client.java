@@ -8,14 +8,16 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @DiscriminatorValue("client")
 @Table(name="client")
 
 public class Client extends Compte {
-	
+	@JsonView(JsonViews.Common.class)
 	private String tel;
-	
+	@JsonView(JsonViews.Common.class)
 	@Embedded
 	private Adresse adresse;
 	

@@ -29,6 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 				.authorizeHttpRequests()
 					.antMatchers(HttpMethod.OPTIONS).permitAll()
+					.antMatchers(HttpMethod.POST, "/api/compte/client/inscription").permitAll()
 					.antMatchers(HttpMethod.GET,"/api/vehicule/**").permitAll()
 					.antMatchers(HttpMethod.GET , "/api/**").authenticated()
 					.antMatchers("/api/**").hasRole("CLIENT")

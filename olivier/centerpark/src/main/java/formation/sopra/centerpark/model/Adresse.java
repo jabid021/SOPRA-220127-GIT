@@ -2,12 +2,18 @@ package formation.sopra.centerpark.model;
 
 import javax.persistence.Embeddable;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Embeddable
 public class Adresse {
 
+	@JsonView(JsonViews.Common.class)
 	private String numero;
+	@JsonView(JsonViews.Common.class)
 	private String voie;
+	@JsonView(JsonViews.Common.class)
 	private String ville;
+	@JsonView(JsonViews.Common.class)
 	private String cp;
 	
 	public Adresse() {}

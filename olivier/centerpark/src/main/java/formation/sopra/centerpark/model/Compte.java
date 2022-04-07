@@ -19,6 +19,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type_compte")
@@ -28,8 +30,10 @@ public abstract class Compte implements UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_compte")
+	@JsonView(JsonViews.Common.class)
 	protected Integer numero;
 	@Column(name = "mail", unique = true)
+	@JsonView(JsonViews.Common.class)
 	protected String mail;
 	protected String password;
 	@Version
