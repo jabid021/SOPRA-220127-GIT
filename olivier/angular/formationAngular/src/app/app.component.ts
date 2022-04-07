@@ -1,3 +1,4 @@
+import { AuthService } from './notions/services/auth.service';
 import { Produit } from './exercices/model/produit';
 import { Component } from '@angular/core';
 
@@ -8,4 +9,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'formationAngular';
+
+  public constructor(private authService: AuthService) {}
+
+  get login() {
+    return localStorage.getItem('login');
+  }
+
+  isAutenticated() {
+    return this.authService.isAutenticated();
+  }
+
+  logout() {
+    localStorage.clear();
+  }
 }

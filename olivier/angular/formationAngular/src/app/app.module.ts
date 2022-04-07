@@ -1,3 +1,4 @@
+import { AuthInterceptor } from './notions/interceptor/auth.interceptor';
 import { ActiviteListComponent } from './notions/component/activite/list/activite.list.component';
 import { routes } from './routes';
 import { NgModule } from '@angular/core';
@@ -15,10 +16,11 @@ import { HomeComponent } from './notions/compoment/home/home.component';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './notions/compoment/page-not-found/page-not-found.component';
 import { ProduitInfoComponent } from './notions/compoment/produit-info/produit-info.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { VehiculeComponent } from './notions/component/vehicule/vehicule.component';
 import { VehiculeEditComponent } from './notions/component/vehicule-edit/vehicule-edit.component';
 import { ActiviteEditComponent } from './notions/component/activite/activite-edit/activite-edit.component';
+import { LoginComponent } from './notions/component/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +37,7 @@ import { ActiviteEditComponent } from './notions/component/activite/activite-edi
     VehiculeEditComponent,
     ActiviteListComponent,
     ActiviteEditComponent,
+    LoginComponent,
   ],
   imports: [
     HttpClientModule,
@@ -42,7 +45,9 @@ import { ActiviteEditComponent } from './notions/component/activite/activite-edi
     FormsModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,3 +1,4 @@
+import { LoginComponent } from './notions/component/login/login.component';
 import { ActiviteEditComponent } from './notions/component/activite/activite-edit/activite-edit.component';
 import { ActiviteListComponent } from './notions/component/activite/list/activite.list.component';
 import { VehiculeEditComponent } from './notions/component/vehicule-edit/vehicule-edit.component';
@@ -19,5 +20,6 @@ export const routes: Routes = [
   { path: 'produit/info/:nom', component: ProduitInfoComponent },
   { path: 'activite/edit/:id', component: ActiviteEditComponent },
   { path: 'activite/add/:type', component: ActiviteEditComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

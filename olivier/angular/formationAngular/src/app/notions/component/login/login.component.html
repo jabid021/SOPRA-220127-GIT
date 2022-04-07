@@ -1,0 +1,17 @@
+<div>
+  <div *ngIf="err" class="alert alert-danger">erreur d'authentification</div>
+  <div>
+    <label>login:</label>
+    <input class="form-control" [(ngModel)]="login" />
+  </div>
+  <div>
+    <label>password:</label>
+    <input class="form-control" [(ngModel)]="password" />
+  </div>
+  <div>
+    <button (click)="check()" class="btn btn-outline-success">
+      connection
+    </button>
+    <a routerLink="/home" class="btn btn-outline-warning">retour home</a>
+  </div>
+</div>

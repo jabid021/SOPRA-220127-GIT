@@ -21,5 +21,15 @@
 <a routerLink="/activite" routerLinkActive="active" class="btn btn-link"
   >activites</a
 >
-
+<a
+  *ngIf="!isAutenticated()"
+  routerLink="/login"
+  routerLinkActive="active"
+  class="btn btn-link"
+  >login</a
+>
+<span *ngIf="isAutenticated()">Bonjour {{ login }}</span>
+<button *ngIf="isAutenticated()" (click)="logout()" class="btn btn-link">
+  logout
+</button>
 <router-outlet></router-outlet>
