@@ -1,5 +1,5 @@
 <div>
-  <div *ngIf="err" class="alert alert-danger">erreur d'authentification</div>
+  <div *ngIf="err" class="alert alert-danger">{{ message }}</div>
   <div>
     <label>login:</label>
     <input class="form-control" [(ngModel)]="login" />

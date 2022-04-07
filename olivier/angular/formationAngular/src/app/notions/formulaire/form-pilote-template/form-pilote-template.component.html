@@ -1,0 +1,15 @@
+<div>
+  <form (ngSubmit)="submit(form)" #form="ngForm">
+    <input name="input" [(ngModel)]="input" #inputCtrl="ngModel" required />
+    <span
+      *ngIf="inputCtrl.dirty && inputCtrl.invalid"
+      class="alert alert-danger"
+      >information obligatoire</span
+    >
+    <button type="submit" [disabled]="form.invalid">validation</button>
+  </form>
+</div>
+
+<div>
+  {{ input }}
+</div>

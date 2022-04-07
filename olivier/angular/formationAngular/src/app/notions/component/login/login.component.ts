@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,10 +11,22 @@ export class LoginComponent implements OnInit {
   login: string = '';
   password: string = '';
   err: boolean = false;
+  message: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private aR: ActivatedRoute
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.aR.queryParams.subscribe((params) => {
+      if (params['auth']) {
+        this.err = true;
+        this.message = 'il faut vous identifier pour acceder à cette page';
+      }
+    });
+  }
 
   check() {
     //controle login/password
@@ -32,6 +44,7 @@ export class LoginComponent implements OnInit {
       error: (error: any) => {
         console.log(error);
         this.err = true;
+        this.message = 'informations incorrectes';
       },
     });
   }

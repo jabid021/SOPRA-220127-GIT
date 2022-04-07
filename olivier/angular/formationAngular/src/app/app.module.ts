@@ -2,7 +2,7 @@ import { AuthInterceptor } from './notions/interceptor/auth.interceptor';
 import { ActiviteListComponent } from './notions/component/activite/list/activite.list.component';
 import { routes } from './routes';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -21,6 +21,8 @@ import { VehiculeComponent } from './notions/component/vehicule/vehicule.compone
 import { VehiculeEditComponent } from './notions/component/vehicule-edit/vehicule-edit.component';
 import { ActiviteEditComponent } from './notions/component/activite/activite-edit/activite-edit.component';
 import { LoginComponent } from './notions/component/login/login.component';
+import { FormPiloteCodeComponent } from './notions/formulaire/form-pilote-code/form-pilote-code.component';
+import { FormPiloteTemplateComponent } from './notions/formulaire/form-pilote-template/form-pilote-template.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,11 +40,14 @@ import { LoginComponent } from './notions/component/login/login.component';
     ActiviteListComponent,
     ActiviteEditComponent,
     LoginComponent,
+    FormPiloteCodeComponent,
+    FormPiloteTemplateComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
   ],
   providers: [

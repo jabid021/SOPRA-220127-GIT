@@ -1,3 +1,7 @@
+import { FormPiloteCodeComponent } from './notions/formulaire/form-pilote-code/form-pilote-code.component';
+import { FormPiloteTemplateComponent } from './notions/formulaire/form-pilote-template/form-pilote-template.component';
+import { GuardClientService } from './notions/services/guard-client.service';
+import { GuardService } from './notions/services/guard.service';
 import { LoginComponent } from './notions/component/login/login.component';
 import { ActiviteEditComponent } from './notions/component/activite/activite-edit/activite-edit.component';
 import { ActiviteListComponent } from './notions/component/activite/list/activite.list.component';
@@ -14,12 +18,34 @@ export const routes: Routes = [
   { path: 'election', component: VoteComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'vehicule', component: VehiculeComponent },
-  { path: 'activite', component: ActiviteListComponent },
-  { path: 'vehicule/edit', component: VehiculeEditComponent },
-  { path: 'vehicule/edit/:id', component: VehiculeEditComponent },
+  {
+    path: 'activite',
+    component: ActiviteListComponent,
+    canActivate: [GuardService],
+  },
+  {
+    path: 'vehicule/edit',
+    component: VehiculeEditComponent,
+    canActivate: [GuardService],
+  },
+  {
+    path: 'vehicule/edit/:id',
+    component: VehiculeEditComponent,
+    canActivate: [GuardService],
+  },
   { path: 'produit/info/:nom', component: ProduitInfoComponent },
-  { path: 'activite/edit/:id', component: ActiviteEditComponent },
-  { path: 'activite/add/:type', component: ActiviteEditComponent },
+  {
+    path: 'activite/edit/:id',
+    component: ActiviteEditComponent,
+    canActivate: [GuardClientService],
+  },
+  {
+    path: 'activite/add/:type',
+    component: ActiviteEditComponent,
+    canActivate: [GuardClientService],
+  },
   { path: 'login', component: LoginComponent },
+  { path: 'form/template', component: FormPiloteTemplateComponent },
+  { path: 'form/code', component: FormPiloteCodeComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
