@@ -23,6 +23,7 @@ import { ActiviteEditComponent } from './notions/component/activite/activite-edi
 import { LoginComponent } from './notions/component/login/login.component';
 import { FormPiloteCodeComponent } from './notions/formulaire/form-pilote-code/form-pilote-code.component';
 import { FormPiloteTemplateComponent } from './notions/formulaire/form-pilote-template/form-pilote-template.component';
+import { InscriptionComponent } from './notions/component/inscription/inscription.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { FormPiloteTemplateComponent } from './notions/formulaire/form-pilote-te
     LoginComponent,
     FormPiloteCodeComponent,
     FormPiloteTemplateComponent,
+    InscriptionComponent,
   ],
   imports: [
     HttpClientModule,
